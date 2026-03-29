@@ -1,0 +1,306 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- ========================= -->
+    <!-- 🪟 WINDOW -->
+    <!-- ========================= -->
+
+    <Style Selector="Window">
+        <Setter Property="Background" Value="#0B1220"/>
+    </Style>
+
+
+    <!-- ========================= -->
+    <!-- 📌 TITLE BAR -->
+    <!-- ========================= -->
+
+    <Style Selector="Button.WindowButton">
+        <Setter Property="Width" Value="32"/>
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="MinWidth" Value="32"/>
+        <Setter Property="MinHeight" Value="28"/>
+        <Setter Property="Background" Value="#172033"/>
+        <Setter Property="Foreground" Value="#E2E8F0"/>
+        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+
+    <Style Selector="Button.WindowButton /template/ ContentPresenter">
+        <Setter Property="Background" Value="#172033"/>
+        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+
+    <Style Selector="Button.WindowButton:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="#243041"/>
+        <Setter Property="BorderBrush" Value="#3B4A63"/>
+    </Style>
+
+    <Style Selector="Button.WindowButton:pressed /template/ ContentPresenter">
+        <Setter Property="Background" Value="#1B2638"/>
+        <Setter Property="BorderBrush" Value="#4B5D7A"/>
+    </Style>
+
+    <Style Selector="Button.WindowCloseButton">
+        <Setter Property="Width" Value="32"/>
+        <Setter Property="Height" Value="28"/>
+        <Setter Property="MinWidth" Value="32"/>
+        <Setter Property="MinHeight" Value="28"/>
+        <Setter Property="Background" Value="#7F1D1D"/>
+        <Setter Property="Foreground" Value="#F8FAFC"/>
+        <Setter Property="BorderBrush" Value="#991B1B"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="FontSize" Value="12"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+
+    <Style Selector="Button.WindowCloseButton /template/ ContentPresenter">
+        <Setter Property="Background" Value="#7F1D1D"/>
+        <Setter Property="BorderBrush" Value="#991B1B"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+
+    <Style Selector="Button.WindowCloseButton:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="#B91C1C"/>
+        <Setter Property="BorderBrush" Value="#DC2626"/>
+    </Style>
+
+    <Style Selector="Button.WindowCloseButton:pressed /template/ ContentPresenter">
+        <Setter Property="Background" Value="#991B1B"/>
+        <Setter Property="BorderBrush" Value="#EF4444"/>
+    </Style>
+
+
+    <!-- ========================= -->
+    <!-- 🔝 HEADER -->
+    <!-- ========================= -->
+
+    <Style Selector="TextBlock.Title">
+        <Setter Property="FontSize" Value="26"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="Foreground" Value="#F8FAFC"/>
+    </Style>
+
+    <Style Selector="TextBlock.Subtitle">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Foreground" Value="#94A3B8"/>
+    </Style>
+
+    <Style Selector="TextBox.ModernBox">
+        <Setter Property="Background" Value="#172033"/>
+        <Setter Property="Foreground" Value="#F8FAFC"/>
+        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="10,6"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
+
+
+    <!-- ========================= -->
+    <!-- 📦 CARD -->
+    <!-- ========================= -->
+
+    <Style Selector="Border.Card">
+        <Setter Property="Background" Value="#111827"/>
+        <Setter Property="BorderBrush" Value="#243041"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="16"/>
+        <Setter Property="Padding" Value="18"/>
+    </Style>
+
+    <Style Selector="TextBlock.SectionTitle">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Foreground" Value="#F8FAFC"/>
+    </Style>
+
+    <Style Selector="TextBlock.SectionSubtitle">
+        <Setter Property="Foreground" Value="#94A3B8"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <Style Selector="Button.SecondaryButton">
+        <Setter Property="Foreground" Value="#E2E8F0"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Background" Value="#172033"/>
+        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="12,8"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
+
+    <Style Selector="Button.SecondaryButton /template/ ContentPresenter">
+        <Setter Property="Background" Value="#172033"/>
+        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Padding" Value="12,8"/>
+    </Style>
+
+    <Style Selector="Button.SecondaryButton:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="#243041"/>
+        <Setter Property="BorderBrush" Value="#3B4A63"/>
+    </Style>
+
+    <Style Selector="Button.SecondaryButton:pressed /template/ ContentPresenter">
+        <Setter Property="Background" Value="#1B2638"/>
+        <Setter Property="BorderBrush" Value="#4B5D7A"/>
+    </Style>
+
+
+    <!-- ========================= -->
+    <!-- 🔐 ACCOUNT ITEM -->
+    <!-- ========================= -->
+
+    <Style Selector="Border.AccountItem">
+        <Setter Property="Background" Value="#0F172A"/>
+        <Setter Property="BorderBrush" Value="#1E293B"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="14"/>
+        <Setter Property="Padding" Value="14"/>
+    </Style>
+
+    <Style Selector="Border.LogoBox">
+        <Setter Property="Width" Value="42"/>
+        <Setter Property="Height" Value="42"/>
+        <Setter Property="Background" Value="#2563EB"/>
+        <Setter Property="CornerRadius" Value="12"/>
+    </Style>
+
+    <Style Selector="TextBlock.LogoLetter">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    <Style Selector="TextBlock.WebSiteTitle">
+        <Setter Property="Foreground" Value="#F8FAFC"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+    </Style>
+
+    <Style Selector="TextBlock.Username">
+        <Setter Property="Foreground" Value="#94A3B8"/>
+        <Setter Property="FontSize" Value="12"/>
+    </Style>
+
+    <Style Selector="Border.PasswordBox">
+        <Setter Property="Background" Value="#172033"/>
+        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Padding" Value="14,8"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="MinWidth" Value="160"/>
+    </Style>
+
+    <Style Selector="TextBlock.PasswordValue">
+        <Setter Property="Foreground" Value="#E2E8F0"/>
+        <Setter Property="FontSize" Value="13"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
+    </Style>
+
+
+    <!-- ========================= -->
+    <!-- 🎯 ICON BUTTONS -->
+    <!-- ========================= -->
+
+    <Style Selector="Button.IconButton">
+        <Setter Property="Width" Value="34"/>
+        <Setter Property="Height" Value="34"/>
+        <Setter Property="MinWidth" Value="34"/>
+        <Setter Property="MinHeight" Value="34"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Background" Value="#172033"/>
+        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Foreground" Value="#CBD5E1"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+    </Style>
+
+    <Style Selector="Button.IconButton /template/ ContentPresenter">
+        <Setter Property="Background" Value="#172033"/>
+        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+
+    <Style Selector="Button.IconButton:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="#243041"/>
+        <Setter Property="BorderBrush" Value="#3B4A63"/>
+    </Style>
+
+    <Style Selector="Button.IconButton:pressed /template/ ContentPresenter">
+        <Setter Property="Background" Value="#1B2638"/>
+        <Setter Property="BorderBrush" Value="#4B5D7A"/>
+    </Style>
+
+    <Style Selector="Button.IconButton:pointerover">
+        <Setter Property="Foreground" Value="#F8FAFC"/>
+    </Style>
+
+    <Style Selector="TextBlock.IconGlyph">
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+    </Style>
+
+    <Style Selector="PathIcon.IconPath">
+        <Setter Property="Width" Value="16"/>
+        <Setter Property="Height" Value="16"/>
+        <Setter Property="Foreground" Value="#CBD5E1"/>
+    </Style>
+
+    <Style Selector="Button.IconButton:pointerover PathIcon">
+        <Setter Property="Foreground" Value="#F8FAFC"/>
+    </Style>
+
+
+    <!-- ========================= -->
+    <!-- ➕ PRIMARY BUTTON -->
+    <!-- ========================= -->
+
+    <Style Selector="Button.PrimaryButton">
+        <Setter Property="Background" Value="#3B82F6"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontWeight" Value="SemiBold"/>
+        <Setter Property="Padding" Value="12"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
+
+    <Style Selector="Button.PrimaryButton /template/ ContentPresenter">
+        <Setter Property="Background" Value="#3B82F6"/>
+        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Padding" Value="12"/>
+    </Style>
+
+    <Style Selector="Button.PrimaryButton:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="#2563EB"/>
+    </Style>
+
+    <Style Selector="Button.PrimaryButton:pressed /template/ ContentPresenter">
+        <Setter Property="Background" Value="#1D4ED8"/>
+    </Style>
+
+</Styles>

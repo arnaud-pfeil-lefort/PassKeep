@@ -1,0 +1,169 @@
+﻿<Window
+    x:Class="PassKeep.MainWindow"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Width="760"
+    Height="760"
+    MinWidth="600"
+    MinHeight="680"
+    Title="PassKeep"
+    Background="#0B1220"
+    Topmost="True"
+    Icon="/assets/passkeepIcon.png"
+    ExtendClientAreaToDecorationsHint="True"
+    ExtendClientAreaChromeHints="NoChrome"
+    ExtendClientAreaTitleBarHeightHint="40">
+
+    <Grid RowDefinitions="40,*">
+
+        <!-- TITLE BAR -->
+        <Border Grid.Row="0"
+                Background="#0F172A"
+                BorderBrush="#1E293B"
+                BorderThickness="0,0,0,1"
+                PointerPressed="TitleBar_PointerPressed">
+            <Grid ColumnDefinitions="*,Auto"
+                  Margin="12,0,12,0">
+
+                <!-- Zone draggable -->
+                <Grid ColumnDefinitions="Auto,*"
+                      VerticalAlignment="Center">
+                    <Border Width="26"
+                            Height="26"
+                            Background="#2563EB"
+                            CornerRadius="8"
+                            VerticalAlignment="Center">
+                        <TextBlock Text="P"
+                                   Foreground="White"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                        />
+                    </Border>
+
+                    <TextBlock Grid.Column="1"
+                               Margin="10,0,0,0"
+                               Text="PassKeep"
+                               Foreground="#F8FAFC"
+                               FontSize="14"
+                               FontWeight="SemiBold"
+                               VerticalAlignment="Center"/>
+                </Grid>
+
+                <!-- Boutons fenêtre -->
+                <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"
+                        Spacing="8"
+                        VerticalAlignment="Center">
+                <Button Classes="WindowButton"
+                        Content="─"
+                        Click="MinimizeWindow"/>
+                <Button Classes="WindowButton"
+                        Content="□"
+                        Click="MaximizeWindow"/>
+                <Button Classes="WindowCloseButton"
+                        Content="✕"
+                        Click="CloseWindow"/>
+            </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- CONTENT -->
+        <Grid Grid.Row="1"
+              Grid.Column="1"
+              RowDefinitions="Auto,*"
+              Margin="24"
+              RowSpacing="18">
+
+            <!-- TOP -->
+            <Grid ColumnDefinitions="*,Auto"
+                  Margin="0,0,0,6">
+                <StackPanel Spacing="4">
+                    <TextBlock Classes="Title" Text="Bienvenue"/>
+                    <TextBlock Classes="Subtitle" Text="Accès rapide à tes comptes"/>
+                </StackPanel>
+
+                <TextBox Grid.Column="1"
+                         Classes="ModernBox"
+                         Width="260"
+                         Height="36"
+                         Watermark="Rechercher..."/>
+            </Grid>
+
+            <!-- LIST -->
+            <Border Grid.Row="1"
+                    Classes="Card">
+                <StackPanel Spacing="18">
+
+                    <Grid ColumnDefinitions="*,Auto"
+                          Margin="0,0,0,4">
+                        <StackPanel Spacing="4">
+                            <TextBlock Text="Comptes"
+                                       Classes="SectionTitle"/>
+                            <TextBlock Text="Liste des entrées enregistrées"
+                                       Classes="SectionSubtitle"/>
+                        </StackPanel>
+
+                        <Button Grid.Column="1"
+                                Classes="SecondaryButton"
+                                Content="Trier"/>
+                    </Grid>
+
+                    <Border Classes="AccountItem">
+                        <Grid ColumnDefinitions="Auto,*,Auto,Auto"
+                              ColumnSpacing="18"
+                              VerticalAlignment="Center">
+
+                            <Border Classes="LogoBox">
+                                <TextBlock Text="G"
+                                           Classes="LogoLetter"/>
+                            </Border>
+
+                            <StackPanel Grid.Column="1"
+                                        VerticalAlignment="Center"
+                                        Spacing="4">
+                                <TextBlock Text="Google"
+                                           Classes="WebSiteTitle"/>
+                                <TextBlock Text="arnaud.dev@gmail.com"
+                                           Classes="Username"/>
+                            </StackPanel>
+
+                            <Border Grid.Column="2"
+                                    Classes="PasswordBox">
+                                <TextBlock Text="****************"
+                                           Classes="PasswordValue"/>
+                            </Border>
+
+                            <StackPanel Grid.Column="3"
+                                    Orientation="Horizontal"
+                                    Spacing="6"
+                                    VerticalAlignment="Center">
+
+                            <Button Classes="IconButton">
+                                <PathIcon Classes="IconPath"
+                                    Data="M2 12s4-6 10-6 10 6 10 6-4 6-10 6-10-6-10-6zm10 4a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+                            </Button>
+
+                            <Button Classes="IconButton">
+                                <PathIcon Classes="IconPath"
+                                   Data="M3 17.25V21h3.75L18.37 9.38l-3.75-3.75L3 17.25zm11.71-9.04l2.04-2.04a1 1 0 0 1 1.41 0l1.63 1.63a1 1 0 0 1 0 1.41l-2.04 2.04-3.04-3.04z"/>
+                            </Button>
+
+                            <Button Classes="IconButton">
+                                <PathIcon Classes="IconPath"
+                                          Data="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/>
+                            </Button>
+
+                        </StackPanel>
+
+                        </Grid>
+                    </Border>
+
+                    <Button Classes="PrimaryButton"
+                            Content="+ Ajouter un mot de passe"
+                            HorizontalAlignment="Stretch"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
