@@ -1,0 +1,147 @@
+<Window
+    x:Class="PassKeep.Views.LoginView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Width="420"
+    Height="540"
+    MinWidth="380"
+    MinHeight="500"
+    Title="PassKeep"
+    Background="#0B1220"
+    Topmost="True"
+    Icon="/assets/passkeepIcon.png"
+    SystemDecorations="None"
+    ExtendClientAreaToDecorationsHint="True"
+    ExtendClientAreaTitleBarHeightHint="40">
+
+    <Grid RowDefinitions="40,*">
+            
+        <!-- TITLE BAR -->
+        <Border Grid.Row="0"
+                Background="#0F172A"
+                BorderBrush="#1E293B"
+                BorderThickness="0,0,0,1"
+                PointerPressed="TitleBar_PointerPressed">
+            <Grid ColumnDefinitions="*,Auto" Margin="12,0,12,0">
+
+                <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center">
+                    <Border Width="26" Height="26"
+                            Background="#2563EB"
+                            CornerRadius="8"
+                            VerticalAlignment="Center">
+                        <TextBlock Text="P"
+                                   Foreground="White"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                    </Border>
+                    <TextBlock Grid.Column="1"
+                               Margin="10,0,0,0"
+                               Text="PassKeep"
+                               Foreground="#F8FAFC"
+                               FontSize="14"
+                               FontWeight="SemiBold"
+                               VerticalAlignment="Center"/>
+                </Grid>
+
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            Spacing="8"
+                            VerticalAlignment="Center">
+                    <Button Classes="WindowButton" Content="─" Click="MinimizeWindow"/>
+                    <Button Classes="WindowCloseButton" Content="✕" Click="CloseWindow"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- CONTENT -->
+        <Grid Grid.Row="1"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Margin="24">
+
+            <Border Classes="Card" Width="340" Padding="28,32">
+                <StackPanel Spacing="0">
+
+                    <!-- Header -->
+                    <StackPanel Spacing="4" Margin="0,0,0,28">
+                        <TextBlock Classes="Title" Text="Connexion"/>
+                        <TextBlock Classes="Subtitle" Text="Accède à ton coffre-fort"/>
+                    </StackPanel>
+
+                    <!-- Email -->
+                    <TextBlock Text="Adresse e-mail"
+                               Foreground="#94A3B8"
+                               FontSize="13"
+                               Margin="0,0,0,6"/>
+                    <TextBox Classes="ModernBox"
+                                x:Name="EmailTextBox"
+                                Watermark="vous@exemple.com"
+                                Margin="0,0,0,16"/>
+
+                    <!-- Mot de passe -->
+                    <TextBlock Text="Mot de passe" 
+                               Foreground="#94A3B8"
+                               FontSize="13"
+                               Margin="0,0,0,6"/>
+                    <TextBox Classes="ModernBox"
+                             x:Name="PasswordTextBox"
+                             PasswordChar="●"
+                             Watermark="••••••••"
+                             Margin="0,0,0,8"/>
+
+                    <!-- Mot de passe oublié -->
+                    <TextBlock Text="Mot de passe oublié ?"
+                               Foreground="#3B82F6"
+                               FontSize="12"
+                               HorizontalAlignment="Right"
+                               Cursor="Hand"
+                               Margin="0,0,0,24"/>
+
+                    <!-- Rester connecté -->
+                    <CheckBox Content="Rester connecté"
+                              Foreground="#94A3B8"
+                              FontSize="13"
+                              Margin="0,0,0,24"/>
+
+
+                    <TextBlock x:Name="ErrorTextBlock"
+                               Text="Email ou mot de passe incorrect"
+                               Foreground="#EF4444"
+                               FontSize="12"
+                               HorizontalAlignment="Center"
+                               IsVisible="False"
+                               Margin="0,0,0,12"/>
+
+                    <!-- Bouton connexion -->
+                    <Button Classes="PrimaryButton"
+                            Content="Se connecter"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Center"
+                            Click="OnLoginClicked"
+                            Margin="0,0,0,20"/>
+
+                    <!-- Lien inscription -->
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Spacing="4">
+                        <TextBlock Text="Pas encore de compte ?"
+                                   Foreground="#94A3B8"
+                                   FontSize="13"
+                                   VerticalAlignment="Center"/>
+                        <TextBlock Text="S'inscrire"
+                                   Foreground="#3B82F6"
+                                   FontSize="13"
+                                   FontWeight="SemiBold"
+                                   Cursor="Hand"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+        </Grid>
+
+    </Grid>
+
+
+</Window>

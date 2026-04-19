@@ -8,6 +8,7 @@ using System;
 using System.Diagnostics;
 using System.Net;
 using System.Threading.Tasks;
+using PassKeep.Views;
 
 
 namespace PassKeep
@@ -23,7 +24,8 @@ namespace PassKeep
         {
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {
-                desktop.MainWindow = new MainWindow();
+                //desktop.MainWindow = new MainWindow();
+                desktop.MainWindow = new LoginView();
             }
 
             Batteries.Init();

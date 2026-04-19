@@ -45,5 +45,8 @@ build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 [C:/Users/arnau/Desktop/PassKeep/Styles/style.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/arnau/Desktop/PassKeep/Views/MainWindow.axaml]
+[C:/Users/arnau/Desktop/PassKeep/Views/LoginView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/arnau/Desktop/PassKeep/Views/RegisterView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

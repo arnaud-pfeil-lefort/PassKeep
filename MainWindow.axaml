@@ -10,6 +10,7 @@
     Background="#0B1220"
     Topmost="True"
     Icon="/assets/passkeepIcon.png"
+    SystemDecorations="None"
     ExtendClientAreaToDecorationsHint="True"
     ExtendClientAreaTitleBarHeightHint="40">
 
@@ -78,7 +79,7 @@
             <Grid ColumnDefinitions="*,Auto"
                   Margin="0,0,0,6">
                 <StackPanel Spacing="4">
-                    <TextBlock Classes="Title" Text="Bienvenue"/>
+                    <TextBlock Classes="Title" Name="WelcomeText"/>
                     <TextBlock Classes="Subtitle" Text="Accès rapide à tes comptes"/>
                 </StackPanel>
 

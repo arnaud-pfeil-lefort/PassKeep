@@ -1,0 +1,138 @@
+<Window
+    x:Class="PassKeep.Views.RegisterView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Width="420"
+    Height="620"
+    MinWidth="380"
+    MinHeight="580"
+    Title="PassKeep"
+    Background="#0B1220"
+    Topmost="True"
+    Icon="/assets/passkeepIcon.png"
+    SystemDecorations="None"
+    ExtendClientAreaToDecorationsHint="True"
+    ExtendClientAreaTitleBarHeightHint="40">
+
+    <Grid RowDefinitions="40,*">
+
+        <!-- TITLE BAR -->
+        <Border Grid.Row="0"
+                Background="#0F172A"
+                BorderBrush="#1E293B"
+                BorderThickness="0,0,0,1"
+                PointerPressed="TitleBar_PointerPressed">
+            <Grid ColumnDefinitions="*,Auto" Margin="12,0,12,0">
+
+                <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center">
+                    <Border Width="26" Height="26"
+                            Background="#2563EB"
+                            CornerRadius="8"
+                            VerticalAlignment="Center">
+                        <TextBlock Text="P"
+                                   Foreground="White"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                    </Border>
+                    <TextBlock Grid.Column="1"
+                               Margin="10,0,0,0"
+                               Text="PassKeep"
+                               Foreground="#F8FAFC"
+                               FontSize="14"
+                               FontWeight="SemiBold"
+                               VerticalAlignment="Center"/>
+                </Grid>
+
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            Spacing="8"
+                            VerticalAlignment="Center">
+                    <Button Classes="WindowButton" Content="─" Click="MinimizeWindow"/>
+                    <Button Classes="WindowCloseButton" Content="✕" Click="CloseWindow"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- CONTENT -->
+        <Grid Grid.Row="1"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Margin="24">
+
+            <Border Classes="Card" Width="340" Padding="28,32">
+                <StackPanel Spacing="0">
+
+                    <!-- Header -->
+                    <StackPanel Spacing="4" Margin="0,0,0,28">
+                        <TextBlock Classes="Title" Text="Inscription"/>
+                        <TextBlock Classes="Subtitle" Text="Crée ton coffre-fort personnel"/>
+                    </StackPanel>
+
+                    <!-- Nom -->
+                    <TextBlock Text="Nom complet"
+                               Foreground="#94A3B8"
+                               FontSize="13"
+                               Margin="0,0,0,6"/>
+                    <TextBox Classes="ModernBox"
+                             Watermark="Jean Dupont"
+                             Margin="0,0,0,16"/>
+
+                    <!-- Email -->
+                    <TextBlock Text="Adresse e-mail"
+                               Foreground="#94A3B8"
+                               FontSize="13"
+                               Margin="0,0,0,6"/>
+                    <TextBox Classes="ModernBox"
+                             Watermark="vous@exemple.com"
+                             Margin="0,0,0,16"/>
+
+                    <!-- Mot de passe -->
+                    <TextBlock Text="Mot de passe"
+                               Foreground="#94A3B8"
+                               FontSize="13"
+                               Margin="0,0,0,6"/>
+                    <TextBox Classes="ModernBox"
+                             PasswordChar="●"
+                             Watermark="Minimum 8 caractères"
+                             Margin="0,0,0,16"/>
+
+                    <!-- Confirmer mot de passe -->
+                    <TextBlock Text="Confirmer le mot de passe"
+                               Foreground="#94A3B8"
+                               FontSize="13"
+                               Margin="0,0,0,6"/>
+                    <TextBox Classes="ModernBox"
+                             PasswordChar="●"
+                             Watermark="••••••••"
+                             Margin="0,0,0,28"/>
+
+                    <!-- Bouton inscription -->
+                    <Button Classes="PrimaryButton"
+                            Content="Créer mon compte"
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Center"
+                            Margin="0,0,0,20"/>
+
+                    <!-- Lien connexion -->
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center"
+                                Spacing="4">
+                        <TextBlock Text="Déjà un compte ?"
+                                   Foreground="#94A3B8"
+                                   FontSize="13"
+                                   VerticalAlignment="Center"/>
+                        <TextBlock Text="Se connecter"
+                                   Foreground="#3B82F6"
+                                   FontSize="13"
+                                   FontWeight="SemiBold"
+                                   Cursor="Hand"
+                                   VerticalAlignment="Center"/>
+                    </StackPanel>
+
+                </StackPanel>
+            </Border>
+        </Grid>
+
+    </Grid>
+</Window>

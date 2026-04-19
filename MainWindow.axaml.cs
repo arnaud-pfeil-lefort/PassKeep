@@ -1,14 +1,17 @@
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using PassKeep.modeles;
 
 namespace PassKeep
 {
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(PKUser user)
         {
             InitializeComponent();
+            WelcomeText.Text = $"Bienvenue {user.Nom}";
+
         }
 
         private void TitleBar_PointerPressed(object? sender, PointerPressedEventArgs e)

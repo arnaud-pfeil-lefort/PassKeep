@@ -6,11 +6,18 @@ using System.Security.Cryptography;
 using System.Text;
 
 
+
 namespace PassKeep.ClassesGenerales
 {
     public static class ClassFonctionsGenerales
     {
         private static readonly byte[] _key = Encoding.UTF8.GetBytes("PassKeepSecret!!");
+
+        public static string hacherChaine(string chaine)
+        {
+            byte[] bytes = SHA256.HashData(Encoding.UTF8.GetBytes(chaine));
+            return Convert.ToHexString(bytes).ToLower();
+        }
 
         public static string encrypterChaine(string chaine)
         {
@@ -52,11 +59,11 @@ namespace PassKeep.ClassesGenerales
                 Guid gLocal_GuidTypeProfilConnexion = Guid.NewGuid(); //Stocke un GUID généré pour créer le TypeProfilconnexion "PasswordYnov"
                 Guid gLocal_GuidProfilConnexion = Guid.NewGuid(); //Stocke un GUID généré pour créer le Profilconnexion utilisant les deux GUID ci-dessus
 
-                string sLocal_MotPasseSuperAdmin = encrypterChaine(ClassConstantesGenerales.sUtilisateur_Password_Superadmin);
+                string sLocal_MotPasseSuperAdmin = hacherChaine(ClassConstantesGenerales.sUtilisateur_Password_Superadmin);
 
                 // On ajoute automatiquement l'utilisateur "SuperAdmin"
                 oLocal_migrationBuilder.InsertData(
-                    table: "User",
+                    table: "PKUser",
                     columns: new[] { "Id", "Login", "Nom", "Email", "Password" },
                     columnTypes: new[] { "TEXT", "TEXT", "TEXT", "TEXT", "TEXT" },
                     values: new object[] {

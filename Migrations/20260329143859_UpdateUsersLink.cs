@@ -39,9 +39,9 @@ namespace PassKeep.Migrations
                 {
                     table.PrimaryKey("PK_ProfilConnexion", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_ProfilConnexion_User_PKUserId",
+                        name: "FK_ProfilConnexion_PKUser_PKUserId",
                         column: x => x.PKUserId,
-                        principalTable: "User",
+                        principalTable: "PKUser",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(

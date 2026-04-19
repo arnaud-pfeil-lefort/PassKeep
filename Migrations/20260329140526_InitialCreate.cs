@@ -24,7 +24,7 @@ namespace PassKeep.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "PKUser",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
@@ -46,7 +46,7 @@ namespace PassKeep.Migrations
                 name: "Dictionnaire");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "PKUser");
         }
     }
 }
