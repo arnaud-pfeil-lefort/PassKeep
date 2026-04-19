@@ -5,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using PassKeep.modeles;
 using SQLitePCL;
 using System;
+using System.Diagnostics;
+using System.Net;
+using System.Threading.Tasks;
 
 
 namespace PassKeep
@@ -27,22 +30,31 @@ namespace PassKeep
 
             base.OnFrameworkInitializationCompleted();
 
-            using (DataContext oLocal_DataContext = new DataContext())
+            TaskScheduler.UnobservedTaskException += (sender, e) =>
+            {
+                Debug.WriteLine($"=== UNOBSERVED : {e.Exception.Message}");
+                Debug.WriteLine(e.Exception.StackTrace);
+                e.SetObserved();
+            };
+
+            Task.Run(async () =>
+            {
                 try
                 {
-                    oLocal_DataContext.Database.Migrate();
+                    Debug.WriteLine("=== BEGIN ===");
+
+                    using DataContext oLocal_DataContext = new DataContext();
+                    await oLocal_DataContext.Database.MigrateAsync();
+                    Debug.WriteLine("=== MIGRATE OK ===");
                 }
                 catch (Exception ex)
                 {
-                    {
-                        Console.WriteLine(ex);
-                        throw;
-                    }
+                    Debug.WriteLine($"=== MIGRATE ERREUR : {ex.Message}");
+                    Debug.WriteLine(ex.StackTrace);
                 }
-            /*
-                        DataContext oLocal_DataContext = new DataContext();
+            });
 
-                        oLocal_DataContext.Database.EnsureCreated();*/
+
         }
     }
 }

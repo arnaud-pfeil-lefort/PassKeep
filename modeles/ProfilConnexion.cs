@@ -18,13 +18,9 @@ namespace PassKeep.modeles
 
         public Guid PKUserId { get; set; }
         public virtual PKUser PKUser { get; set; }
+        public Guid TypeProfilConnexionId { get; set; }
 
-
-
-
+        public virtual TypeProfilConnexion TypeProfilConnexion { get; set; }
     }
 }
-
-
-
 

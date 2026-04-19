@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PassKeep.modeles;
 
@@ -10,9 +11,11 @@ using PassKeep.modeles;
 namespace PassKeep.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20260416200438_SeedSuperAdmin2")]
+    partial class SeedSuperAdmin2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "10.0.5");
@@ -29,7 +32,7 @@ namespace PassKeep.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Dictionnaire", (string)null);
+                    b.ToTable("Dictionnaire");
                 });
 
             modelBuilder.Entity("PassKeep.modeles.PKUser", b =>
@@ -56,7 +59,7 @@ namespace PassKeep.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PKUser", (string)null);
+                    b.ToTable("PKUser");
                 });
 
             modelBuilder.Entity("PassKeep.modeles.ProfilConnexion", b =>
@@ -93,7 +96,7 @@ namespace PassKeep.Migrations
 
                     b.HasIndex("TypeProfilConnexionId");
 
-                    b.ToTable("ProfilConnexion", (string)null);
+                    b.ToTable("ProfilConnexion");
                 });
 
             modelBuilder.Entity("PassKeep.modeles.TypeProfilConnexion", b =>
@@ -108,7 +111,7 @@ namespace PassKeep.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TypeProfilConnexion", (string)null);
+                    b.ToTable("TypeProfilConnexion");
                 });
 
             modelBuilder.Entity("PassKeep.modeles.ProfilConnexion", b =>

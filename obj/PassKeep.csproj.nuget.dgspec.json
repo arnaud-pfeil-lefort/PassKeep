@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\arnaud\\source\\repos\\PassKeep\\PassKeep.csproj": {}
+    "C:\\Users\\arnau\\Desktop\\PassKeep\\PassKeep.csproj": {}
   },
   "projects": {
-    "C:\\Users\\arnaud\\source\\repos\\PassKeep\\PassKeep.csproj": {
+    "C:\\Users\\arnau\\Desktop\\PassKeep\\PassKeep.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arnaud\\source\\repos\\PassKeep\\PassKeep.csproj",
+        "projectUniqueName": "C:\\Users\\arnau\\Desktop\\PassKeep\\PassKeep.csproj",
         "projectName": "PassKeep",
-        "projectPath": "C:\\Users\\arnaud\\source\\repos\\PassKeep\\PassKeep.csproj",
-        "packagesPath": "C:\\Users\\arnaud\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arnaud\\source\\repos\\PassKeep\\obj\\",
+        "projectPath": "C:\\Users\\arnau\\Desktop\\PassKeep\\PassKeep.csproj",
+        "packagesPath": "C:\\Users\\arnau\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\arnau\\Desktop\\PassKeep\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\arnaud\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\arnau\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,10 +26,12 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net10.0": {
+            "framework": "net10.0",
             "targetAlias": "net10.0",
             "projectReferences": {}
           }
@@ -44,35 +46,36 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.200"
+        "SdkAnalysisLevel": "11.0.100"
       },
       "frameworks": {
         "net10.0": {
+          "framework": "net10.0",
           "targetAlias": "net10.0",
           "dependencies": {
             "Avalonia": {
               "target": "Package",
-              "version": "[11.3.12, )"
+              "version": "[12.0.1, )"
             },
             "Avalonia.Desktop": {
               "target": "Package",
-              "version": "[11.3.12, )"
+              "version": "[12.0.1, )"
             },
             "Avalonia.Diagnostics": {
               "target": "Package",
-              "version": "[11.3.12, )"
+              "version": "[11.3.14, )"
             },
             "Avalonia.Fonts.Inter": {
               "target": "Package",
-              "version": "[11.3.12, )"
+              "version": "[12.0.1, )"
             },
             "Avalonia.Themes.Fluent": {
               "target": "Package",
-              "version": "[11.3.12, )"
+              "version": "[12.0.1, )"
             },
             "CommunityToolkit.Mvvm": {
               "target": "Package",
-              "version": "[8.2.1, )"
+              "version": "[8.4.2, )"
             },
             "Microsoft.Data.Sqlite.Core": {
               "target": "Package",
@@ -90,7 +93,7 @@
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[10.0.3, )"
+              "version": "[10.0.5, )"
             },
             "SQLite": {
               "target": "Package",
@@ -120,12 +123,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[10.0.3, 10.0.3]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[10.0.3, 10.0.3]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[10.0.3, 10.0.3]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[10.0.3, 10.0.3]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\11.0.100-preview.2.26159.112/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

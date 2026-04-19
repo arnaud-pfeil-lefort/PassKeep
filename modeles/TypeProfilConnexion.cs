@@ -1,19 +1,15 @@
-
-using System;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
 
 namespace PassKeep.modeles
 {
-    public class PKUser
+    public class TypeProfilConnexion
     {
         [Key]
         public Guid Id { get; set; }
 
-        public string Login { get; set; }
         public string Nom { get; set; }
-        public string Email { get; set; }
-
-        public string Password { get; set; }
-
     }
 }

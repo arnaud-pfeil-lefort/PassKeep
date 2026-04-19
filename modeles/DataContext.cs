@@ -14,13 +14,13 @@ namespace PassKeep.modeles
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlite("Data Source = bin/Debug/net10.0/DBPasskeep.db");
+                optionsBuilder.UseSqlite("Data Source = DBPasskeep.db");
             }
         }
-        public DbSet<PKUser> User { get; set; }
+        public DbSet<PKUser> PKUser { get; set; }
         public DbSet<DbDictionnaire> Dictionnaire { get; set; }
         public DbSet<ProfilConnexion> ProfilConnexion { get; set; }
-
+        public DbSet<TypeProfilConnexion> TypeProfilConnexion { get; set; }
 
 
     }

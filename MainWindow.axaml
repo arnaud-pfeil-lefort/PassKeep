@@ -11,7 +11,6 @@
     Topmost="True"
     Icon="/assets/passkeepIcon.png"
     ExtendClientAreaToDecorationsHint="True"
-    ExtendClientAreaChromeHints="NoChrome"
     ExtendClientAreaTitleBarHeightHint="40">
 
     <Grid RowDefinitions="40,*">
@@ -87,7 +86,7 @@
                          Classes="ModernBox"
                          Width="260"
                          Height="36"
-                         Watermark="Rechercher..."/>
+                         PlaceholderText="Rechercher..."/>
             </Grid>
 
             <!-- LIST -->
