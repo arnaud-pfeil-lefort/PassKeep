@@ -1,0 +1,134 @@
+<Window
+    x:Class="PassKeep.Views.SettingsView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Width="460"
+    Height="420"
+    MinWidth="400"
+    MinHeight="380"
+    Title="PassKeep"
+    Background="#0B1220"
+    Topmost="True"
+    Icon="/assets/passkeepIcon.png"
+    SystemDecorations="None"
+    ExtendClientAreaToDecorationsHint="True"
+    ExtendClientAreaTitleBarHeightHint="40">
+
+    <Grid RowDefinitions="40,*">
+
+        <!-- TITLE BAR -->
+        <Border Grid.Row="0"
+                Background="#0F172A"
+                BorderBrush="#1E293B"
+                BorderThickness="0,0,0,1"
+                PointerPressed="TitleBar_PointerPressed">
+            <Grid ColumnDefinitions="*,Auto" Margin="12,0,12,0">
+
+                <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center">
+                    <Border Width="26" Height="26"
+                            Background="#2563EB"
+                            CornerRadius="8"
+                            VerticalAlignment="Center">
+                        <TextBlock Text="P"
+                                   Foreground="White"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"/>
+                    </Border>
+                    <TextBlock Grid.Column="1"
+                               Margin="10,0,0,0"
+                               Text="PassKeep"
+                               Foreground="#F8FAFC"
+                               FontSize="14"
+                               FontWeight="SemiBold"
+                               VerticalAlignment="Center"/>
+                </Grid>
+
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            Spacing="8"
+                            VerticalAlignment="Center">
+                    <Button Classes="WindowButton" Content="─" Click="MinimizeWindow"/>
+                    <Button Classes="WindowCloseButton" Content="✕" Click="CloseWindow"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- CONTENT -->
+        <Grid Grid.Row="1"
+              VerticalAlignment="Center"
+              HorizontalAlignment="Center"
+              Margin="24">
+
+            <StackPanel Spacing="16" Width="380">
+
+                <!-- Header -->
+                <StackPanel Spacing="4" Margin="0,0,0,8">
+                    <TextBlock Classes="Title" Text="Paramètres"/>
+                    <TextBlock Classes="Subtitle" Text="Configuration de l'application"/>
+                </StackPanel>
+
+                <!-- Catégorie Dictionnaire -->
+                <Border Classes="Card">
+                    <StackPanel Spacing="16">
+
+                        <!-- Titre section -->
+                        <StackPanel Spacing="4">
+                            <TextBlock Classes="SectionTitle" Text="Dictionnaire"/>
+                            <TextBlock Classes="SectionSubtitle" Text="Gestion des mots du dictionnaire"/>
+                        </StackPanel>
+
+                        <!-- Importer -->
+                        <Grid ColumnDefinitions="*,Auto">
+                            <StackPanel Spacing="2" VerticalAlignment="Center">
+                                <TextBlock Text="Importer un fichier"
+                                           Foreground="#E2E8F0"
+                                           FontSize="14"
+                                           FontWeight="SemiBold"/>
+                                <TextBlock Text="Ajoute des mots depuis un fichier .txt"
+                                           Foreground="#94A3B8"
+                                           FontSize="12"/>
+                            </StackPanel>
+                            <Button Grid.Column="1"
+                                    Classes="SecondaryButton"
+                                    Content="Importer"
+                                    VerticalAlignment="Center"
+                                    Click="OnImportDictionnaire"/>
+                        </Grid>
+
+                        <!-- Séparateur -->
+                        <Border Height="1" Background="#243041"/>
+
+                        <!-- Supprimer -->
+                        <Grid ColumnDefinitions="*,Auto">
+                            <StackPanel Spacing="2" VerticalAlignment="Center">
+                                <TextBlock Text="Supprimer les mots"
+                                           Foreground="#E2E8F0"
+                                           FontSize="14"
+                                           FontWeight="SemiBold"/>
+                                <TextBlock Text="Vide entièrement la table dictionnaire"
+                                           Foreground="#94A3B8"
+                                           FontSize="12"/>
+                            </StackPanel>
+                            <Button Grid.Column="1"
+                                    Classes="WindowCloseButton"
+                                    Content="Supprimer"
+                                    VerticalAlignment="Center"
+                                    Click="OnDeleteDictionnaire"/>
+                        </Grid>
+
+                    </StackPanel>
+                </Border>
+
+                <!-- Message feedback -->
+                <TextBlock x:Name="FeedbackText"
+                           Foreground="#22C55E"
+                           FontSize="13"
+                           HorizontalAlignment="Center"
+                           IsVisible="False"/>
+
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Window>

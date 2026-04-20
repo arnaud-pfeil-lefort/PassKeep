@@ -30,23 +30,29 @@ build_property.CsWinRTAotWarningLevel =
 build_property.TargetFrameworkIdentifier = .NETCoreApp
 build_property.TargetFrameworkVersion = v10.0
 build_property.RootNamespace = PassKeep
-build_property.ProjectDir = C:\Users\arnau\Desktop\PassKeep\
+build_property.ProjectDir = C:\Users\arnaud\Desktop\PassKeep\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.EffectiveAnalysisLevelStyle = 10.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/arnau/Desktop/PassKeep/App.axaml]
+[C:/Users/arnaud/Desktop/PassKeep/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/arnau/Desktop/PassKeep/MainWindow.axaml]
+[C:/Users/arnaud/Desktop/PassKeep/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/arnau/Desktop/PassKeep/Styles/style.axaml]
+[C:/Users/arnaud/Desktop/PassKeep/Styles/style.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/arnau/Desktop/PassKeep/Views/LoginView.axaml]
+[C:/Users/arnaud/Desktop/PassKeep/Views/AddProfilView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
-[C:/Users/arnau/Desktop/PassKeep/Views/RegisterView.axaml]
+[C:/Users/arnaud/Desktop/PassKeep/Views/LoginView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/arnaud/Desktop/PassKeep/Views/RegisterView.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
+[C:/Users/arnaud/Desktop/PassKeep/Views/SettingsView.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

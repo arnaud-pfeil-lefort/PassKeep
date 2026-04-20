@@ -1,11 +1,11 @@
 <Window
-    x:Class="PassKeep.Views.LoginView"
+    x:Class="PassKeep.Views.AddProfilView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Width="420"
-    Height="540"
+    Height="620"
     MinWidth="380"
-    MinHeight="500"
+    MinHeight="580"
     Title="PassKeep"
     Background="#0B1220"
     Topmost="True"
@@ -15,7 +15,7 @@
     ExtendClientAreaTitleBarHeightHint="40">
 
     <Grid RowDefinitions="40,*">
-            
+
         <!-- TITLE BAR -->
         <Border Grid.Row="0"
                 Background="#0F172A"
@@ -65,87 +65,75 @@
 
                     <!-- Header -->
                     <StackPanel Spacing="4" Margin="0,0,0,28">
-                        <TextBlock Classes="Title" Text="Connexion"/>
-                        <TextBlock Classes="Subtitle" Text="Accède à ton coffre-fort"/>
+                        <TextBlock Classes="Title" Text="Nouveau profil"/>
+                        <TextBlock Classes="Subtitle" Text="Ajoute un compte à ton coffre-fort"/>
                     </StackPanel>
 
-                    <!-- Email -->
-                    <TextBlock Text="Adresse e-mail"
+                    <!-- Nom du service -->
+                    <TextBlock Text="Service"
                                Foreground="#94A3B8"
                                FontSize="13"
                                Margin="0,0,0,6"/>
                     <TextBox Classes="ModernBox"
-                                Text="admin@email.com"
-                                x:Name="EmailTextBox"
-                                Watermark="vous@exemple.com"
-                                Margin="0,0,0,16"/>
+                             x:Name="ServiceTextBox"
+                             Watermark="Google, GitHub..."
+                             Margin="0,0,0,16"/>
 
-                    <!-- Mot de passe -->
-                    <TextBlock Text="Mot de passe" 
+                    <!-- URL -->
+                    <TextBlock Text="URL"
                                Foreground="#94A3B8"
                                FontSize="13"
-                               Margin="0,0,0,6"
-                               />
-                               
+                               Margin="0,0,0,6"/>
                     <TextBox Classes="ModernBox"
-                             Text="ADMIN"
-                             x:Name="PasswordTextBox"
-                             PasswordChar="●"
-                             Watermark="••••••••"
-                             Margin="0,0,0,8"/>
+                             x:Name="UrlTextBox"
+                             Watermark="https://..."
+                             Margin="0,0,0,16"/>
 
-                    <!-- Mot de passe oublié -->
-                    <TextBlock Text="Mot de passe oublié ?"
-                               Foreground="#3B82F6"
-                               FontSize="12"
-                               HorizontalAlignment="Right"
-                               Cursor="Hand"
-                               Margin="0,0,0,24"/>
+                    <!-- Login -->
+                    <TextBlock Text="Login"
+                               Foreground="#94A3B8"
+                               FontSize="13"
+                               Margin="0,0,0,6"/>
+                    <TextBox Classes="ModernBox"
+                             x:Name="LoginTextBox"
+                             Watermark="vous@exemple.com"
+                             Margin="0,0,0,16"/>
 
-                    <!-- Rester connecté -->
-                    <CheckBox Content="Rester connecté"
-                              Foreground="#94A3B8"
-                              FontSize="13"
-                              Margin="0,0,0,24"/>
+                    <!-- Mot de passe -->
+                    <TextBlock Text="Mot de passe"
+                               Foreground="#94A3B8"
+                               FontSize="13"
+                               Margin="0,0,0,6"/>
+                    <Grid ColumnDefinitions="*,8,Auto" Margin="0,0,0,28">
+                        <TextBox Classes="ModernBox"
+                                 x:Name="PasswordTextBox"
+                                 PasswordChar="●"
+                                 Watermark="••••••••"/>
+                        <Button Grid.Column="2"
+                                Classes="SecondaryButton"
+                                Content="Générer"
+                                Click="OnGeneratePassword"/>
+                    </Grid>
 
-
-                    <TextBlock x:Name="ErrorTextBlock"
-                               Text="Email ou mot de passe incorrect"
+                    <!-- Message erreur -->
+                    <TextBlock x:Name="ErrorText"
+                               Text="Veuillez remplir tous les champs"
                                Foreground="#EF4444"
                                FontSize="12"
                                HorizontalAlignment="Center"
                                IsVisible="False"
                                Margin="0,0,0,12"/>
 
-                    <!-- Bouton connexion -->
+                    <!-- Bouton Ajouter -->
                     <Button Classes="PrimaryButton"
-                            Content="Se connecter"
+                            Content="Ajouter le profil"
                             HorizontalAlignment="Stretch"
                             HorizontalContentAlignment="Center"
-                            Click="OnLoginClicked"
-                            Margin="0,0,0,20"/>
-
-                    <!-- Lien inscription -->
-                    <StackPanel Orientation="Horizontal"
-                                HorizontalAlignment="Center"
-                                Spacing="4">
-                        <TextBlock Text="Pas encore de compte ?"
-                                   Foreground="#94A3B8"
-                                   FontSize="13"
-                                   VerticalAlignment="Center"/>
-                        <TextBlock Text="S'inscrire"
-                                   Foreground="#3B82F6"
-                                   FontSize="13"
-                                   FontWeight="SemiBold"
-                                   Cursor="Hand"
-                                   VerticalAlignment="Center"/>
-                    </StackPanel>
+                            Click="OnAddProfil"/>
 
                 </StackPanel>
             </Border>
         </Grid>
 
     </Grid>
-
-
 </Window>

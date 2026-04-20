@@ -1,9 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
+using PassKeep.modeles;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Reflection.Metadata;
 using System.Security.Cryptography;
 using System.Text;
+using System.Linq;
 
 
 
@@ -12,6 +15,64 @@ namespace PassKeep.ClassesGenerales
     public static class ClassFonctionsGenerales
     {
         private static readonly byte[] _key = Encoding.UTF8.GetBytes("PassKeepSecret!!");
+
+
+
+
+        public static Boolean AjouterMots(string content)
+        {
+            var mots = content
+                .Split('\n')
+                .Select(m => m.Trim())
+                .Where(m => !string.IsNullOrEmpty(m))
+                .Select(m => new DbDictionnaire { Mot = m })
+                .ToList();
+            try
+            {
+                using DataContext db = new DataContext();
+                db.Dictionnaire.AddRange(mots);
+                db.SaveChanges();
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erreur lors de l'ajout des mots : {ex.Message}");
+                return false;
+
+            }
+        }
+
+        public static Boolean SupprimerMots()
+        {
+            try
+            {
+                using DataContext db = new DataContext();
+                db.Dictionnaire.RemoveRange(db.Dictionnaire);
+                db.SaveChanges();
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erreur lors de la suppression des mots : {ex.Message}");
+                return false;
+            }
+        }
+
+        public static List<string> GenererMotDePasse()
+        {
+            using DataContext db = new DataContext();
+
+            var mots = db.Dictionnaire
+                .Select(d => d.Mot)
+                .ToList()
+                .OrderBy(m => Guid.NewGuid())
+                .Take(new Random().Next(3, 6))
+                .ToList();
+            return mots;
+        }
+
 
         public static string hacherChaine(string chaine)
         {

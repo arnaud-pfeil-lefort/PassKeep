@@ -35,9 +35,10 @@ public partial class LoginView : Window
         using DataContext db = new DataContext();
 
         PKUser? user = db.PKUser.FirstOrDefault(
-            u => u.Email == EmailTextBox.Text && 
+            u => u.Email == EmailTextBox.Text &&
             u.Password == ClassFonctionsGenerales.hacherChaine(PasswordTextBox.Text ?? string.Empty)
         );
+
         if (user == null)
         {
             // Afficher un message d'erreur
