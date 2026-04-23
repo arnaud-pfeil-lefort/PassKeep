@@ -35,4 +35,10 @@
     <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="3.0.2" />
     <PackageReference Include="SQLitePCLRaw.core" Version="3.0.2" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\ProfilConnexionItem.axaml.cs">
+      <DependentUpon>ProfilConnexionItem.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
 </Project>

@@ -1,6 +1,8 @@
-﻿using System;
+﻿using PassKeep.ClassesGenerales;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace PassKeep.modeles
@@ -21,6 +23,12 @@ namespace PassKeep.modeles
         public Guid TypeProfilConnexionId { get; set; }
 
         public virtual TypeProfilConnexion TypeProfilConnexion { get; set; }
+
+
+        [NotMapped]
+        public string Initiale => string.IsNullOrEmpty(ServiceName) ? "?" : ServiceName[0].ToString().ToUpper();
+        [NotMapped]
+        public string MotDePasseClair => ClassFonctionsGenerales.decrypterChaine(ServiceCryptPassword);
     }
 }
 

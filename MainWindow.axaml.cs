@@ -2,6 +2,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using PassKeep.ClassesGenerales;
 using PassKeep.modeles;
 using PassKeep.Views;
 using System.Linq;
@@ -11,11 +12,23 @@ namespace PassKeep
     public partial class MainWindow : Window
     {
         private PKUser user;
+
         public MainWindow(PKUser user)
         {
             InitializeComponent();
             this.user = user;
             WelcomeText.Text = $"Bienvenue {user.Nom}";
+            ChargerProfils();
+        }
+
+        public void ChargerProfils()
+        {
+            using DataContext db = new DataContext();
+            var profils = db.ProfilConnexion
+                .Where(p => p.PKUserId == user.Id)
+                .ToList();
+
+            ProfilsList.ItemsSource = profils;
         }
 
         private void TitleBar_PointerPressed(object? sender, PointerPressedEventArgs e)

@@ -1,10 +1,13 @@
 using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using PassKeep.ClassesGenerales;
+using PassKeep.modeles;
 using System;
 using System.Linq;
-using PassKeep.modeles;
-using PassKeep.ClassesGenerales;
+using Avalonia;
+
 
 
 namespace PassKeep.Views;
@@ -46,19 +49,34 @@ public partial class AddProfilView : Window
         }
 
         using DataContext db = new DataContext();
+        var typeDefaut = db.TypeProfilConnexion.First();
+
 
         var profil = new ProfilConnexion
         {
             ServiceName  = ServiceTextBox.Text,
             ServiceUrl   = UrlTextBox.Text,
             ServiceLogin = LoginTextBox.Text,
-            ServiceCryptPassword = PasswordTextBox.Text,
-            PKUserId   = _currentUser.Id
+            ServiceCryptPassword = ClassFonctionsGenerales.encrypterChaine(PasswordTextBox.Text),
+            PKUserId   = _currentUser.Id,
+            TypeProfilConnexionId = typeDefaut.Id
         };
 
         db.ProfilConnexion.Add(profil);
         db.SaveChanges();
+        UpdateMainWindow();
 
         Close();
+    }
+
+    private void UpdateMainWindow()
+    {
+        if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        {
+            if (desktop.MainWindow is MainWindow mainWindow)
+            {
+                mainWindow.ChargerProfils();
+            }
+        }
     }
 }

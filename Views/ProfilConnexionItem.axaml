@@ -1,0 +1,52 @@
+<UserControl 
+    x:Class="PassKeep.Views.ProfilConnexionItem"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:modeles="clr-namespace:PassKeep.modeles"
+    x:DataType="modeles:ProfilConnexion">
+
+    <Border Classes="AccountItem" Margin="0,0,0,8">
+        <Grid ColumnDefinitions="Auto,*,Auto,Auto"
+              ColumnSpacing="18"
+              VerticalAlignment="Center">
+
+            <Border Classes="LogoBox">
+                <TextBlock Text="{Binding Initiale}"
+                           Classes="LogoLetter"/>
+            </Border>
+
+            <StackPanel Grid.Column="1" Spacing="4">
+                <TextBlock Text="{Binding ServiceName}"
+                           Classes="WebSiteTitle"/>
+                <TextBlock Text="{Binding ServiceLogin}"
+                           Classes="Username"/>
+            </StackPanel>
+
+            <Border Grid.Column="2" Classes="PasswordBox">
+                <TextBlock x:Name="PwdBox"
+                   Classes="PasswordValue"/>
+            </Border>
+
+            <StackPanel Grid.Column="3"
+                        Orientation="Horizontal"
+                        Spacing="6"
+                        VerticalAlignment="Center">
+                <Button Classes="IconButton"
+                        Click="OnToggleMotDePasse">
+                    <PathIcon Classes="IconPath"
+                        Data="M2 12s4-6 10-6 10 6 10 6-4 6-10 6-10-6-10-6zm10 4a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+                </Button>
+                <Button Classes="IconButton"
+                        Click="OnModifier">
+                    <PathIcon Classes="IconPath"
+                       Data="M3 17.25V21h3.75L18.37 9.38l-3.75-3.75L3 17.25zm11.71-9.04l2.04-2.04a1 1 0 0 1 1.41 0l1.63 1.63a1 1 0 0 1 0 1.41l-2.04 2.04-3.04-3.04z"/>
+                </Button>
+                <Button Classes="IconButton"
+                        Click="OnSupprimer">
+                    <PathIcon Classes="IconPath"
+                              Data="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>
