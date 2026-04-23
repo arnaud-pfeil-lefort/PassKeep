@@ -138,9 +138,10 @@
                                    FontSize="13"
                                    FontWeight="SemiBold"
                                    Cursor="Hand"
-                                   VerticalAlignment="Center"/>
+                                   VerticalAlignment="Center"
+                                   PointerPressed="OnRegisterClicked"/>
                     </StackPanel>
-
+                    
                 </StackPanel>
             </Border>
         </Grid>

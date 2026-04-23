@@ -74,7 +74,8 @@
                                Foreground="#94A3B8"
                                FontSize="13"
                                Margin="0,0,0,6"/>
-                    <TextBox Classes="ModernBox"
+                    <TextBox x:Name="NomTextBox"
+                             Classes="ModernBox"
                              Watermark="Jean Dupont"
                              Margin="0,0,0,16"/>
 
@@ -83,7 +84,8 @@
                                Foreground="#94A3B8"
                                FontSize="13"
                                Margin="0,0,0,6"/>
-                    <TextBox Classes="ModernBox"
+                    <TextBox x:Name="EmailTextBox"
+                             Classes="ModernBox"
                              Watermark="vous@exemple.com"
                              Margin="0,0,0,16"/>
 
@@ -92,7 +94,8 @@
                                Foreground="#94A3B8"
                                FontSize="13"
                                Margin="0,0,0,6"/>
-                    <TextBox Classes="ModernBox"
+                    <TextBox x:Name="PasswordTextBox"
+                             Classes="ModernBox"
                              PasswordChar="●"
                              Watermark="Minimum 8 caractères"
                              Margin="0,0,0,16"/>
@@ -107,12 +110,21 @@
                              Watermark="••••••••"
                              Margin="0,0,0,28"/>
 
+                    <TextBlock x:Name="ErrorTextBlock"
+                               Text="Email ou mot de passe incorrect"
+                               Foreground="#EF4444"
+                               FontSize="12"
+                               HorizontalAlignment="Center"
+                               IsVisible="False"
+                               Margin="0,0,0,12"/>
+
                     <!-- Bouton inscription -->
                     <Button Classes="PrimaryButton"
                             Content="Créer mon compte"
                             HorizontalAlignment="Stretch"
                             HorizontalContentAlignment="Center"
-                            Margin="0,0,0,20"/>
+                            Margin="0,0,0,20"
+                            Click="OnRegisterClicked"/>
 
                     <!-- Lien connexion -->
                     <StackPanel Orientation="Horizontal"
@@ -127,7 +139,8 @@
                                    FontSize="13"
                                    FontWeight="SemiBold"
                                    Cursor="Hand"
-                                   VerticalAlignment="Center"/>
+                                   VerticalAlignment="Center"
+                                   PointerPressed="OnLoginClicked"/>
                     </StackPanel>
 
                 </StackPanel>

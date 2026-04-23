@@ -48,12 +48,21 @@ public partial class LoginView : Window
             return;
         }
 
-
         var app = (IClassicDesktopStyleApplicationLifetime)Application.Current!.ApplicationLifetime!;
         var mainWindow = new MainWindow(user);
         app.MainWindow = mainWindow;
         mainWindow.Show();
 
+        Close();
+    }
+
+
+    private void OnRegisterClicked(object? sender, Avalonia.Input.PointerPressedEventArgs e)
+    {
+        var app = (IClassicDesktopStyleApplicationLifetime)Application.Current!.ApplicationLifetime!;
+        var mainWindow = new RegisterView();
+        app.MainWindow = mainWindow;
+        mainWindow.Show();
         Close();
     }
 }
