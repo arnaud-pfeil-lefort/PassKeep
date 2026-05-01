@@ -88,7 +88,7 @@
     <!-- ========================= -->
 
     <Style Selector="TextBlock.Title">
-        <Setter Property="FontSize" Value="26"/>
+        <Setter Property="FontSize" Value="22"/>
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="Foreground" Value="#F8FAFC"/>
     </Style>
@@ -116,12 +116,12 @@
         <Setter Property="Background" Value="#111827"/>
         <Setter Property="BorderBrush" Value="#243041"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="CornerRadius" Value="16"/>
-        <Setter Property="Padding" Value="18"/>
+        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="Padding" Value="12"/>
     </Style>
 
     <Style Selector="TextBlock.SectionTitle">
-        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontSize" Value="15"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="Foreground" Value="#F8FAFC"/>
     </Style>
@@ -133,20 +133,20 @@
 
     <Style Selector="Button.SecondaryButton">
         <Setter Property="Foreground" Value="#E2E8F0"/>
-        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontSize" Value="13"/>
         <Setter Property="Background" Value="#172033"/>
         <Setter Property="BorderBrush" Value="#2A364B"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Padding" Value="12,8"/>
-        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Padding" Value="10,6"/>
+        <Setter Property="CornerRadius" Value="8"/>
     </Style>
 
     <Style Selector="Button.SecondaryButton /template/ ContentPresenter">
         <Setter Property="Background" Value="#172033"/>
         <Setter Property="BorderBrush" Value="#2A364B"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="CornerRadius" Value="10"/>
-        <Setter Property="Padding" Value="12,8"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="Padding" Value="10,6"/>
     </Style>
 
     <Style Selector="Button.SecondaryButton:pointerover /template/ ContentPresenter">
@@ -165,18 +165,18 @@
     <!-- ========================= -->
 
     <Style Selector="Border.AccountItem">
-        <Setter Property="Background" Value="#0F172A"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="#1E293B"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="CornerRadius" Value="14"/>
-        <Setter Property="Padding" Value="14"/>
+        <Setter Property="BorderThickness" Value="0,0,0,1"/>
+        <Setter Property="CornerRadius" Value="0"/>
+        <Setter Property="Padding" Value="4,8"/>
     </Style>
 
     <Style Selector="Border.LogoBox">
-        <Setter Property="Width" Value="42"/>
-        <Setter Property="Height" Value="42"/>
+        <Setter Property="Width" Value="34"/>
+        <Setter Property="Height" Value="34"/>
         <Setter Property="Background" Value="#2563EB"/>
-        <Setter Property="CornerRadius" Value="12"/>
+        <Setter Property="CornerRadius" Value="9"/>
     </Style>
 
     <Style Selector="TextBlock.LogoLetter">
@@ -188,7 +188,7 @@
 
     <Style Selector="TextBlock.WebSiteTitle">
         <Setter Property="Foreground" Value="#F8FAFC"/>
-        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontSize" Value="14"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
     </Style>
 
@@ -283,16 +283,16 @@
     <Style Selector="Button.PrimaryButton">
         <Setter Property="Background" Value="#3B82F6"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontSize" Value="14"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
-        <Setter Property="Padding" Value="12"/>
-        <Setter Property="CornerRadius" Value="10"/>
+        <Setter Property="Padding" Value="12,9"/>
+        <Setter Property="CornerRadius" Value="8"/>
     </Style>
 
     <Style Selector="Button.PrimaryButton /template/ ContentPresenter">
         <Setter Property="Background" Value="#3B82F6"/>
-        <Setter Property="CornerRadius" Value="10"/>
-        <Setter Property="Padding" Value="12"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="Padding" Value="12,9"/>
     </Style>
 
     <Style Selector="Button.PrimaryButton:pointerover /template/ ContentPresenter">

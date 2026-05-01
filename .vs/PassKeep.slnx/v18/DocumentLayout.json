@@ -3,20 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\arnaud\\Desktop\\PassKeep\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\styles\\style.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|solutionrelative:styles\\style.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|solutionrelative:mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\app.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|solutionrelative:app.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|solutionrelative:app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\views\\addprofilview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
+      "RelativeMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|solutionrelative:views\\addprofilview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\views\\addprofilview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|solutionrelative:views\\addprofilview.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\modeles\\typeprofilconnexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|solutionrelative:modeles\\typeprofilconnexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\modeles\\profilconnexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|solutionrelative:modeles\\profilconnexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\views\\addprofilview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|solutionrelative:views\\addprofilview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\classesgenerales\\classfonctionsgenerales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -27,20 +39,16 @@
       "RelativeMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|solutionrelative:classesgenerales\\classconstantesgenerales.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\modeles\\profilconnexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|solutionrelative:modeles\\profilconnexion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\mainwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|solutionrelative:mainwindow.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|solutionrelative:mainwindow.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\views\\profilconnexionitem.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|solutionrelative:views\\profilconnexionitem.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\styles\\style.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|solutionrelative:styles\\style.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\aideenligne.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -69,14 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\views\\loginview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
       "RelativeMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|solutionrelative:views\\loginview.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|solutionrelative:app.axaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\app.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}",
-      "RelativeMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|solutionrelative:app.axaml||{6D5344A2-2FCD-49DE-A09D-6A14FD1B1224}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{79806B17-811C-84B6-8E86-ED9B0EB4575C}|PassKeep.csproj|c:\\users\\arnaud\\desktop\\passkeep\\viewmodels\\viewmodelbase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -140,75 +140,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "AddProfilView.axaml",
-              "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Views\\AddProfilView.axaml",
-              "RelativeDocumentMoniker": "Views\\AddProfilView.axaml",
-              "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Views\\AddProfilView.axaml",
-              "RelativeToolTip": "Views\\AddProfilView.axaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-20T08:14:05.737Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AddProfilView.axaml.cs",
-              "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Views\\AddProfilView.axaml.cs",
-              "RelativeDocumentMoniker": "Views\\AddProfilView.axaml.cs",
-              "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Views\\AddProfilView.axaml.cs",
-              "RelativeToolTip": "Views\\AddProfilView.axaml.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAswEMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T08:15:04.287Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MainWindow.axaml.cs",
-              "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\MainWindow.axaml.cs",
-              "RelativeDocumentMoniker": "MainWindow.axaml.cs",
-              "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\MainWindow.axaml.cs",
-              "RelativeToolTip": "MainWindow.axaml.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAowC0AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T15:35:25.103Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ClassConstantesGenerales.cs",
-              "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\ClassesGenerales\\ClassConstantesGenerales.cs",
-              "RelativeDocumentMoniker": "ClassesGenerales\\ClassConstantesGenerales.cs",
-              "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\ClassesGenerales\\ClassConstantesGenerales.cs",
-              "RelativeToolTip": "ClassesGenerales\\ClassConstantesGenerales.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-23T07:34:23.678Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "TypeProfilConnexion.cs",
-              "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\modeles\\TypeProfilConnexion.cs",
-              "RelativeDocumentMoniker": "modeles\\TypeProfilConnexion.cs",
-              "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\modeles\\TypeProfilConnexion.cs",
-              "RelativeToolTip": "modeles\\TypeProfilConnexion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA4AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-20T07:29:14.98Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "ProfilConnexion.cs",
               "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\modeles\\ProfilConnexion.cs",
               "RelativeDocumentMoniker": "modeles\\ProfilConnexion.cs",
@@ -216,24 +152,11 @@
               "RelativeToolTip": "modeles\\ProfilConnexion.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAA5wBgAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-15T15:32:47.971Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-15T15:32:47.971Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ProfilConnexionItem.axaml.cs",
-              "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Views\\ProfilConnexionItem.axaml.cs",
-              "RelativeDocumentMoniker": "Views\\ProfilConnexionItem.axaml.cs",
-              "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Views\\ProfilConnexionItem.axaml.cs",
-              "RelativeToolTip": "Views\\ProfilConnexionItem.axaml.cs",
-              "ViewState": "AgIAACsAAAAAAAAAAAAYwDgAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-04-23T09:59:08.448Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "ClassFonctionsGenerales.cs",
               "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\ClassesGenerales\\ClassFonctionsGenerales.cs",
               "RelativeDocumentMoniker": "ClassesGenerales\\ClassFonctionsGenerales.cs",
@@ -246,18 +169,131 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 0,
               "Title": "style.axaml",
               "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Styles\\style.axaml",
               "RelativeDocumentMoniker": "Styles\\style.axaml",
               "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Styles\\style.axaml",
               "RelativeToolTip": "Styles\\style.axaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-23T14:24:37.85Z"
+              "WhenOpened": "2026-04-23T14:24:37.85Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AddProfilView.axaml",
+              "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Views\\AddProfilView.axaml",
+              "RelativeDocumentMoniker": "Views\\AddProfilView.axaml",
+              "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Views\\AddProfilView.axaml",
+              "RelativeToolTip": "Views\\AddProfilView.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-20T08:14:05.737Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "App.axaml.cs",
+              "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\App.axaml.cs",
+              "RelativeDocumentMoniker": "App.axaml.cs",
+              "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\App.axaml.cs",
+              "RelativeToolTip": "App.axaml.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAYwDEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-29T13:16:48.121Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "App.axaml",
+              "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\App.axaml",
+              "RelativeDocumentMoniker": "App.axaml",
+              "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\App.axaml",
+              "RelativeToolTip": "App.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-04-20T07:58:31.033Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainWindow.axaml",
+              "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\MainWindow.axaml",
+              "RelativeDocumentMoniker": "MainWindow.axaml",
+              "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\MainWindow.axaml",
+              "RelativeToolTip": "MainWindow.axaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2026-03-15T15:08:24.578Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TypeProfilConnexion.cs",
+              "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\modeles\\TypeProfilConnexion.cs",
+              "RelativeDocumentMoniker": "modeles\\TypeProfilConnexion.cs",
+              "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\modeles\\TypeProfilConnexion.cs",
+              "RelativeToolTip": "modeles\\TypeProfilConnexion.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T07:29:14.98Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ClassConstantesGenerales.cs",
+              "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\ClassesGenerales\\ClassConstantesGenerales.cs",
+              "RelativeDocumentMoniker": "ClassesGenerales\\ClassConstantesGenerales.cs",
+              "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\ClassesGenerales\\ClassConstantesGenerales.cs",
+              "RelativeToolTip": "ClassesGenerales\\ClassConstantesGenerales.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T07:34:23.678Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AddProfilView.axaml.cs",
+              "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Views\\AddProfilView.axaml.cs",
+              "RelativeDocumentMoniker": "Views\\AddProfilView.axaml.cs",
+              "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Views\\AddProfilView.axaml.cs",
+              "RelativeToolTip": "Views\\AddProfilView.axaml.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAowEMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-20T08:15:04.287Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 10,
+              "Title": "MainWindow.axaml.cs",
+              "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\MainWindow.axaml.cs",
+              "RelativeDocumentMoniker": "MainWindow.axaml.cs",
+              "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\MainWindow.axaml.cs",
+              "RelativeToolTip": "MainWindow.axaml.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAowC0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-15T15:35:25.103Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ProfilConnexionItem.axaml.cs",
+              "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Views\\ProfilConnexionItem.axaml.cs",
+              "RelativeDocumentMoniker": "Views\\ProfilConnexionItem.axaml.cs",
+              "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Views\\ProfilConnexionItem.axaml.cs",
+              "RelativeToolTip": "Views\\ProfilConnexionItem.axaml.cs",
+              "ViewState": "AgIAACsAAAAAAAAAAAAYwDgAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T09:59:08.448Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
               "Title": "AideEnLigne.html",
               "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\AideEnLigne.html",
               "RelativeDocumentMoniker": "AideEnLigne.html",
@@ -269,18 +305,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MainWindow.axaml",
-              "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\MainWindow.axaml",
-              "RelativeDocumentMoniker": "MainWindow.axaml",
-              "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\MainWindow.axaml",
-              "RelativeToolTip": "MainWindow.axaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-03-15T15:08:24.578Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "PassKeep.csproj",
               "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\PassKeep.csproj",
               "RelativeDocumentMoniker": "PassKeep.csproj",
@@ -292,7 +317,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 16,
               "Title": "RegisterView.axaml.cs",
               "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Views\\RegisterView.axaml.cs",
               "RelativeDocumentMoniker": "Views\\RegisterView.axaml.cs",
@@ -304,7 +329,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "LoginView.axaml.cs",
               "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Views\\LoginView.axaml.cs",
               "RelativeDocumentMoniker": "Views\\LoginView.axaml.cs",
@@ -316,7 +341,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "ProfilConnexionItem.axaml",
               "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Views\\ProfilConnexionItem.axaml",
               "RelativeDocumentMoniker": "Views\\ProfilConnexionItem.axaml",
@@ -327,7 +352,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 17,
               "Title": "RegisterView.axaml",
               "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Views\\RegisterView.axaml",
               "RelativeDocumentMoniker": "Views\\RegisterView.axaml",
@@ -338,30 +363,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "App.axaml.cs",
-              "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\App.axaml.cs",
-              "RelativeDocumentMoniker": "App.axaml.cs",
-              "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\App.axaml.cs",
-              "RelativeToolTip": "App.axaml.cs",
-              "ViewState": "AgIAABgAAAAAAAAAAAAYwDEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-29T13:16:48.121Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 18,
-              "Title": "App.axaml",
-              "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\App.axaml",
-              "RelativeDocumentMoniker": "App.axaml",
-              "ToolTip": "C:\\Users\\arnaud\\Desktop\\PassKeep\\App.axaml",
-              "RelativeToolTip": "App.axaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2026-04-20T07:58:31.033Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
               "Title": "LoginView.axaml",
               "DocumentMoniker": "C:\\Users\\arnaud\\Desktop\\PassKeep\\Views\\LoginView.axaml",
               "RelativeDocumentMoniker": "Views\\LoginView.axaml",

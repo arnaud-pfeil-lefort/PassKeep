@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PassKeep")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+35c521bc4bd212ced83ddb1fdf62faa10ae7e634")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+209e1a6787c6d09c6674f6be96adc00d8df875fa")]
 [assembly: System.Reflection.AssemblyProductAttribute("PassKeep")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PassKeep")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
