@@ -5,7 +5,12 @@ using Avalonia.Interactivity;
 using PassKeep.ClassesGenerales;
 using PassKeep.modeles;
 using PassKeep.Views;
+using System;
+using System.Diagnostics;
 using System.Linq;
+using System.Diagnostics;
+using System.IO;
+
 
 namespace PassKeep
 {
@@ -29,6 +34,15 @@ namespace PassKeep
                 .ToList();
 
             ProfilsList.ItemsSource = profils;
+        }
+
+        private void OnHelpClicked(object? sender, RoutedEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "AideEnLigne.html"),
+                UseShellExecute = true
+            });
         }
 
         private void TitleBar_PointerPressed(object? sender, PointerPressedEventArgs e)

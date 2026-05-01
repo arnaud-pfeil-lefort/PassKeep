@@ -19,6 +19,7 @@ public partial class AddProfilView : Window
     public AddProfilView(PKUser user)
     {
         InitializeComponent();
+        LoadTypeProfils();
         _currentUser = user;
     }
 
@@ -38,6 +39,14 @@ public partial class AddProfilView : Window
         PasswordTextBox.PasswordChar = '\0';
     }
 
+    private void LoadTypeProfils()
+    {
+        using DataContext db = new DataContext();
+        var types = db.TypeProfilConnexion.ToList();
+        TypeProfilComboBox.ItemsSource = types;
+        TypeProfilComboBox.DisplayMemberBinding = new Avalonia.Data.Binding("Nom"); 
+    }
+
     private void OnAddProfil(object? sender, RoutedEventArgs e)
     {
         if (string.IsNullOrWhiteSpace(ServiceTextBox.Text) ||
@@ -49,17 +58,22 @@ public partial class AddProfilView : Window
         }
 
         using DataContext db = new DataContext();
-        var typeDefaut = db.TypeProfilConnexion.First();
-
+        var typeProfil = TypeProfilComboBox.SelectedItem as TypeProfilConnexion;
+        if (typeProfil == null)
+        {
+            ErrorText.Text = "Veuillez sélectionner un type de profil.";
+            ErrorText.IsVisible = true;
+            return;
+        }
 
         var profil = new ProfilConnexion
         {
-            ServiceName  = ServiceTextBox.Text,
-            ServiceUrl   = UrlTextBox.Text,
+            ServiceName = ServiceTextBox.Text,
+            ServiceUrl = UrlTextBox.Text,
             ServiceLogin = LoginTextBox.Text,
             ServiceCryptPassword = ClassFonctionsGenerales.encrypterChaine(PasswordTextBox.Text),
-            PKUserId   = _currentUser.Id,
-            TypeProfilConnexionId = typeDefaut.Id
+            PKUserId = _currentUser.Id,
+            TypeProfilConnexionId = typeProfil.Id
         };
 
         db.ProfilConnexion.Add(profil);

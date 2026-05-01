@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PassKeep - Aide en ligne</title>
+    <style>
+        :root {
+            --bg: #0b1220;
+            --panel: #111a2c;
+            --panel-2: #18243a;
+            --text: #e2e8f0;
+            --muted: #94a3b8;
+            --primary: #3b82f6;
+            --ok: #22c55e;
+            --warn: #f59e0b;
+            --danger: #ef4444;
+            --border: #243041;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Inter, Segoe UI, Roboto, Arial, sans-serif;
+            background: linear-gradient(180deg, #0b1220 0%, #0f172a 100%);
+            color: var(--text);
+            line-height: 1.55;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 32px 20px 60px;
+        }
+
+        header {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            font-size: 2rem;
+        }
+
+        h2 {
+            margin: 0 0 12px;
+            font-size: 1.35rem;
+        }
+
+        h3 {
+            margin: 18px 0 8px;
+            font-size: 1.05rem;
+        }
+
+        p {
+            margin: 0 0 10px;
+        }
+
+        .subtitle {
+            color: var(--muted);
+            margin: 0;
+        }
+
+        .grid {
+            display: grid;
+            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            margin: 20px 0;
+        }
+
+        .card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px;
+        }
+
+        .tag {
+            display: inline-block;
+            border-radius: 999px;
+            padding: 4px 10px;
+            font-size: 0.78rem;
+            margin-bottom: 10px;
+            background: #1e293b;
+            color: #bfdbfe;
+            border: 1px solid #334155;
+        }
+
+        .steps,
+        .tips,
+        .faq {
+            padding-left: 18px;
+            margin: 6px 0 0;
+        }
+
+            .steps li,
+            .tips li,
+            .faq li {
+                margin-bottom: 8px;
+            }
+
+        .box {
+            background: var(--panel-2);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px;
+            margin: 12px 0;
+        }
+
+        .ok {
+            color: var(--ok);
+        }
+
+        .warn {
+            color: var(--warn);
+        }
+
+        .danger {
+            color: var(--danger);
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+
+            .table th,
+            .table td {
+                border: 1px solid var(--border);
+                padding: 10px;
+                text-align: left;
+                vertical-align: top;
+            }
+
+            .table th {
+                background: #0f1a2d;
+                color: #bfdbfe;
+                width: 36%;
+            }
+
+        .footer {
+            margin-top: 24px;
+            color: var(--muted);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        a {
+            color: #93c5fd;
+            text-decoration: none;
+        }
+
+            a:hover {
+                text-decoration: underline;
+            }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>PassKeep — Aide en ligne</h1>
+            <p class="subtitle">
+                Ce guide explique toutes les fonctions principales de l'application : création de compte,
+                connexion, gestion des mots de passe, paramètres et bonnes pratiques de sécurité.
+            </p>
+        </header>
+
+        <section class="card">
+            <h2>1) Démarrage rapide</h2>
+            <ol class="steps">
+                <li>Ouvre l'application et choisis <strong>S'inscrire</strong> si tu n'as pas encore de compte.</li>
+                <li>Renseigne ton nom, ton e-mail et un mot de passe pour créer ton coffre-fort.</li>
+                <li>Connecte-toi depuis l'écran <strong>Connexion</strong>.</li>
+                <li>Dans l'écran principal, clique sur <strong>+ Ajouter un mot de passe</strong>.</li>
+                <li>Affiche/masque un mot de passe avec l'icône <strong>œil</strong>, ou supprime une entrée avec l'icône <strong>corbeille</strong>.</li>
+            </ol>
+        </section>
+
+        <div class="grid">
+            <section class="card">
+                <span class="tag">Compte utilisateur</span>
+                <h2>2) Inscription</h2>
+                <p>Le formulaire d'inscription demande :</p>
+                <ul class="tips">
+                    <li>Nom complet</li>
+                    <li>Adresse e-mail</li>
+                    <li>Mot de passe</li>
+                </ul>
+                <div class="box">
+                    <p class="ok"><strong>Validation :</strong> tous les champs sont obligatoires.</p>
+                    <p class="warn"><strong>Attention :</strong> l'e-mail doit être unique (impossible de créer deux comptes avec la même adresse).</p>
+                </div>
+            </section>
+
+            <section class="card">
+                <span class="tag">Accès</span>
+                <h2>3) Connexion</h2>
+                <p>Sur l'écran de connexion, saisis ton e-mail et ton mot de passe puis clique sur <strong>Se connecter</strong>.</p>
+                <div class="box">
+                    <p>En cas d'erreur, le message <em>"Email ou mot de passe incorrect."</em> s'affiche.</p>
+                    <p class="warn">La case <strong>Rester connecté</strong> est visible mais peut dépendre d'une évolution future selon ton environnement.</p>
+                </div>
+            </section>
+        </div>
+
+        <section class="card">
+            <span class="tag">Cœur de l'application</span>
+            <h2>4) Gestion des profils de connexion</h2>
+            <p>Chaque profil représente un compte externe (Google, GitHub, banque, etc.).</p>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Fonction</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Ajouter un profil</td>
+                        <td>Ajoute un service avec son URL, login et mot de passe depuis le bouton <strong>+ Ajouter un mot de passe</strong>.</td>
+                    </tr>
+                    <tr>
+                        <td>Générer un mot de passe</td>
+                        <td>Le bouton <strong>Générer</strong> propose automatiquement un mot de passe.</td>
+                    </tr>
+                    <tr>
+                        <td>Afficher / masquer</td>
+                        <td>L'icône <strong>œil</strong> permet de voir le mot de passe en clair puis de le masquer.</td>
+                    </tr>
+                    <tr>
+                        <td>Supprimer une entrée</td>
+                        <td>L'icône <strong>corbeille</strong> supprime immédiatement le profil sélectionné.</td>
+                    </tr>
+                    <tr>
+                        <td>Modifier une entrée</td>
+                        <td>Le bouton <strong>modifier</strong> est présent visuellement et peut être complété dans une version future.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="box">
+                <p class="danger"><strong>Important :</strong> la suppression est définitive après validation interne.</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <span class="tag">Paramètres</span>
+            <h2>5) Dictionnaire (génération de mots de passe)</h2>
+            <p>Depuis l'icône <strong>engrenage</strong>, ouvre les paramètres puis la section dictionnaire.</p>
+
+            <h3>Importer un dictionnaire</h3>
+            <ul class="tips">
+                <li>Clique sur <strong>Importer</strong>.</li>
+                <li>Sélectionne un fichier texte <code>.txt</code> contenant une liste de mots.</li>
+                <li>Un message confirme la réussite ou l'échec de l'import.</li>
+            </ul>
+
+            <h3>Supprimer les mots</h3>
+            <ul class="tips">
+                <li>Clique sur <strong>Supprimer</strong> pour vider totalement le dictionnaire.</li>
+                <li>Un message de retour indique le résultat de l'opération.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <span class="tag">Sécurité</span>
+            <h2>6) Recommandations importantes</h2>
+            <ul class="tips">
+                <li>Choisis un mot de passe principal long et unique.</li>
+                <li>Évite de réutiliser le même mot de passe entre plusieurs services.</li>
+                <li>Préserve l'accès à ta machine : si la session est ouverte, tes informations peuvent être visibles.</li>
+                <li>Fais des sauvegardes régulières de ton environnement si nécessaire.</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <span class="tag">FAQ</span>
+            <h2>7) Questions fréquentes</h2>
+            <ul class="faq">
+                <li><strong>Je ne peux pas créer mon compte :</strong> vérifie que tous les champs sont remplis et que l'e-mail n'existe pas déjà.</li>
+                <li><strong>Je n'arrive pas à me connecter :</strong> vérifie ton e-mail, ton mot de passe, et la casse (majuscules/minuscules).</li>
+                <li><strong>Le mot de passe ne s'affiche pas :</strong> clique sur l'icône œil dans la ligne du profil concerné.</li>
+                <li><strong>Que faire après suppression d'un profil ?</strong> La suppression est permanente, il faut recréer l'entrée manuellement.</li>
+            </ul>
+        </section>
+
+        <p class="footer">
+            Aide en ligne PassKeep — fichier autonome HTML/CSS (sans dépendance externe).
+        </p>
+    </main>
+</body>
+</html>

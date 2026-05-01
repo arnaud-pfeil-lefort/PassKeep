@@ -89,6 +89,17 @@
                              Watermark="https://..."
                              Margin="0,0,0,16"/>
 
+                    <!-- Type de Profil -->
+                    <TextBlock Text="Type de Profil"
+                                Foreground="#94A3B8"
+                                FontSize="13"
+                                Margin="0,0,0,6"/>
+                    <ComboBox x:Name="TypeProfilComboBox"
+                                Classes="ModernBox"
+                                HorizontalAlignment="Stretch"
+                                PlaceholderText="Sélectionner un type..."
+                                Margin="0,0,0,16"/>
+
                     <!-- Login -->
                     <TextBlock Text="Login"
                                Foreground="#94A3B8"

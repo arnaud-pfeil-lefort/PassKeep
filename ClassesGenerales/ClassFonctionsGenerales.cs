@@ -7,6 +7,7 @@ using System.Reflection.Metadata;
 using System.Security.Cryptography;
 using System.Text;
 using System.Linq;
+using System.Runtime.InteropServices;
 
 
 
@@ -16,6 +17,47 @@ namespace PassKeep.ClassesGenerales
     {
         private static readonly byte[] _key = Encoding.UTF8.GetBytes("PassKeepSecret!!");
 
+
+        public static void CreerFichierJournalErreur(string message)
+        {
+            try
+            {
+                string logFilePath = Path.Combine(Directory.GetCurrentDirectory(), "error.log");
+                string logEntry = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} - {message}{Environment.NewLine}";
+
+                File.AppendAllText(logFilePath, logEntry);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Impossible d'écrire dans le fichier log : {ex.Message}");
+            }
+        }
+
+        public static void GestionErreur(Exception? ex, string message = "", bool fermerApplication = false)
+        {
+            if (ex == null)
+            {
+                Console.WriteLine("Erreur inconnue.");
+                CreerFichierJournalErreur("Erreur inconnue.");
+                return;
+            }
+
+            string fullMessage = string.IsNullOrWhiteSpace(message) ? ex.Message : $"{message} | {ex.Message}";
+
+            Console.WriteLine($"Erreur : {fullMessage}");
+            CreerFichierJournalErreur(fullMessage);
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                Console.WriteLine("=== STACK TRACE ===");
+                Console.WriteLine(ex.StackTrace);
+            }
+
+            if (fermerApplication)
+            {
+                Environment.Exit(1);
+            }
+        }
 
 
 

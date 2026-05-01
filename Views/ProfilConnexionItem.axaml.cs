@@ -8,6 +8,7 @@ using System;
 using PassKeep.ClassesGenerales;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using System.Linq.Expressions;
 
 
 namespace PassKeep.Views
@@ -48,7 +49,13 @@ namespace PassKeep.Views
         {
             if (DataContext is ProfilConnexion profil)
             {
-                // ouvrir une vue de modification
+                try {
+                    var i = 0;
+                    var m = i / 0; // pour tester la gestion d'erreur
+                } catch (Exception ex) {
+
+                    ClassFonctionsGenerales.GestionErreur(ex);
+                }
             }
         }
 
