@@ -67,4 +67,10 @@ public partial class SettingsView : Window
             FeedbackText.IsVisible = true;
         }
     }
+
+    private void OnGererTypes(object? sender, RoutedEventArgs e)
+    {
+        var typeProfilView = new TypeProfilView();
+        typeProfilView.ShowDialog(this);
+    }
 }

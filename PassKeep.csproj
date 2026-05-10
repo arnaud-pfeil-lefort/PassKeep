@@ -40,5 +40,8 @@
     <Compile Update="Views\ProfilConnexionItem.axaml.cs">
       <DependentUpon>ProfilConnexionItem.axaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\TypeProfilView.axaml.cs">
+      <DependentUpon>TypeProfilView.axaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

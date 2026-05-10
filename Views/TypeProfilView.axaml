@@ -1,0 +1,102 @@
+<Window
+    x:Class="PassKeep.Views.TypeProfilView"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:modeles="clr-namespace:PassKeep.modeles"
+    Width="420" Height="500"
+    MinWidth="380" MinHeight="440"
+    Title="PassKeep"
+    Background="#0B1220"
+    Topmost="True"
+    Icon="/assets/passkeepIcon.png"
+    SystemDecorations="None"
+    ExtendClientAreaToDecorationsHint="True"
+    ExtendClientAreaTitleBarHeightHint="40">
+
+    <Grid RowDefinitions="40,*">
+
+        <!-- TITLE BAR -->
+        <Border Grid.Row="0"
+                Background="#0F172A"
+                BorderBrush="#1E293B"
+                BorderThickness="0,0,0,1"
+                PointerPressed="TitleBar_PointerPressed">
+            <Grid ColumnDefinitions="*,Auto" Margin="12,0,12,0">
+                <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center">
+                    <Border Width="26" Height="26" Background="#2563EB" CornerRadius="8" VerticalAlignment="Center">
+                        <TextBlock Text="P" Foreground="White" FontWeight="Bold"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <TextBlock Grid.Column="1" Margin="10,0,0,0" Text="PassKeep"
+                               Foreground="#F8FAFC" FontSize="14" FontWeight="SemiBold"
+                               VerticalAlignment="Center"/>
+                </Grid>
+                <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                    <Button Classes="WindowButton" Content="─" Click="MinimizeWindow"/>
+                    <Button Classes="WindowCloseButton" Content="✕" Click="CloseWindow"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- CONTENT -->
+        <Grid Grid.Row="1" Margin="24">
+            <Border Classes="Card" Padding="24">
+                <StackPanel Spacing="16">
+
+                    <!-- Header -->
+                    <StackPanel Spacing="4">
+                        <TextBlock Classes="Title" Text="Types de profil"/>
+                        <TextBlock Classes="Subtitle" Text="Gérer les catégories de comptes"/>
+                    </StackPanel>
+
+                    <!-- Ajout -->
+                    <Grid ColumnDefinitions="*,8,Auto">
+                        <TextBox Classes="ModernBox"
+                                 x:Name="NomTextBox"
+                                 Watermark="Nouveau type..."
+                                 VerticalAlignment="Center"/>
+                        <Button Grid.Column="2"
+                                Classes="PrimaryButton"
+                                Content="Ajouter"
+                                VerticalAlignment="Center"
+                                Click="OnAjouter"/>
+                    </Grid>
+
+                    <!-- Feedback -->
+                    <TextBlock x:Name="FeedbackText"
+                               FontSize="12"
+                               HorizontalAlignment="Center"
+                               IsVisible="False"/>
+
+                    <ScrollViewer MaxHeight="260">
+                        <ListBox x:Name="TypesList"
+                                 Background="Transparent"
+                                 SelectionMode="Single">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate DataType="{x:Type modeles:TypeProfilConnexion}">
+                                    <Grid ColumnDefinitions="*,Auto" Margin="0,4">
+                                        <Border Background="#1E293B" CornerRadius="8" Padding="12,10">
+                                            <TextBlock Text="{Binding Nom}"
+                                                       Foreground="#E2E8F0"
+                                                       FontSize="14"
+                                                       VerticalAlignment="Center"/>
+                                        </Border>
+                                        <Button Grid.Column="1"
+                                                Classes="WindowCloseButton"
+                                                Content="✕"
+                                                Margin="8,0,0,0"
+                                                VerticalAlignment="Center"
+                                                Tag="{Binding}"
+                                                Click="OnSupprimer"/>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </ScrollViewer>
+
+                </StackPanel>
+            </Border>
+        </Grid>
+
+    </Grid>
+</Window>

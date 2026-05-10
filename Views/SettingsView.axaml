@@ -5,7 +5,7 @@
     Width="460"
     Height="420"
     MinWidth="400"
-    MinHeight="380"
+    MinHeight="480"
     Title="PassKeep"
     Background="#0B1220"
     Topmost="True"
@@ -67,6 +67,33 @@
                     <TextBlock Classes="Title" Text="Paramètres"/>
                     <TextBlock Classes="Subtitle" Text="Configuration de l'application"/>
                 </StackPanel>
+
+
+                <!-- Catégorie Types de profil -->
+                <Border Classes="Card">
+                    <StackPanel Spacing="16">
+                        <StackPanel Spacing="4">
+                            <TextBlock Classes="SectionTitle" Text="Types de profil"/>
+                            <TextBlock Classes="SectionSubtitle" Text="Catégories de comptes disponibles"/>
+                        </StackPanel>
+                        <Grid ColumnDefinitions="*,Auto">
+                            <StackPanel Spacing="2" VerticalAlignment="Center">
+                                <TextBlock Text="Gérer les types"
+                                           Foreground="#E2E8F0"
+                                           FontSize="14"
+                                           FontWeight="SemiBold"/>
+                                <TextBlock Text="Ajouter ou supprimer des catégories"
+                                           Foreground="#94A3B8"
+                                           FontSize="12"/>
+                            </StackPanel>
+                            <Button Grid.Column="1"
+                                    Classes="SecondaryButton"
+                                    Content="Gérer"
+                                    VerticalAlignment="Center"
+                                    Click="OnGererTypes"/>
+                        </Grid>
+                    </StackPanel>
+                </Border>
 
                 <!-- Catégorie Dictionnaire -->
                 <Border Classes="Card">
