@@ -29,7 +29,7 @@ namespace PassKeep.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Dictionnaire", (string)null);
+                    b.ToTable("Dictionnaire");
                 });
 
             modelBuilder.Entity("PassKeep.modeles.PKUser", b =>
@@ -56,7 +56,7 @@ namespace PassKeep.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PKUser", (string)null);
+                    b.ToTable("PKUser");
                 });
 
             modelBuilder.Entity("PassKeep.modeles.ProfilConnexion", b =>
@@ -93,7 +93,7 @@ namespace PassKeep.Migrations
 
                     b.HasIndex("TypeProfilConnexionId");
 
-                    b.ToTable("ProfilConnexion", (string)null);
+                    b.ToTable("ProfilConnexion");
                 });
 
             modelBuilder.Entity("PassKeep.modeles.TypeProfilConnexion", b =>
@@ -108,7 +108,7 @@ namespace PassKeep.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("TypeProfilConnexion", (string)null);
+                    b.ToTable("TypeProfilConnexion");
                 });
 
             modelBuilder.Entity("PassKeep.modeles.ProfilConnexion", b =>

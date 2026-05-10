@@ -14,8 +14,8 @@ namespace PassKeep.modeles
 
         public string ServiceName { get; set; }
 
-        public string ServiceUrl { get; set; }
-        public string ServiceLogin { get; set; }
+        public string? ServiceUrl { get; set; }
+        public string? ServiceLogin { get; set; }
         public string ServiceCryptPassword { get; set; }
 
         public Guid PKUserId { get; set; }

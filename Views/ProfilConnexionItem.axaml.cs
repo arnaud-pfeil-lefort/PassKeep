@@ -16,6 +16,7 @@ namespace PassKeep.Views
     public partial class ProfilConnexionItem : UserControl
     {
         private bool _motDePasseVisible = false;
+        private ProfilConnexion profil => DataContext as ProfilConnexion;
 
         public ProfilConnexionItem()
         {
@@ -47,15 +48,11 @@ namespace PassKeep.Views
 
         private void OnModifier(object? sender, RoutedEventArgs e)
         {
-            if (DataContext is ProfilConnexion profil)
+            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop
+                && desktop.MainWindow is MainWindow mainWindow)
             {
-                try {
-                    var i = 0;
-                    var m = i / 0; // pour tester la gestion d'erreur
-                } catch (Exception ex) {
-
-                    ClassFonctionsGenerales.GestionErreur(ex);
-                }
+                var addProfilView = new AddProfilView(mainWindow.user, profil);
+                addProfilView.ShowDialog(mainWindow);
             }
         }
 

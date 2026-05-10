@@ -65,12 +65,13 @@
 
                     <!-- Header -->
                     <StackPanel Spacing="4" Margin="0,0,0,28">
-                        <TextBlock Classes="Title" Text="Nouveau profil"/>
-                        <TextBlock Classes="Subtitle" Text="Ajoute un compte à ton coffre-fort"/>
+                        <TextBlock x:Name="FormTitle" Classes="Title" Text="Nouveau profil"/>
+                        <TextBlock x:Name="FormSubtitle" Classes="Subtitle" Text="Ajoute un compte à ton coffre-fort"/>
+
                     </StackPanel>
 
                     <!-- Nom du service -->
-                    <TextBlock Text="Service"
+                       <TextBlock Text="Service"
                                Foreground="#94A3B8"
                                FontSize="13"
                                Margin="0,0,0,6"/>
@@ -136,11 +137,12 @@
                                Margin="0,0,0,12"/>
 
                     <!-- Bouton Ajouter -->
-                    <Button Classes="PrimaryButton"
-                            Content="Ajouter le profil"
-                            HorizontalAlignment="Stretch"
-                            HorizontalContentAlignment="Center"
-                            Click="OnAddProfil"/>
+                    <Button x:Name="SubmitButton"
+                        Classes="PrimaryButton"
+                        Content="Ajouter le profil"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        Click="OnAddProfil"/>
 
                 </StackPanel>
             </Border>

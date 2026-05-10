@@ -8,19 +8,39 @@ using System;
 using System.Linq;
 using Avalonia;
 
-
-
 namespace PassKeep.Views;
 
 public partial class AddProfilView : Window
 {
     private readonly PKUser _currentUser;
+    private readonly ProfilConnexion? _profilToUpdate;
 
-    public AddProfilView(PKUser user)
+    public AddProfilView(PKUser user, ProfilConnexion? profilToUpdate = null)
     {
         InitializeComponent();
-        LoadTypeProfils();
         _currentUser = user;
+        _profilToUpdate = profilToUpdate;
+
+        LoadTypeProfils();
+
+        if (_profilToUpdate != null)
+            PopulateForm();
+    }
+
+    private void PopulateForm()
+    {
+        FormTitle.Text = "Modifier le profil";
+        FormSubtitle.Text = "Modifie les informations du compte";
+        SubmitButton.Content = "Enregistrer les modifications";
+
+        ServiceTextBox.Text = _profilToUpdate!.ServiceName;
+        UrlTextBox.Text = _profilToUpdate.ServiceUrl;
+        LoginTextBox.Text = _profilToUpdate.ServiceLogin;
+
+        PasswordTextBox.Text = ClassFonctionsGenerales.decrypterChaine(_profilToUpdate.ServiceCryptPassword);
+
+        TypeProfilComboBox.SelectedItem = (TypeProfilComboBox.ItemsSource as System.Collections.Generic.List<TypeProfilConnexion>)
+            ?.FirstOrDefault(t => t.Id == _profilToUpdate.TypeProfilConnexionId);
     }
 
     private void TitleBar_PointerPressed(object? sender, PointerPressedEventArgs e)
@@ -44,20 +64,19 @@ public partial class AddProfilView : Window
         using DataContext db = new DataContext();
         var types = db.TypeProfilConnexion.ToList();
         TypeProfilComboBox.ItemsSource = types;
-        TypeProfilComboBox.DisplayMemberBinding = new Avalonia.Data.Binding("Nom"); 
+        TypeProfilComboBox.DisplayMemberBinding = new Avalonia.Data.Binding("Nom");
     }
 
     private void OnAddProfil(object? sender, RoutedEventArgs e)
     {
         if (string.IsNullOrWhiteSpace(ServiceTextBox.Text) ||
-            string.IsNullOrWhiteSpace(LoginTextBox.Text)   ||
+            string.IsNullOrWhiteSpace(LoginTextBox.Text) ||
             string.IsNullOrWhiteSpace(PasswordTextBox.Text))
         {
             ErrorText.IsVisible = true;
             return;
         }
 
-        using DataContext db = new DataContext();
         var typeProfil = TypeProfilComboBox.SelectedItem as TypeProfilConnexion;
         if (typeProfil == null)
         {
@@ -66,31 +85,44 @@ public partial class AddProfilView : Window
             return;
         }
 
-        var profil = new ProfilConnexion
-        {
-            ServiceName = ServiceTextBox.Text,
-            ServiceUrl = UrlTextBox.Text,
-            ServiceLogin = LoginTextBox.Text,
-            ServiceCryptPassword = ClassFonctionsGenerales.encrypterChaine(PasswordTextBox.Text),
-            PKUserId = _currentUser.Id,
-            TypeProfilConnexionId = typeProfil.Id
-        };
+        using DataContext db = new DataContext();
 
-        db.ProfilConnexion.Add(profil);
+        if (_profilToUpdate != null)
+        {
+            // Mode UPDATE
+            var profil = db.ProfilConnexion.Find(_profilToUpdate.Id);
+            if (profil == null) { Close(); return; }
+
+            profil.ServiceName = ServiceTextBox.Text;
+            profil.ServiceUrl = UrlTextBox.Text;
+            profil.ServiceLogin = LoginTextBox.Text;
+            profil.ServiceCryptPassword = ClassFonctionsGenerales.encrypterChaine(PasswordTextBox.Text);
+            profil.TypeProfilConnexionId = typeProfil.Id;
+        }
+        else
+        {
+            // Mode CREATE
+            var profil = new ProfilConnexion
+            {
+                ServiceName = ServiceTextBox.Text,
+                ServiceUrl = UrlTextBox.Text,
+                ServiceLogin = LoginTextBox.Text,
+                ServiceCryptPassword = ClassFonctionsGenerales.encrypterChaine(PasswordTextBox.Text),
+                PKUserId = _currentUser.Id,
+                TypeProfilConnexionId = typeProfil.Id
+            };
+            db.ProfilConnexion.Add(profil);
+        }
+
         db.SaveChanges();
         UpdateMainWindow();
-
         Close();
     }
 
     private void UpdateMainWindow()
     {
         if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-        {
             if (desktop.MainWindow is MainWindow mainWindow)
-            {
                 mainWindow.ChargerProfils();
-            }
-        }
     }
 }

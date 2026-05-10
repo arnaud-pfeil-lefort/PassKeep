@@ -16,7 +16,7 @@ namespace PassKeep
 {
     public partial class MainWindow : Window
     {
-        private PKUser user;
+        public PKUser user;
 
         public MainWindow(PKUser user)
         {
