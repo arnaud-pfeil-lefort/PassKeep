@@ -89,15 +89,28 @@
                             Orientation="Horizontal"
                             Spacing="10"
                             VerticalAlignment="Center">
+
                     <TextBox Classes="ModernBox"
-                             Width="260"
-                             Height="36"
-                             PlaceholderText="Rechercher..."/>
-                    <Button Classes="IconButton"
-                            Click="OnSettingsClicked">
-                        <PathIcon Classes="IconPath"
-                                  Data="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm7.07-2.07a7 7 0 0 0 .07-1 7 7 0 0 0-.07-.93l2-1.56a.5.5 0 0 0 .12-.63l-1.89-3.27a.5.5 0 0 0-.61-.22l-2.36.95a7 7 0 0 0-1.6-.93l-.36-2.51A.49.49 0 0 0 14 3h-4a.49.49 0 0 0-.49.43l-.36 2.51a7 7 0 0 0-1.6.93l-2.36-.95a.49.49 0 0 0-.61.22L2.69 9.41a.48.48 0 0 0 .12.63l2 1.56a7.154 7.154 0 0 0 0 1.86l-2 1.56a.48.48 0 0 0-.12.63l1.89 3.27c.13.22.4.3.61.22l2.36-.95c.5.35 1.03.63 1.6.93l.36 2.51c.06.26.28.43.49.43h4c.22 0 .43-.17.49-.43l.36-2.51a7 7 0 0 0 1.6-.93l2.36.95c.23.08.48 0 .61-.22l1.89-3.27a.48.48 0 0 0-.12-.63l-2-1.56z"/>
-                    </Button>
+                                 x:Name="SearchBox"
+                                 Width="200"
+                                 Height="36"
+                                 PlaceholderText="Rechercher..."
+                                 TextChanged="OnSearchChanged"/>
+
+                        <ComboBox x:Name="FilterTypeBox"
+                                  Width="140"
+                                  Height="36"
+                                  PlaceholderText="Tous les types"
+                                  SelectionChanged="OnFilterChanged"/>
+
+                        <Button Classes="IconButton"
+                                Height="36"
+                                Width="36"
+                                ToolTip.Tip="Réinitialiser le filtre"
+                                Click="OnResetFiltre">
+                            <PathIcon Classes="IconPath"
+                                      Data="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6a6 6 0 0 1-1.76 4.24l1.42 1.42A8 8 0 0 0 20 12c0-4.42-3.58-8-8-8zm-6 8a6 6 0 0 1 1.76-4.24L6.34 6.34A8 8 0 0 0 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3c-3.31 0-6-2.69-6-6z"/>
+                        </Button>
                     <Button Classes="IconButton"
                             Click="OnHelpClicked">
                         <PathIcon Classes="IconPath"
@@ -110,20 +123,6 @@
             <Border Grid.Row="1"
                     Classes="Card">
                 <StackPanel Spacing="18">
-
-                    <Grid ColumnDefinitions="*,Auto"
-                          Margin="0,0,0,4">
-                        <StackPanel Spacing="4">
-                            <TextBlock Text="Comptes"
-                                       Classes="SectionTitle"/>
-                            <TextBlock Text="Liste des entrées enregistrées"
-                                       Classes="SectionSubtitle"/>
-                        </StackPanel>
-
-                        <Button Grid.Column="1"
-                                Classes="SecondaryButton"
-                                Content="Trier"/>
-                    </Grid>
 
                         <ItemsControl x:Name="ProfilsList">
                             <ItemsControl.ItemTemplate>
