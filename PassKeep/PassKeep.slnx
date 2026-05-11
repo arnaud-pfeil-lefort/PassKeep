@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../PassKeepDLL/PassKeepDLL.csproj" />
+  <Project Path="PassKeep.csproj" />
+</Solution>
