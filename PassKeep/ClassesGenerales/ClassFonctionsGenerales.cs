@@ -124,6 +124,8 @@ namespace PassKeep.ClassesGenerales
                 Guid gLocal_GuidProfilConnexion = Guid.NewGuid(); //Stocke un GUID généré pour créer le Profilconnexion utilisant les deux GUID ci-dessus
 
                 string sLocal_MotPasseSuperAdmin = Cryptage.hacherChaine(ClassConstantesGenerales.sUtilisateur_Password_Superadmin);
+                string sLocal_MotPasseProfilCrypte = Cryptage.encrypterChaine(ClassConstantesGenerales.sUtilisateur_Password_Superadmin);
+
 
                 // On ajoute automatiquement l'utilisateur "SuperAdmin"
                 oLocal_migrationBuilder.InsertData(
@@ -161,7 +163,7 @@ namespace PassKeep.ClassesGenerales
                     ClassConstantesGenerales.sUtilisateur_Nom_Superadmin,
                     "",
                     ClassConstantesGenerales.sUtilisateur_Nom_Superadmin,
-                    sLocal_MotPasseSuperAdmin });
+                    sLocal_MotPasseProfilCrypte });
             }
         }
 

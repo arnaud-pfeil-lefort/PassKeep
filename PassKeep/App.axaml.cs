@@ -9,6 +9,8 @@ using System.Diagnostics;
 using System.Net;
 using System.Threading.Tasks;
 using PassKeep.Views;
+using System.IO;
+
 
 
 namespace PassKeep
@@ -20,43 +22,45 @@ namespace PassKeep
             AvaloniaXamlLoader.Load(this);
         }
 
+        public static void Log(string message)
+        {
+            var logPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "passkeep.log");
+            File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] {message}\n");
+        }
+
         public override void OnFrameworkInitializationCompleted()
         {
-            if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-            {
-                //desktop.MainWindow = new MainWindow();
-                desktop.MainWindow = new LoginView();
-            }
-
             Batteries.Init();
-
-            base.OnFrameworkInitializationCompleted();
-
-            TaskScheduler.UnobservedTaskException += (sender, e) =>
-            {
-                Debug.WriteLine($"=== UNOBSERVED : {e.Exception.Message}");
-                Debug.WriteLine(e.Exception.StackTrace);
-                e.SetObserved();
-            };
 
             Task.Run(async () =>
             {
                 try
                 {
-                    Debug.WriteLine("=== BEGIN ===");
-
+                    Log("=== BEGIN ===");
                     using DataContext oLocal_DataContext = new DataContext();
+
+                    var connString = oLocal_DataContext.Database.GetConnectionString();
+                    Log($"=== DB PATH : {connString}");
+
+                    var pending = await oLocal_DataContext.Database.GetPendingMigrationsAsync();
+                    Log($"=== MIGRATIONS EN ATTENTE : {string.Join(", ", pending)}");
+
                     await oLocal_DataContext.Database.MigrateAsync();
-                    Debug.WriteLine("=== MIGRATE OK ===");
+                    Log("=== MIGRATE OK ===");
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine($"=== MIGRATE ERREUR : {ex.Message}");
-                    Debug.WriteLine(ex.StackTrace);
+                    Log($"=== MIGRATE ERREUR : {ex.Message}");
+                    Log(ex.StackTrace ?? "");
                 }
             });
 
+            if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+            {
+                desktop.MainWindow = new LoginView();
+            }
 
+            base.OnFrameworkInitializationCompleted();
         }
     }
 }

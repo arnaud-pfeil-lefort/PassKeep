@@ -73,7 +73,6 @@ namespace PassKeep.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ServiceLogin")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ServiceName")
@@ -81,7 +80,6 @@ namespace PassKeep.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ServiceUrl")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<Guid>("TypeProfilConnexionId")

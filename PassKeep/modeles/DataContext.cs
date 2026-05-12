@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PassKeep.modeles;
-
+using System;
+using System.IO;
 
 
 namespace PassKeep.modeles
@@ -14,7 +15,11 @@ namespace PassKeep.modeles
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlite("Data Source = DBPasskeep.db");
+                var dbPath = Path.Combine(
+                    AppDomain.CurrentDomain.BaseDirectory,
+                    "DBPasskeep.db"
+                );
+                optionsBuilder.UseSqlite($"Data Source={dbPath}");
             }
         }
         public DbSet<PKUser> PKUser { get; set; }

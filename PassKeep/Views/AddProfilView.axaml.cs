@@ -3,18 +3,31 @@ using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input;
 using Avalonia.Interactivity;
+using DotNetEnv;
+using Microsoft.EntityFrameworkCore.Metadata;
 using PassKeep.ClassesGenerales;
 using PassKeep.modeles;
+using System.IO;
 using PassKeepDLL;
 using System;
+using System.Diagnostics;
 using System.Linq;
+using System.Net.Http;
+using System.Text;
+using System.Text.Json;
+using System.Threading.Tasks;
 
 namespace PassKeep.Views;
 
+
+
 public partial class AddProfilView : Window
 {
+
     private readonly PKUser _currentUser;
     private readonly ProfilConnexion? _profilToUpdate;
+    private static readonly HttpClient _http = new HttpClient();
+
 
     public AddProfilView(PKUser user, ProfilConnexion? profilToUpdate = null)
     {
@@ -22,6 +35,8 @@ public partial class AddProfilView : Window
         _currentUser = user;
         _profilToUpdate = profilToUpdate;
 
+        var envPath = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", ".env");
+        Env.Load(Path.GetFullPath(envPath));
         LoadTypeProfils();
 
         if (_profilToUpdate != null)
@@ -119,11 +134,94 @@ public partial class AddProfilView : Window
         UpdateMainWindow();
         Close();
     }
-
     private void UpdateMainWindow()
     {
         if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             if (desktop.MainWindow is MainWindow mainWindow)
                 mainWindow.ChargerProfils();
+    }
+
+
+    private async void OnCheckUrl(object? sender, RoutedEventArgs e)
+    {
+        var url = UrlTextBox.Text?.Trim();
+        Debug.WriteLine("OnCheckUrl appelé");
+
+
+        if (string.IsNullOrEmpty(url))
+        {
+            UrlSafetyText.Text = "⚠ Entrez d'abord une URL.";
+            UrlSafetyText.Foreground = Avalonia.Media.Brushes.Orange;
+            UrlSafetyText.IsVisible = true;
+            return;
+        }
+
+        UrlSafetyText.Text = "Vérification en cours...";
+        UrlSafetyText.Foreground = Avalonia.Media.Brushes.Gray;
+        UrlSafetyText.IsVisible = true;
+
+        try
+        {
+            var isSafe = await CheckUrlSafety(url);
+
+            if (isSafe)
+            {
+                UrlSafetyText.Text = "✔ URL sûre";
+                UrlSafetyText.Foreground = Avalonia.Media.Brushes.LightGreen;
+            }
+            else
+            {
+                UrlSafetyText.Text = "✖ URL dangereuse détectée !";
+                UrlSafetyText.Foreground = Avalonia.Media.Brushes.Red;
+            }
+        }
+        catch (Exception ex)
+{
+    UrlSafetyText.Text = "⚠ Erreur : " + ex.Message;
+    UrlSafetyText.Foreground = Avalonia.Media.Brushes.Orange;
+
+    Debug.WriteLine(ex.ToString());
+    Console.WriteLine(ex.ToString());
+}
+
+        UrlSafetyText.IsVisible = true;
+    }
+
+    private async Task<bool> CheckUrlSafety(string url)
+    {
+        var body = new
+        {
+            client = new
+            {
+                clientId = "password-manager-project",
+                clientVersion = "1.0"
+            },
+            threatInfo = new
+            {
+                threatTypes = new[] { "MALWARE", "SOCIAL_ENGINEERING", "UNWANTED_SOFTWARE" },
+                platformTypes = new[] { "ANY_PLATFORM" },
+                threatEntryTypes = new[] { "URL" },
+                threatEntries = new[] { new { url } }
+            }
+        };
+        var apiKey = Environment.GetEnvironmentVariable("GOOGLE_SAFE_BROWSING_API_KEY");
+        var json = JsonSerializer.Serialize(body);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+        if (string.IsNullOrWhiteSpace(apiKey))
+        {
+            throw new InvalidOperationException("Clé API Google Safe Browsing manquante.");
+        }
+        Debug.WriteLine("salut" + apiKey);
+        var response = await _http.PostAsync(
+            $"https://safebrowsing.googleapis.com/v4/threatMatches:find?key={apiKey}",
+            content);
+
+        response.EnsureSuccessStatusCode();
+
+        var responseJson = await response.Content.ReadAsStringAsync();
+
+        // {} = aucune menace = safe
+        using var doc = JsonDocument.Parse(responseJson);
+        return !doc.RootElement.TryGetProperty("matches", out _);
     }
 }

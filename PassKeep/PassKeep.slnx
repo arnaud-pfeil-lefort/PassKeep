@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Éléments de solution/">
+    <File Path=".gitignore" />
+  </Folder>
   <Project Path="../PassKeepDLL/PassKeepDLL.csproj" />
   <Project Path="PassKeep.csproj" />
 </Solution>
