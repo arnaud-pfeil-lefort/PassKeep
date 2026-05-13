@@ -147,6 +147,16 @@
                                IsVisible="False"
                                Margin="0,0,0,12"/>
 
+                    <Button x:Name="DeleteButton"
+                        Classes="DangerButton"
+                        Content="Supprimer le profil"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        IsVisible="False"
+                        Click="OnDeleteProfil"
+                        Margin="0,0,0,8"/>
+
+
                     <!-- Bouton Ajouter -->
                     <Button x:Name="SubmitButton"
                         Classes="PrimaryButton"

@@ -31,7 +31,6 @@ namespace PassKeep
         {
             using DataContext db = new DataContext();
             var types = db.TypeProfilConnexion.ToList();
-
             FilterTypeBox.ItemsSource = types;
             FilterTypeBox.DisplayMemberBinding = new Avalonia.Data.Binding("Nom");
         }
@@ -42,7 +41,7 @@ namespace PassKeep
             _tousLesProfils = db.ProfilConnexion
                 .Where(p => p.PKUserId == user.Id)
                 .ToList();
-
+            
             AppliquerFiltres();
         }
 
@@ -60,7 +59,7 @@ namespace PassKeep
             if (typeSelectionne != null)
                 resultats = resultats.Where(p =>
                     p.TypeProfilConnexionId == typeSelectionne.Id);
-
+            ProfilsList.ItemsSource = null;
             ProfilsList.ItemsSource = resultats.ToList();
         }
 
@@ -112,10 +111,12 @@ namespace PassKeep
             addProfilView.ShowDialog(this);
         }
 
-        private void OnSettingsClicked(object? sender, RoutedEventArgs e)
+        private async void OnSettingsClicked(object? sender, RoutedEventArgs e)
         {
             var settingsView = new SettingsView();
-            settingsView.ShowDialog(this);
+            await settingsView.ShowDialog(this);
+            ChargerTypes();
+            ChargerProfils();
         }
     }
 }

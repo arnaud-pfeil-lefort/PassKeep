@@ -43,11 +43,29 @@ public partial class AddProfilView : Window
             PopulateForm();
     }
 
+    private void OnDeleteProfil(object? sender, RoutedEventArgs e)
+    {
+        if (_profilToUpdate == null) return;
+
+        using DataContext db = new DataContext();
+        var profil = db.ProfilConnexion.Find(_profilToUpdate.Id);
+        if (profil != null)
+        {
+            db.ProfilConnexion.Remove(profil);
+            db.SaveChanges();
+        }
+
+        UpdateMainWindow();
+        Close();
+    }
+
     private void PopulateForm()
     {
         FormTitle.Text = "Modifier le profil";
         FormSubtitle.Text = "Modifie les informations du compte";
         SubmitButton.Content = "Enregistrer les modifications";
+
+        DeleteButton.IsVisible = true;
 
         ServiceTextBox.Text = _profilToUpdate!.ServiceName;
         UrlTextBox.Text = _profilToUpdate.ServiceUrl;

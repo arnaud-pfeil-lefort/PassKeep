@@ -1,12 +1,13 @@
-using Avalonia.Controls;
-using Avalonia.Interactivity;
-using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
+using Avalonia.Input.Platform;
+using Avalonia.Interactivity;
+using Microsoft.EntityFrameworkCore;
+using PassKeep.ClassesGenerales;
 using PassKeep.modeles;
 using PassKeep.Views;
 using System;
-using PassKeep.ClassesGenerales;
-using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 using System.Linq.Expressions;
 
@@ -23,15 +24,11 @@ namespace PassKeep.Views
             InitializeComponent();
             DataContextChanged += (_, _) =>
             {
-                Debug.WriteLine("=== PROFIL PAS OK ===");
                 if (DataContext is ProfilConnexion profil)
                 {
                     Debug.WriteLine("=== PROFIL OK ===" + profil.ServiceName);
                     PwdBox.Text = new string('●', profil.MotDePasseClair.Length);
-                    Debug.WriteLine(PwdBox.GetValue);
-
-                }
-                ;
+                };
             };
                 
         }
@@ -56,21 +53,13 @@ namespace PassKeep.Views
             }
         }
 
-        private void OnSupprimer(object? sender, RoutedEventArgs e)
+        private async void OnCopier(object? sender, RoutedEventArgs e)
         {
-            if (DataContext is ProfilConnexion profil)
-            {
-                using DataContext db = new DataContext();
-                db.ProfilConnexion.Remove(db.ProfilConnexion.Find(profil.Id)!);
-                db.SaveChanges();
+            if (DataContext is not ProfilConnexion profil) return;
 
-                // rafraîchir la liste dans MainWindow
-                if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop
-                    && desktop.MainWindow is MainWindow mainWindow)
-                {
-                    mainWindow.ChargerProfils();
-                }
-            }
+            var clipboard = TopLevel.GetTopLevel(this)?.Clipboard;
+            if (clipboard != null)
+                await clipboard.SetTextAsync(profil.MotDePasseClair);
         }
     }
 }

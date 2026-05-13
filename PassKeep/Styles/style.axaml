@@ -159,6 +159,13 @@
         <Setter Property="BorderBrush" Value="#4B5D7A"/>
     </Style>
 
+    <Style Selector="Button.DangerButton">
+        <Setter Property="Background" Value="#EF4444"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="Padding" Value="12,9"/>
+        <Setter Property="CornerRadius" Value="8"/>
+    </Style>
+
 
     <!-- ========================= -->
     <!-- 🔐 ACCOUNT ITEM -->

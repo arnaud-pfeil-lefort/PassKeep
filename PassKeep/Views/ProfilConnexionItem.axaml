@@ -42,7 +42,7 @@
                        Data="M3 17.25V21h3.75L18.37 9.38l-3.75-3.75L3 17.25zm11.71-9.04l2.04-2.04a1 1 0 0 1 1.41 0l1.63 1.63a1 1 0 0 1 0 1.41l-2.04 2.04-3.04-3.04z"/>
                 </Button>
                 <Button Classes="IconButton"
-                        Click="OnSupprimer">
+                        Click="OnCopier">
                     <PathIcon Classes="IconPath"
                               Data="M16 1H4a2 2 0 0 0-2 2v12h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/>
                 </Button>
