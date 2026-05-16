@@ -27,7 +27,7 @@ namespace PassKeep.Views
                 if (DataContext is ProfilConnexion profil)
                 {
                     Debug.WriteLine("=== PROFIL OK ===" + profil.ServiceName);
-                    PwdBox.Text = new string('●', profil.MotDePasseClair.Length);
+                    PwdBox.Text = new string('·', profil.MotDePasseClair.Length);
                 };
             };
                 
@@ -39,7 +39,7 @@ namespace PassKeep.Views
             _motDePasseVisible = !_motDePasseVisible;
             if (DataContext is ProfilConnexion profil)
             {
-                PwdBox.Text = _motDePasseVisible ? profil.MotDePasseClair : new string('●', profil.MotDePasseClair.Length);
+                PwdBox.Text = _motDePasseVisible ? profil.MotDePasseClair : new string('·', profil.MotDePasseClair.Length);
             }
         }
 

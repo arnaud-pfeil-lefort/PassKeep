@@ -1,14 +1,13 @@
-﻿<Window
+<Window
     x:Class="PassKeep.MainWindow"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:views="clr-namespace:PassKeep.Views"
     xmlns:modeles="clr-namespace:PassKeep.modeles"
-
-    Width="760"
-    Height="760"
-    MinWidth="600"
-    MinHeight="680"
+    Width="660"
+    Height="620"
+    MinWidth="540"
+    MinHeight="500"
     Title="PassKeep"
     Background="#0B1220"
     Topmost="True"
@@ -25,14 +24,10 @@
                 BorderBrush="#1E293B"
                 BorderThickness="0,0,0,1"
                 PointerPressed="TitleBar_PointerPressed">
-            <Grid ColumnDefinitions="*,Auto"
-                  Margin="12,0,12,0">
+            <Grid ColumnDefinitions="*,Auto" Margin="12,0,12,0">
 
-                <!-- Zone draggable -->
-                <Grid ColumnDefinitions="Auto,*"
-                      VerticalAlignment="Center">
-                    <Border Width="26"
-                            Height="26"
+                <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center">
+                    <Border Width="26" Height="26"
                             Background="#2563EB"
                             CornerRadius="8"
                             VerticalAlignment="Center">
@@ -40,10 +35,8 @@
                                    Foreground="White"
                                    FontWeight="Bold"
                                    HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"
-                        />
+                                   VerticalAlignment="Center"/>
                     </Border>
-
                     <TextBlock Grid.Column="1"
                                Margin="10,0,0,0"
                                Text="PassKeep"
@@ -53,86 +46,60 @@
                                VerticalAlignment="Center"/>
                 </Grid>
 
-                <!-- Boutons fenêtre -->
                 <StackPanel Grid.Column="1"
-                        Orientation="Horizontal"
-                        Spacing="8"
-                        VerticalAlignment="Center">
-                <Button Classes="WindowButton"
-                        Content="─"
-                        Click="MinimizeWindow"/>
-                <Button Classes="WindowButton"
-                        Content="□"
-                        Click="MaximizeWindow"/>
-                <Button Classes="WindowCloseButton"
-                        Content="✕"
-                        Click="CloseWindow"/>
-            </StackPanel>
+                            Orientation="Horizontal"
+                            Spacing="8"
+                            VerticalAlignment="Center">
+                    <Button Classes="WindowButton" Content="─" Click="MinimizeWindow"/>
+                    <Button Classes="WindowButton" Content="□" Click="MaximizeWindow"/>
+                    <Button Classes="WindowCloseButton" Content="✕" Click="CloseWindow"/>
+                </StackPanel>
             </Grid>
         </Border>
 
-      <!-- CONTENT -->
-            <Grid Grid.Row="1"
-                  Grid.Column="1"
-                  RowDefinitions="Auto,*"
-                  Margin="24"
-                  RowSpacing="18">
+        <!-- CONTENT -->
+        <Grid Grid.Row="1" RowDefinitions="Auto,*" Margin="20" RowSpacing="14">
 
-                <Grid ColumnDefinitions="*,Auto"
-                  Margin="0,0,0,6">
-                <StackPanel Spacing="4">
-                    <TextBlock Classes="Title" Name="WelcomeText"/>
-                    <TextBlock Classes="Subtitle" Text="Accès rapide à tes comptes"/>
-                </StackPanel>
-
-                <StackPanel Grid.Column="1"
-                            Orientation="Horizontal"
-                            Spacing="10"
-                            VerticalAlignment="Center">
-
+            <!-- HEADER -->
+            <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
                     <TextBox Classes="ModernBox"
-                                 x:Name="SearchBox"
-                                 Width="200"
-                                 Height="36"
-                                 PlaceholderText="Rechercher..."
-                                 TextChanged="OnSearchChanged"/>
+                             x:Name="SearchBox"
+                             Width="170"
+                             Height="34"
+                             PlaceholderText="Rechercher..."
+                             TextChanged="OnSearchChanged"/>
 
-                        <ComboBox x:Name="FilterTypeBox"
-                                  Width="140"
-                                  Height="36"
-                                  PlaceholderText="Tous les types"
-                                  SelectionChanged="OnFilterChanged"/>
+                    <ComboBox x:Name="FilterTypeBox"
+                              Classes="ModernBox"
+                              Width="130"
+                              Height="34"
+                              PlaceholderText="Tous les types"
+                              SelectionChanged="OnFilterChanged"/>
 
-                        <Button Classes="IconButton"
-                                Height="36"
-                                Width="36"
-                                ToolTip.Tip="Réinitialiser le filtre"
-                                Click="OnResetFiltre">
-                            <PathIcon Classes="IconPath"
-                                      Data="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6a6 6 0 0 1-1.76 4.24l1.42 1.42A8 8 0 0 0 20 12c0-4.42-3.58-8-8-8zm-6 8a6 6 0 0 1 1.76-4.24L6.34 6.34A8 8 0 0 0 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3c-3.31 0-6-2.69-6-6z"/>
-                        </Button>
-                        <Button Classes="IconButton"
-                                Click="OnHelpClicked">
-                                <PathIcon Classes="IconPath"
-                                Data="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm1-4.5V13a1 1 0 0 1-2 0v-1a1 1 0 0 1 1-1c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2a1 1 0 0 1-2 0c0-2.21 1.79-4 4-4s4 1.79 4 4c0 1.86-1.27 3.43-3 3.5z"/>
-                        </Button>
-
-                        <Button Classes="IconButton"
-                                Height="36"
-                                Width="36"
-                                ToolTip.Tip="Paramètres"
-                                Click="OnSettingsClicked">
-                            <PathIcon Classes="IconPath"
-                                      Data="M19.14 12.94c.04-.3.06-.61.06-.94s-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96a6.94 6.94 0 0 0-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.48.48 0 0 0-.59.22L2.74 8.87a.47.47 0 0 0 .12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.47.47 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.37 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.57 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32a.47.47 0 0 0-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/>
-                        </Button>
-                </StackPanel>
-            </Grid>
+                    <Button Classes="IconButton"
+                            Height="34" Width="34"
+                            ToolTip.Tip="Réinitialiser le filtre"
+                            Click="OnResetFiltre">
+                        <PathIcon Classes="IconPath"
+                                  Data="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6a6 6 0 0 1-1.76 4.24l1.42 1.42A8 8 0 0 0 20 12c0-4.42-3.58-8-8-8zm-6 8a6 6 0 0 1 1.76-4.24L6.34 6.34A8 8 0 0 0 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3c-3.31 0-6-2.69-6-6z"/>
+                    </Button>
+                    <Button Classes="IconButton" Click="OnHelpClicked">
+                        <PathIcon Classes="IconPath"
+                                  Data="M12 2a10 10 0 1 0 0 20A10 10 0 0 0 12 2zm0 15a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm1-4.5V13a1 1 0 0 1-2 0v-1a1 1 0 0 1 1-1c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2a1 1 0 0 1-2 0c0-2.21 1.79-4 4-4s4 1.79 4 4c0 1.86-1.27 3.43-3 3.5z"/>
+                    </Button>
+                    <Button Classes="IconButton"
+                            Height="34" Width="34"
+                            ToolTip.Tip="Paramètres"
+                            Click="OnSettingsClicked">
+                        <PathIcon Classes="IconPath"
+                                  Data="M19.14 12.94c.04-.3.06-.61.06-.94s-.02-.64-.07-.94l2.03-1.58a.49.49 0 0 0 .12-.61l-1.92-3.32a.49.49 0 0 0-.59-.22l-2.39.96a6.94 6.94 0 0 0-1.62-.94l-.36-2.54a.484.484 0 0 0-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 2.54c-.59.24-1.13.57-1.62.94l-2.39-.96a.48.48 0 0 0-.59.22L2.74 8.87a.47.47 0 0 0 .12.61l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58a.47.47 0 0 0-.12.61l1.92 3.32c.12.22.37.29.59.22l2.39-.96c.5.37 1.03.7 1.62.94l.36 2.54c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-2.54c.59-.24 1.13-.57 1.62-.94l2.39.96c.22.08.47 0 .59-.22l1.92-3.32a.47.47 0 0 0-.12-.61l-2.01-1.58zM12 15.6A3.6 3.6 0 1 1 12 8.4a3.6 3.6 0 0 1 0 7.2z"/>
+                    </Button>
+            </StackPanel>
 
             <!-- LIST -->
-            <Border Grid.Row="1"
-                    Classes="Card">
-                <StackPanel Spacing="18">
-
+            <Border Grid.Row="1" Classes="Card">
+                <Grid RowDefinitions="*,Auto" RowSpacing="12">
+                    <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Auto">
                         <ItemsControl x:Name="ProfilsList">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate DataType="{x:Type modeles:ProfilConnexion}">
@@ -140,13 +107,17 @@
                                 </DataTemplate>
                             </ItemsControl.ItemTemplate>
                         </ItemsControl>
+                    </ScrollViewer>
 
-                    <Button Classes="PrimaryButton"
+                    <Button Grid.Row="1"
+                            Classes="PrimaryButton"
                             Content="+ Ajouter un mot de passe"
                             Click="OnAddProfilViewClicked"
-                            HorizontalAlignment="Stretch"/>
-                </StackPanel>
+                            HorizontalAlignment="Stretch"
+                            HorizontalContentAlignment="Center"/>
+                </Grid>
             </Border>
+
         </Grid>
     </Grid>
 </Window>

@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.6.11709.129 insiders
+VisualStudioVersion = 18.6.11709.129
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PassKeep", "PassKeep.csproj", "{C6AC3EF7-402D-454F-B1CF-B35ADDA6B65A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PassKeepDLL", "..\PassKeepDLL\PassKeepDLL.csproj", "{09B7BB53-97B3-B522-5AEC-53C5E69A385D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{C6AC3EF7-402D-454F-B1CF-B35ADDA6B65A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6AC3EF7-402D-454F-B1CF-B35ADDA6B65A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6AC3EF7-402D-454F-B1CF-B35ADDA6B65A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09B7BB53-97B3-B522-5AEC-53C5E69A385D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09B7BB53-97B3-B522-5AEC-53C5E69A385D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09B7BB53-97B3-B522-5AEC-53C5E69A385D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09B7BB53-97B3-B522-5AEC-53C5E69A385D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

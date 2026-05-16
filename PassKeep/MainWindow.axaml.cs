@@ -22,7 +22,6 @@ namespace PassKeep
         {
             InitializeComponent();
             this.user = user;
-            WelcomeText.Text = $"Bienvenue {user.Nom}";
             ChargerTypes();
             ChargerProfils();
         }

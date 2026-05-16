@@ -89,6 +89,15 @@ public partial class AddProfilView : Window
     private void OnGeneratePassword(object? sender, RoutedEventArgs e)
     {
         var mots = ClassFonctionsGenerales.GenererMotDePasse();
+
+        if (mots.Count == 0)
+        {
+            ErrorText.Text = "Aucun mot disponible. Ajoutez des mots dans les paramètres.";
+            ErrorText.IsVisible = true;
+            return;
+        }
+
+        ErrorText.IsVisible = false;
         PasswordTextBox.Text = string.Join("-", mots);
         PasswordTextBox.PasswordChar = '\0';
     }

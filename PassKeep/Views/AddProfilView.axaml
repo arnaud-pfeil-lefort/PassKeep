@@ -2,10 +2,10 @@
     x:Class="PassKeep.Views.AddProfilView"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Width="420"
-    Height="620"
-    MinWidth="380"
-    MinHeight="580"
+    Width="400"
+    Height="560"
+    MinWidth="360"
+    MinHeight="520"
     Title="PassKeep"
     Background="#0B1220"
     Topmost="True"
@@ -55,99 +55,56 @@
         </Border>
 
         <!-- CONTENT -->
-        <Grid Grid.Row="1"
-              VerticalAlignment="Center"
-              HorizontalAlignment="Center"
-              Margin="24">
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Margin="28,20,28,24" Spacing="0">
 
-            <Border Classes="Card" Width="340" Padding="28,32">
-                <StackPanel Spacing="0">
+                <!-- Header -->
+                <StackPanel Spacing="3" Margin="0,0,0,22">
+                    <TextBlock x:Name="FormTitle" Classes="Title" Text="Nouveau profil"/>
+                    <TextBlock x:Name="FormSubtitle" Classes="Subtitle" Text="Ajoute un compte à ton coffre-fort"/>
+                </StackPanel>
 
-                    <!-- Header -->
-                    <StackPanel Spacing="4" Margin="0,0,0,28">
-                        <TextBlock x:Name="FormTitle" Classes="Title" Text="Nouveau profil"/>
-                        <TextBlock x:Name="FormSubtitle" Classes="Subtitle" Text="Ajoute un compte à ton coffre-fort"/>
+                <!-- Service -->
+                <TextBlock Text="Service" Foreground="#64748B" FontSize="12" Margin="0,0,0,5"/>
+                <TextBox Classes="ModernBox" x:Name="ServiceTextBox" Watermark="Google, GitHub..." Margin="0,0,0,14"/>
 
-                    </StackPanel>
+                <!-- URL -->
+                <TextBlock Text="URL" Foreground="#64748B" FontSize="12" Margin="0,0,0,5"/>
+                <Grid ColumnDefinitions="*,8,Auto" Margin="0,0,0,6">
+                    <TextBox Classes="ModernBox" x:Name="UrlTextBox" Watermark="https://..."/>
+                    <Button Grid.Column="2" Classes="SecondaryButton" Content="Vérifier" Click="OnCheckUrl"/>
+                </Grid>
+                <TextBlock x:Name="UrlSafetyText" FontSize="12" IsVisible="False" Margin="0,0,0,10"/>
 
-                    <!-- Nom du service -->
-                       <TextBlock Text="Service"
-                               Foreground="#94A3B8"
-                               FontSize="13"
-                               Margin="0,0,0,6"/>
-                    <TextBox Classes="ModernBox"
-                             x:Name="ServiceTextBox"
-                             Watermark="Google, GitHub..."
-                             Margin="0,0,0,16"/>
+                <!-- Type de Profil -->
+                <TextBlock Text="Type" Foreground="#64748B" FontSize="12" Margin="0,0,0,5"/>
+                <ComboBox x:Name="TypeProfilComboBox"
+                          Classes="ModernBox"
+                          HorizontalAlignment="Stretch"
+                          PlaceholderText="Sélectionner un type..."
+                          Margin="0,0,0,14"/>
 
-                    <!-- URL -->
-                    <TextBlock Text="URL"
-                               Foreground="#94A3B8"
-                               FontSize="13"
-                               Margin="0,0,0,6"/>
-                    <Grid ColumnDefinitions="*,8,Auto" Margin="0,0,0,8">
-                        <TextBox Classes="ModernBox"
-                                 x:Name="UrlTextBox"
-                                 Watermark="https://..."/>
-                        <Button Grid.Column="2"
-                                Classes="SecondaryButton"
-                                Content="Vérifier"
-                                Click="OnCheckUrl"/>
-                    </Grid>
+                <!-- Login -->
+                <TextBlock Text="Login" Foreground="#64748B" FontSize="12" Margin="0,0,0,5"/>
+                <TextBox Classes="ModernBox" x:Name="LoginTextBox" Watermark="vous@exemple.com" Margin="0,0,0,14"/>
 
-                    <!-- Résultat Safe Browsing -->
-                    <TextBlock x:Name="UrlSafetyText"
-                               FontSize="12"
-                               IsVisible="False"
-                               Margin="0,0,0,12"/>
+                <!-- Mot de passe -->
+                <TextBlock Text="Mot de passe" Foreground="#64748B" FontSize="12" Margin="0,0,0,5"/>
+                <Grid ColumnDefinitions="*,8,Auto" Margin="0,0,0,20">
+                    <TextBox Classes="ModernBox" x:Name="PasswordTextBox" PasswordChar="●" Watermark="••••••••"/>
+                    <Button Grid.Column="2" Classes="SecondaryButton" Content="Générer" Click="OnGeneratePassword"/>
+                </Grid>
 
-                    <!-- Type de Profil -->
-                    <TextBlock Text="Type de Profil"
-                                Foreground="#94A3B8"
-                                FontSize="13"
-                                Margin="0,0,0,6"/>
-                    <ComboBox x:Name="TypeProfilComboBox"
-                                Classes="ModernBox"
-                                HorizontalAlignment="Stretch"
-                                PlaceholderText="Sélectionner un type..."
-                                Margin="0,0,0,16"/>
+                <!-- Message erreur -->
+                <TextBlock x:Name="ErrorText"
+                           Text="Veuillez remplir tous les champs"
+                           Foreground="#EF4444"
+                           FontSize="12"
+                           HorizontalAlignment="Center"
+                           IsVisible="False"
+                           Margin="0,0,0,10"/>
 
-                    <!-- Login -->
-                    <TextBlock Text="Login"
-                               Foreground="#94A3B8"
-                               FontSize="13"
-                               Margin="0,0,0,6"/>
-                    <TextBox Classes="ModernBox"
-                             x:Name="LoginTextBox"
-                             Watermark="vous@exemple.com"
-                             Margin="0,0,0,16"/>
-
-                    <!-- Mot de passe -->
-                    <TextBlock Text="Mot de passe"
-                               Foreground="#94A3B8"
-                               FontSize="13"
-                               Margin="0,0,0,6"/>
-                    <Grid ColumnDefinitions="*,8,Auto" Margin="0,0,0,28">
-                        <TextBox Classes="ModernBox"
-                                 x:Name="PasswordTextBox"
-                                 PasswordChar="●"
-                                 Watermark="••••••••"/>
-                        <Button Grid.Column="2"
-                                Classes="SecondaryButton"
-                                Content="Générer"
-                                Click="OnGeneratePassword"/>
-                    </Grid>
-
-                    <!-- Message erreur -->
-                    <TextBlock x:Name="ErrorText"
-                               Text="Veuillez remplir tous les champs"
-                               Foreground="#EF4444"
-                               FontSize="12"
-                               HorizontalAlignment="Center"
-                               IsVisible="False"
-                               Margin="0,0,0,12"/>
-
-                    <Button x:Name="DeleteButton"
+                <Button x:Name="DeleteButton"
                         Classes="DangerButton"
                         Content="Supprimer le profil"
                         HorizontalAlignment="Stretch"
@@ -156,18 +113,15 @@
                         Click="OnDeleteProfil"
                         Margin="0,0,0,8"/>
 
-
-                    <!-- Bouton Ajouter -->
-                    <Button x:Name="SubmitButton"
+                <Button x:Name="SubmitButton"
                         Classes="PrimaryButton"
                         Content="Ajouter le profil"
                         HorizontalAlignment="Stretch"
                         HorizontalContentAlignment="Center"
                         Click="OnAddProfil"/>
 
-                </StackPanel>
-            </Border>
-        </Grid>
+            </StackPanel>
+        </ScrollViewer>
 
     </Grid>
 </Window>
