@@ -20,6 +20,10 @@
                            Classes="WebSiteTitle"/>
                 <TextBlock Text="{Binding ServiceLogin}"
                            Classes="Username"/>
+                <TextBlock Text="{Binding OwnerNom}"
+                           IsVisible="{Binding OwnerNom, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
+                           Foreground="#94A3B8"
+                           FontSize="10"/>
             </StackPanel>
 
             <Border Grid.Column="2" Classes="PasswordBox">

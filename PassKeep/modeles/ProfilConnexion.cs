@@ -30,6 +30,8 @@ namespace PassKeep.modeles
         public string Initiale => string.IsNullOrEmpty(ServiceName) ? "?" : ServiceName[0].ToString().ToUpper();
         [NotMapped]
         public string MotDePasseClair => Cryptage.decrypterChaine(ServiceCryptPassword);
+        [NotMapped]
+        public string OwnerNom => PKUser?.Nom ?? "";
     }
 }
 

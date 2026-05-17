@@ -75,7 +75,6 @@
                                FontSize="13"
                                Margin="0,0,0,6"/>
                     <TextBox Classes="ModernBox"
-                                Text="admin@email.com"
                                 x:Name="EmailTextBox"
                                 Watermark="vous@exemple.com"
                                 Margin="0,0,0,16"/>
@@ -88,7 +87,6 @@
                                />
                                
                     <TextBox Classes="ModernBox"
-                             Text="ADMIN"
                              x:Name="PasswordTextBox"
                              PasswordChar="●"
                              Watermark="••••••••"
@@ -103,7 +101,8 @@
                                Margin="0,0,0,24"/>
 
                     <!-- Rester connecté -->
-                    <CheckBox Content="Rester connecté"
+                    <CheckBox x:Name="RememberMeCheckBox"
+                              Content="Rester connecté"
                               Foreground="#94A3B8"
                               FontSize="13"
                               Margin="0,0,0,24"/>

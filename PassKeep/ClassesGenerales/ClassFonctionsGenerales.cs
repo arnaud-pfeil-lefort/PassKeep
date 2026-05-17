@@ -116,55 +116,96 @@ namespace PassKeep.ClassesGenerales
             return mots;
         }
 
-        public static void CreerUtilisateurSuperAdmin(MigrationBuilder oLocal_migrationBuilder)
+        private static string SessionFilePath =>
+            Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "session.dat");
+
+        public static void SauvegarderSession(Guid userId)
+            => File.WriteAllText(SessionFilePath, userId.ToString());
+
+        public static Guid? ChargerSession()
         {
-            {
-                Guid gLocal_GuidUtilisateur = Guid.NewGuid(); //Stocke un GUID généré pour créer le user "utilisateur"
-                Guid gLocal_GuidTypeProfilConnexion = Guid.NewGuid(); //Stocke un GUID généré pour créer le TypeProfilconnexion "PasswordYnov"
-                Guid gLocal_GuidProfilConnexion = Guid.NewGuid(); //Stocke un GUID généré pour créer le Profilconnexion utilisant les deux GUID ci-dessus
+            if (!File.Exists(SessionFilePath)) return null;
+            var content = File.ReadAllText(SessionFilePath).Trim();
+            return Guid.TryParse(content, out var id) ? id : null;
+        }
 
-                string sLocal_MotPasseSuperAdmin = Cryptage.hacherChaine(ClassConstantesGenerales.sUtilisateur_Password_Superadmin);
-                string sLocal_MotPasseProfilCrypte = Cryptage.encrypterChaine(ClassConstantesGenerales.sUtilisateur_Password_Superadmin);
+        public static void SupprimerSession()
+        {
+            if (File.Exists(SessionFilePath))
+                File.Delete(SessionFilePath);
+        }
 
+        public static void CreerUtilisateurSuperAdmin(MigrationBuilder migrationBuilder)
+        {
+            Guid guidAdmin        = Guid.NewGuid();
+            Guid guidUser         = Guid.NewGuid();
+            Guid guidTypeWeb      = Guid.NewGuid();
+            Guid guidTypeDesktop  = Guid.NewGuid();
+            Guid guidProfilGoogle = Guid.NewGuid();
 
-                // On ajoute automatiquement l'utilisateur "SuperAdmin"
-                oLocal_migrationBuilder.InsertData(
-                    table: "PKUser",
-                    columns: new[] { "Id", "Login", "Nom", "Email", "Password" },
-                    columnTypes: new[] { "TEXT", "TEXT", "TEXT", "TEXT", "TEXT" },
-                    values: new object[] {
-                        gLocal_GuidUtilisateur,
-                        ClassConstantesGenerales.sUtilisateur_Login_Superadmin,
-                        ClassConstantesGenerales.sUtilisateur_Nom_Superadmin,
-                        "admin@email.com",
-                        sLocal_MotPasseSuperAdmin
-                    }
-                );
+            string mdpAdmin        = Cryptage.hacherChaine(ClassConstantesGenerales.sUtilisateur_Password_Superadmin);
+            string mdpUser         = Cryptage.hacherChaine(ClassConstantesGenerales.sUtilisateur_Password_User);
+            string mdpGoogleCrypte = Cryptage.encrypterChaine(ClassConstantesGenerales.sUtilisateur_Password_Superadmin);
 
-                oLocal_migrationBuilder.InsertData(
-                    table: "TypeProfilConnexion",
-                    columns: new[] { "Id", "Nom" },
-                    columnTypes: new[] { "TEXT", "TEXT" },
-                    values: new object[] {
-                        gLocal_GuidTypeProfilConnexion,
-                        ClassConstantesGenerales.sTypeProfilConnexion_Nom_TypeUtilisateur
-                    }
-                );
-                // Créer le profilconnexion "superadmin" avec deux clés étrangères.
+            // Types de profil
+            migrationBuilder.InsertData(
+                table: "TypeProfilConnexion",
+                columns: new[] { "Id", "Nom" },
+                columnTypes: new[] { "TEXT", "TEXT" },
+                values: new object[] { guidTypeWeb, ClassConstantesGenerales.sTypeProfilConnexion_Web }
+            );
+            migrationBuilder.InsertData(
+                table: "TypeProfilConnexion",
+                columns: new[] { "Id", "Nom" },
+                columnTypes: new[] { "TEXT", "TEXT" },
+                values: new object[] { guidTypeDesktop, ClassConstantesGenerales.sTypeProfilConnexion_Desktop }
+            );
 
-                oLocal_migrationBuilder.InsertData(
-                    table: "ProfilConnexion",
-                    columns: new[] { "Id", "TypeProfilConnexionId", "PKUserId",
-                          "ServiceName", "ServiceUrl", "ServiceLogin", "ServiceCryptPassword" },
-                    columnTypes: new[] { "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT" },
-                    values: new object[] { gLocal_GuidProfilConnexion,
-                    gLocal_GuidTypeProfilConnexion,
-                    gLocal_GuidUtilisateur,
+            // Utilisateur Admin
+            migrationBuilder.InsertData(
+                table: "PKUser",
+                columns: new[] { "Id", "Login", "Nom", "Email", "Password", "Role" },
+                columnTypes: new[] { "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT" },
+                values: new object[] {
+                    guidAdmin,
+                    ClassConstantesGenerales.sUtilisateur_Login_Superadmin,
                     ClassConstantesGenerales.sUtilisateur_Nom_Superadmin,
-                    "",
-                    ClassConstantesGenerales.sUtilisateur_Nom_Superadmin,
-                    sLocal_MotPasseProfilCrypte });
-            }
+                    ClassConstantesGenerales.sUtilisateur_Email_Superadmin,
+                    mdpAdmin,
+                    "Admin"
+                }
+            );
+
+            // Utilisateur basique
+            migrationBuilder.InsertData(
+                table: "PKUser",
+                columns: new[] { "Id", "Login", "Nom", "Email", "Password", "Role" },
+                columnTypes: new[] { "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT" },
+                values: new object[] {
+                    guidUser,
+                    ClassConstantesGenerales.sUtilisateur_Login_User,
+                    ClassConstantesGenerales.sUtilisateur_Nom_User,
+                    ClassConstantesGenerales.sUtilisateur_Email_User,
+                    mdpUser,
+                    "User"
+                }
+            );
+
+            // ProfilConnexion Google pour l'admin
+            migrationBuilder.InsertData(
+                table: "ProfilConnexion",
+                columns: new[] { "Id", "TypeProfilConnexionId", "PKUserId", "ServiceName", "ServiceUrl", "ServiceLogin", "ServiceCryptPassword" },
+                columnTypes: new[] { "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT", "TEXT" },
+                values: new object[] {
+                    guidProfilGoogle,
+                    guidTypeWeb,
+                    guidAdmin,
+                    "Google",
+                    "https://google.com",
+                    ClassConstantesGenerales.sUtilisateur_Email_Superadmin,
+                    mdpGoogleCrypte
+                }
+            );
         }
 
     }

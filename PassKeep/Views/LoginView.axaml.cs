@@ -6,12 +6,9 @@ using Avalonia.Interactivity;
 using PassKeep.ClassesGenerales;
 using PassKeep.modeles;
 using PassKeepDLL;
+using System;
 using System.Linq;
 using Tmds.DBus.Protocol;
-
-
-
-
 
 namespace PassKeep.Views;
 
@@ -20,17 +17,33 @@ public partial class LoginView : Window
     public LoginView()
     {
         InitializeComponent();
+        Opened += OnOpened;
+    }
+
+    private void OnOpened(object? sender, EventArgs e)
+    {
+        try
+        {
+            var userId = ClassFonctionsGenerales.ChargerSession();
+            if (userId == null) return;
+
+            using DataContext db = new DataContext();
+            var user = db.PKUser.Find(userId.Value);
+            if (user == null) { ClassFonctionsGenerales.SupprimerSession(); return; }
+
+            OuvrirFenetrePrincipale(user);
+        }
+        catch { /* DB pas encore prête, formulaire affiché normalement */ }
     }
 
     private void TitleBar_PointerPressed(object? sender, PointerPressedEventArgs e)
         => BeginMoveDrag(e);
 
-    private void MinimizeWindow(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    private void MinimizeWindow(object? sender, RoutedEventArgs e)
         => WindowState = WindowState.Minimized;
 
-    private void CloseWindow(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    private void CloseWindow(object? sender, RoutedEventArgs e)
         => Close();
-
 
     private void OnLoginClicked(object? sender, RoutedEventArgs e)
     {
@@ -43,27 +56,32 @@ public partial class LoginView : Window
 
         if (user == null)
         {
-            // Afficher un message d'erreur
             ErrorTextBlock.Text = "Email ou mot de passe incorrect.";
             ErrorTextBlock.IsVisible = true;
             return;
         }
 
+        if (RememberMeCheckBox.IsChecked == true)
+            ClassFonctionsGenerales.SauvegarderSession(user.Id);
+
+        OuvrirFenetrePrincipale(user);
+    }
+
+    private void OuvrirFenetrePrincipale(PKUser user)
+    {
         var app = (IClassicDesktopStyleApplicationLifetime)Application.Current!.ApplicationLifetime!;
         var mainWindow = new MainWindow(user);
         app.MainWindow = mainWindow;
         mainWindow.Show();
-
         Close();
     }
 
-
-    private void OnRegisterClicked(object? sender, Avalonia.Input.PointerPressedEventArgs e)
+    private void OnRegisterClicked(object? sender, PointerPressedEventArgs e)
     {
         var app = (IClassicDesktopStyleApplicationLifetime)Application.Current!.ApplicationLifetime!;
-        var mainWindow = new RegisterView();
-        app.MainWindow = mainWindow;
-        mainWindow.Show();
+        var registerView = new RegisterView();
+        app.MainWindow = registerView;
+        registerView.Show();
         Close();
     }
 }

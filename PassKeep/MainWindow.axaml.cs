@@ -2,6 +2,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Controls;
+using Microsoft.EntityFrameworkCore;
 using PassKeep.ClassesGenerales;
 using PassKeep.modeles;
 using PassKeep.Views;
@@ -37,10 +38,16 @@ namespace PassKeep
         public void ChargerProfils()
         {
             using DataContext db = new DataContext();
-            _tousLesProfils = db.ProfilConnexion
-                .Where(p => p.PKUserId == user.Id)
-                .ToList();
-            
+
+            if (user.IsAdmin)
+                _tousLesProfils = db.ProfilConnexion
+                    .Include(p => p.PKUser)
+                    .ToList();
+            else
+                _tousLesProfils = db.ProfilConnexion
+                    .Where(p => p.PKUserId == user.Id)
+                    .ToList();
+
             AppliquerFiltres();
         }
 

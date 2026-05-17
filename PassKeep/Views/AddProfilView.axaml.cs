@@ -137,7 +137,7 @@ public partial class AddProfilView : Window
             if (profil == null) { Close(); return; }
 
             profil.ServiceName = ServiceTextBox.Text;
-            profil.ServiceUrl = UrlTextBox.Text;
+            profil.ServiceUrl = string.IsNullOrWhiteSpace(UrlTextBox.Text) ? "" : UrlTextBox.Text.Trim();
             profil.ServiceLogin = LoginTextBox.Text;
             profil.ServiceCryptPassword = Cryptage.encrypterChaine(PasswordTextBox.Text);
             profil.TypeProfilConnexionId = typeProfil.Id;
@@ -148,7 +148,7 @@ public partial class AddProfilView : Window
             var profil = new ProfilConnexion
             {
                 ServiceName = ServiceTextBox.Text,
-                ServiceUrl = UrlTextBox.Text,
+                ServiceUrl = string.IsNullOrWhiteSpace(UrlTextBox.Text) ? "" : UrlTextBox.Text.Trim(),
                 ServiceLogin = LoginTextBox.Text,
                 ServiceCryptPassword = Cryptage.encrypterChaine(PasswordTextBox.Text),
                 PKUserId = _currentUser.Id,

@@ -12,7 +12,6 @@ namespace PassKeep.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             ClassFonctionsGenerales.CreerUtilisateurSuperAdmin(migrationBuilder);
-
         }
 
         /// <inheritdoc />

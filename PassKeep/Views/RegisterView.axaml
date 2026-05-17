@@ -97,7 +97,7 @@
                     <TextBox x:Name="PasswordTextBox"
                              Classes="ModernBox"
                              PasswordChar="●"
-                             Watermark="Minimum 8 caractères"
+                             Watermark="••••••••"
                              Margin="0,0,0,16"/>
 
                     <!-- Confirmer mot de passe -->

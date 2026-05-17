@@ -1,4 +1,6 @@
+using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Platform.Storage;
@@ -72,5 +74,15 @@ public partial class SettingsView : Window
     {
         var typeProfilView = new TypeProfilView();
         typeProfilView.ShowDialog(this);
+    }
+
+    private void OnLogout(object? sender, RoutedEventArgs e)
+    {
+        ClassFonctionsGenerales.SupprimerSession();
+        var app = (IClassicDesktopStyleApplicationLifetime)Application.Current!.ApplicationLifetime!;
+        var loginView = new LoginView();
+        app.MainWindow = loginView;
+        loginView.Show();
+        (Owner as Window)?.Close();
     }
 }
