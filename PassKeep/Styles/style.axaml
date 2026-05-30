@@ -6,7 +6,7 @@
     <!-- ========================= -->
 
     <Style Selector="Window">
-        <Setter Property="Background" Value="#0B1220"/>
+        <Setter Property="Background" Value="{DynamicResource Color_WindowBg}"/>
         <Setter Property="BorderBrush" Value="#000000"/>
         <Setter Property="BorderThickness" Value="1"/>
     </Style>
@@ -21,9 +21,9 @@
         <Setter Property="Height" Value="28"/>
         <Setter Property="MinWidth" Value="32"/>
         <Setter Property="MinHeight" Value="28"/>
-        <Setter Property="Background" Value="#172033"/>
-        <Setter Property="Foreground" Value="#E2E8F0"/>
-        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="Background" Value="{DynamicResource Color_Surface}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextSecondary}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfaceBorder}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CornerRadius" Value="8"/>
         <Setter Property="Padding" Value="0"/>
@@ -33,21 +33,25 @@
     </Style>
 
     <Style Selector="Button.WindowButton /template/ ContentPresenter">
-        <Setter Property="Background" Value="#172033"/>
-        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="Background" Value="{DynamicResource Color_Surface}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfaceBorder}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CornerRadius" Value="8"/>
         <Setter Property="Padding" Value="0"/>
     </Style>
 
+    <Style Selector="Button.WindowButton:pointerover">
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextHover}"/>
+    </Style>
+
     <Style Selector="Button.WindowButton:pointerover /template/ ContentPresenter">
-        <Setter Property="Background" Value="#243041"/>
-        <Setter Property="BorderBrush" Value="#3B4A63"/>
+        <Setter Property="Background" Value="{DynamicResource Color_SurfaceHover}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfaceHoverBorder}"/>
     </Style>
 
     <Style Selector="Button.WindowButton:pressed /template/ ContentPresenter">
-        <Setter Property="Background" Value="#1B2638"/>
-        <Setter Property="BorderBrush" Value="#4B5D7A"/>
+        <Setter Property="Background" Value="{DynamicResource Color_SurfacePressed}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfacePressedBorder}"/>
     </Style>
 
     <Style Selector="Button.WindowCloseButton">
@@ -55,9 +59,9 @@
         <Setter Property="Height" Value="28"/>
         <Setter Property="MinWidth" Value="32"/>
         <Setter Property="MinHeight" Value="28"/>
-        <Setter Property="Background" Value="#7F1D1D"/>
-        <Setter Property="Foreground" Value="#F8FAFC"/>
-        <Setter Property="BorderBrush" Value="#991B1B"/>
+        <Setter Property="Background" Value="{DynamicResource Color_CloseBtn}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextPrimary}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_CloseBtnBorder}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CornerRadius" Value="8"/>
         <Setter Property="Padding" Value="0"/>
@@ -67,21 +71,21 @@
     </Style>
 
     <Style Selector="Button.WindowCloseButton /template/ ContentPresenter">
-        <Setter Property="Background" Value="#7F1D1D"/>
-        <Setter Property="BorderBrush" Value="#991B1B"/>
+        <Setter Property="Background" Value="{DynamicResource Color_CloseBtn}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_CloseBtnBorder}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CornerRadius" Value="8"/>
         <Setter Property="Padding" Value="0"/>
     </Style>
 
     <Style Selector="Button.WindowCloseButton:pointerover /template/ ContentPresenter">
-        <Setter Property="Background" Value="#B91C1C"/>
-        <Setter Property="BorderBrush" Value="#DC2626"/>
+        <Setter Property="Background" Value="{DynamicResource Color_CloseBtnHover}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_CloseBtnHoverBorder}"/>
     </Style>
 
     <Style Selector="Button.WindowCloseButton:pressed /template/ ContentPresenter">
-        <Setter Property="Background" Value="#991B1B"/>
-        <Setter Property="BorderBrush" Value="#EF4444"/>
+        <Setter Property="Background" Value="{DynamicResource Color_CloseBtnPressed}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_Danger}"/>
     </Style>
 
 
@@ -92,69 +96,104 @@
     <Style Selector="TextBlock.Title">
         <Setter Property="FontSize" Value="22"/>
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="Foreground" Value="#F8FAFC"/>
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextPrimary}"/>
     </Style>
 
     <Style Selector="TextBlock.Subtitle">
         <Setter Property="FontSize" Value="14"/>
-        <Setter Property="Foreground" Value="#94A3B8"/>
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextMuted}"/>
     </Style>
 
     <Style Selector="TextBox.ModernBox">
-        <Setter Property="Background" Value="#172033"/>
-        <Setter Property="Foreground" Value="#F8FAFC"/>
-        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="Background" Value="{DynamicResource Color_Surface}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextPrimary}"/>
+        <Setter Property="CaretBrush" Value="{DynamicResource Color_TextPrimary}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfaceBorder}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Padding" Value="10,6"/>
         <Setter Property="CornerRadius" Value="10"/>
     </Style>
 
+    <Style Selector="TextBox.ModernBox /template/ Border#PART_BorderElement">
+        <Setter Property="Background" Value="{DynamicResource Color_Surface}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfaceBorder}"/>
+        <Setter Property="CornerRadius" Value="10"/>
+    </Style>
+
+    <Style Selector="TextBox.ModernBox /template/ TextBlock#Watermark">
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextMuted}"/>
+    </Style>
+
+    <Style Selector="TextBox.ModernBox /template/ TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextMuted}"/>
+    </Style>
+
     <Style Selector="TextBox.ModernBox:focus /template/ Border#PART_BorderElement">
-        <Setter Property="BorderBrush" Value="#2563EB"/>
+        <Setter Property="Background" Value="{DynamicResource Color_SurfaceFocus}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_Focus}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+
+    <Style Selector="TextBox.ModernBox:focus-within /template/ Border#PART_BorderElement">
+        <Setter Property="Background" Value="{DynamicResource Color_SurfaceFocus}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_Focus}"/>
+        <Setter Property="BorderThickness" Value="2"/>
+    </Style>
+
+    <Style Selector="TextBox.ModernBox:pointerover /template/ Border#PART_BorderElement">
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfaceHoverBorder}"/>
     </Style>
 
     <Style Selector="ComboBox.ModernBox">
-        <Setter Property="Background" Value="#172033"/>
-        <Setter Property="Foreground" Value="#F8FAFC"/>
-        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="Background" Value="{DynamicResource Color_Surface}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextPrimary}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfaceBorder}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Padding" Value="10,6"/>
         <Setter Property="CornerRadius" Value="10"/>
     </Style>
 
     <Style Selector="ComboBox.ModernBox:focus /template/ Border#Background">
-        <Setter Property="BorderBrush" Value="#2563EB"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_Focus}"/>
     </Style>
 
     <Style Selector="ComboBox.ModernBox /template/ Border#Background">
-        <Setter Property="Background" Value="#172033"/>
-        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="Background" Value="{DynamicResource Color_Surface}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfaceBorder}"/>
         <Setter Property="CornerRadius" Value="10"/>
     </Style>
 
     <Style Selector="ComboBox.ModernBox:pointerover /template/ Border#Background">
-        <Setter Property="BorderBrush" Value="#3B4A63"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfaceHoverBorder}"/>
+    </Style>
+
+    <Style Selector="ComboBox.ModernBox /template/ TextBlock#PlaceholderTextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextMuted}"/>
+    </Style>
+
+    <Style Selector="ComboBox.ModernBox /template/ ContentControl#PlaceholderTextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextMuted}"/>
     </Style>
 
     <Style Selector="ComboBox.ModernBox /template/ Popup Border">
-        <Setter Property="Background" Value="#172033"/>
-        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="Background" Value="{DynamicResource Color_Surface}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfaceBorder}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CornerRadius" Value="10"/>
     </Style>
 
     <Style Selector="ComboBoxItem">
-        <Setter Property="Background" Value="#172033"/>
-        <Setter Property="Foreground" Value="#F8FAFC"/>
+        <Setter Property="Background" Value="{DynamicResource Color_Surface}"/>
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextPrimary}"/>
         <Setter Property="Padding" Value="10,6"/>
     </Style>
 
     <Style Selector="ComboBoxItem:pointerover /template/ ContentPresenter">
-        <Setter Property="Background" Value="#243041"/>
+        <Setter Property="Background" Value="{DynamicResource Color_SurfaceHover}"/>
     </Style>
 
     <Style Selector="ComboBoxItem:selected /template/ ContentPresenter">
-        <Setter Property="Background" Value="#2563EB"/>
+        <Setter Property="Background" Value="{DynamicResource Color_Accent}"/>
     </Style>
 
 
@@ -163,8 +202,8 @@
     <!-- ========================= -->
 
     <Style Selector="Border.Card">
-        <Setter Property="Background" Value="#111827"/>
-        <Setter Property="BorderBrush" Value="#243041"/>
+        <Setter Property="Background" Value="{DynamicResource Color_CardBg}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_CardBorder}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CornerRadius" Value="12"/>
         <Setter Property="Padding" Value="12"/>
@@ -173,44 +212,48 @@
     <Style Selector="TextBlock.SectionTitle">
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
-        <Setter Property="Foreground" Value="#F8FAFC"/>
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextPrimary}"/>
     </Style>
 
     <Style Selector="TextBlock.SectionSubtitle">
-        <Setter Property="Foreground" Value="#94A3B8"/>
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextMuted}"/>
         <Setter Property="FontSize" Value="14"/>
     </Style>
 
     <Style Selector="Button.SecondaryButton">
-        <Setter Property="Foreground" Value="#E2E8F0"/>
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextSecondary}"/>
         <Setter Property="FontSize" Value="13"/>
-        <Setter Property="Background" Value="#172033"/>
-        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="Background" Value="{DynamicResource Color_Surface}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfaceBorder}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Padding" Value="10,6"/>
         <Setter Property="CornerRadius" Value="8"/>
     </Style>
 
     <Style Selector="Button.SecondaryButton /template/ ContentPresenter">
-        <Setter Property="Background" Value="#172033"/>
-        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="Background" Value="{DynamicResource Color_Surface}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfaceBorder}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CornerRadius" Value="8"/>
         <Setter Property="Padding" Value="10,6"/>
     </Style>
 
+    <Style Selector="Button.SecondaryButton:pointerover">
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextHover}"/>
+    </Style>
+
     <Style Selector="Button.SecondaryButton:pointerover /template/ ContentPresenter">
-        <Setter Property="Background" Value="#243041"/>
-        <Setter Property="BorderBrush" Value="#3B4A63"/>
+        <Setter Property="Background" Value="{DynamicResource Color_SurfaceHover}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfaceHoverBorder}"/>
     </Style>
 
     <Style Selector="Button.SecondaryButton:pressed /template/ ContentPresenter">
-        <Setter Property="Background" Value="#1B2638"/>
-        <Setter Property="BorderBrush" Value="#4B5D7A"/>
+        <Setter Property="Background" Value="{DynamicResource Color_SurfacePressed}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfacePressedBorder}"/>
     </Style>
 
     <Style Selector="Button.DangerButton">
-        <Setter Property="Background" Value="#EF4444"/>
+        <Setter Property="Background" Value="{DynamicResource Color_Danger}"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Padding" Value="12,9"/>
         <Setter Property="CornerRadius" Value="8"/>
@@ -223,7 +266,7 @@
 
     <Style Selector="Border.AccountItem">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderBrush" Value="#1E293B"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_TitleBarBorder}"/>
         <Setter Property="BorderThickness" Value="0,0,0,1"/>
         <Setter Property="CornerRadius" Value="0"/>
         <Setter Property="Padding" Value="4,8"/>
@@ -232,7 +275,7 @@
     <Style Selector="Border.LogoBox">
         <Setter Property="Width" Value="34"/>
         <Setter Property="Height" Value="34"/>
-        <Setter Property="Background" Value="#2563EB"/>
+        <Setter Property="Background" Value="{DynamicResource Color_Accent}"/>
         <Setter Property="CornerRadius" Value="9"/>
     </Style>
 
@@ -244,19 +287,19 @@
     </Style>
 
     <Style Selector="TextBlock.WebSiteTitle">
-        <Setter Property="Foreground" Value="#F8FAFC"/>
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextPrimary}"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
     </Style>
 
     <Style Selector="TextBlock.Username">
-        <Setter Property="Foreground" Value="#94A3B8"/>
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextMuted}"/>
         <Setter Property="FontSize" Value="12"/>
     </Style>
 
     <Style Selector="Border.PasswordBox">
-        <Setter Property="Background" Value="#172033"/>
-        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="Background" Value="{DynamicResource Color_Surface}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfaceBorder}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CornerRadius" Value="10"/>
         <Setter Property="Padding" Value="14,8"/>
@@ -265,7 +308,7 @@
     </Style>
 
     <Style Selector="TextBlock.PasswordValue">
-        <Setter Property="Foreground" Value="#E2E8F0"/>
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextSecondary}"/>
         <Setter Property="FontSize" Value="13"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -285,34 +328,34 @@
         <Setter Property="MinWidth" Value="34"/>
         <Setter Property="MinHeight" Value="34"/>
         <Setter Property="Padding" Value="0"/>
-        <Setter Property="Background" Value="#172033"/>
-        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="Background" Value="{DynamicResource Color_Surface}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfaceBorder}"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Foreground" Value="#CBD5E1"/>
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextIcon}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
 
     <Style Selector="Button.IconButton /template/ ContentPresenter">
-        <Setter Property="Background" Value="#172033"/>
-        <Setter Property="BorderBrush" Value="#2A364B"/>
+        <Setter Property="Background" Value="{DynamicResource Color_Surface}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfaceBorder}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CornerRadius" Value="8"/>
         <Setter Property="Padding" Value="0"/>
     </Style>
 
     <Style Selector="Button.IconButton:pointerover /template/ ContentPresenter">
-        <Setter Property="Background" Value="#243041"/>
-        <Setter Property="BorderBrush" Value="#3B4A63"/>
+        <Setter Property="Background" Value="{DynamicResource Color_SurfaceHover}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfaceHoverBorder}"/>
     </Style>
 
     <Style Selector="Button.IconButton:pressed /template/ ContentPresenter">
-        <Setter Property="Background" Value="#1B2638"/>
-        <Setter Property="BorderBrush" Value="#4B5D7A"/>
+        <Setter Property="Background" Value="{DynamicResource Color_SurfacePressed}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Color_SurfacePressedBorder}"/>
     </Style>
 
     <Style Selector="Button.IconButton:pointerover">
-        <Setter Property="Foreground" Value="#F8FAFC"/>
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextHover}"/>
     </Style>
 
     <Style Selector="TextBlock.IconGlyph">
@@ -325,11 +368,11 @@
     <Style Selector="PathIcon.IconPath">
         <Setter Property="Width" Value="16"/>
         <Setter Property="Height" Value="16"/>
-        <Setter Property="Foreground" Value="#CBD5E1"/>
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextIcon}"/>
     </Style>
 
     <Style Selector="Button.IconButton:pointerover PathIcon">
-        <Setter Property="Foreground" Value="#F8FAFC"/>
+        <Setter Property="Foreground" Value="{DynamicResource Color_TextHover}"/>
     </Style>
 
 
@@ -338,7 +381,7 @@
     <!-- ========================= -->
 
     <Style Selector="Button.PrimaryButton">
-        <Setter Property="Background" Value="#3B82F6"/>
+        <Setter Property="Background" Value="{DynamicResource Color_PrimaryBtn}"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="FontSize" Value="14"/>
         <Setter Property="FontWeight" Value="SemiBold"/>
@@ -347,17 +390,17 @@
     </Style>
 
     <Style Selector="Button.PrimaryButton /template/ ContentPresenter">
-        <Setter Property="Background" Value="#3B82F6"/>
+        <Setter Property="Background" Value="{DynamicResource Color_PrimaryBtn}"/>
         <Setter Property="CornerRadius" Value="8"/>
         <Setter Property="Padding" Value="12,9"/>
     </Style>
 
     <Style Selector="Button.PrimaryButton:pointerover /template/ ContentPresenter">
-        <Setter Property="Background" Value="#2563EB"/>
+        <Setter Property="Background" Value="{DynamicResource Color_PrimaryBtnHover}"/>
     </Style>
 
     <Style Selector="Button.PrimaryButton:pressed /template/ ContentPresenter">
-        <Setter Property="Background" Value="#1D4ED8"/>
+        <Setter Property="Background" Value="{DynamicResource Color_PrimaryBtnPressed}"/>
     </Style>
 
 </Styles>

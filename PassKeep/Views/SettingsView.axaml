@@ -3,11 +3,11 @@
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     Width="420"
-    Height="480"
+    Height="560"
     MinWidth="380"
-    MinHeight="480"
+    MinHeight="560"
     Title="PassKeep"
-    Background="#0B1220"
+    Background="{DynamicResource Color_WindowBg}"
     Topmost="True"
     Icon="/assets/passkeepIcon.png"
     SystemDecorations="None"
@@ -18,14 +18,14 @@
 
         <!-- TITLE BAR -->
         <Border Grid.Row="0"
-                Background="#0F172A"
-                BorderBrush="#1E293B"
+                Background="{DynamicResource Color_TitleBarBg}"
+                BorderBrush="{DynamicResource Color_TitleBarBorder}"
                 BorderThickness="0,0,0,1"
                 PointerPressed="TitleBar_PointerPressed">
             <Grid ColumnDefinitions="*,Auto" Margin="12,0,12,0">
                 <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center">
                     <Border Width="26" Height="26"
-                            Background="#2563EB"
+                            Background="{DynamicResource Color_Accent}"
                             CornerRadius="8"
                             VerticalAlignment="Center">
                         <TextBlock Text="P"
@@ -37,7 +37,7 @@
                     <TextBlock Grid.Column="1"
                                Margin="10,0,0,0"
                                Text="PassKeep"
-                               Foreground="#F8FAFC"
+                               Foreground="{DynamicResource Color_TextPrimary}"
                                FontSize="14"
                                FontWeight="SemiBold"
                                VerticalAlignment="Center"/>
@@ -60,16 +60,36 @@
                 <!-- Header -->
                 <TextBlock Classes="Title" Text="Paramètres"/>
 
+                <!-- Apparence -->
+                <Border Classes="Card">
+                    <Grid ColumnDefinitions="*,Auto">
+                        <StackPanel Spacing="2" VerticalAlignment="Center">
+                            <TextBlock Text="Apparence"
+                                       Foreground="{DynamicResource Color_TextSecondary}"
+                                       FontSize="14"
+                                       FontWeight="SemiBold"/>
+                            <TextBlock x:Name="ThemeLabel"
+                                       Foreground="{DynamicResource Color_TextSubtle}"
+                                       FontSize="12"/>
+                        </StackPanel>
+                        <Button Grid.Column="1"
+                                x:Name="ThemeToggleButton"
+                                Classes="SecondaryButton"
+                                VerticalAlignment="Center"
+                                Click="OnThemeToggle"/>
+                    </Grid>
+                </Border>
+
                 <!-- Types de profil -->
                 <Border Classes="Card">
                     <Grid ColumnDefinitions="*,Auto">
                         <StackPanel Spacing="2" VerticalAlignment="Center">
                             <TextBlock Text="Types de profil"
-                                       Foreground="#E2E8F0"
+                                       Foreground="{DynamicResource Color_TextSecondary}"
                                        FontSize="14"
                                        FontWeight="SemiBold"/>
                             <TextBlock Text="Ajouter ou supprimer des catégories"
-                                       Foreground="#64748B"
+                                       Foreground="{DynamicResource Color_TextSubtle}"
                                        FontSize="12"/>
                         </StackPanel>
                         <Button Grid.Column="1"
@@ -84,12 +104,12 @@
                 <Border Classes="Card">
                     <StackPanel Spacing="14">
                         <TextBlock Text="Dictionnaire"
-                                   Foreground="#E2E8F0"
+                                   Foreground="{DynamicResource Color_TextSecondary}"
                                    FontSize="14"
                                    FontWeight="SemiBold"/>
                         <Grid ColumnDefinitions="*,Auto">
                             <TextBlock Text="Importer un fichier .txt"
-                                       Foreground="#94A3B8"
+                                       Foreground="{DynamicResource Color_TextMuted}"
                                        FontSize="13"
                                        VerticalAlignment="Center"/>
                             <Button Grid.Column="1"
@@ -98,10 +118,10 @@
                                     VerticalAlignment="Center"
                                     Click="OnImportDictionnaire"/>
                         </Grid>
-                        <Border Height="1" Background="#1E293B"/>
+                        <Border Height="1" Background="{DynamicResource Color_TitleBarBorder}"/>
                         <Grid ColumnDefinitions="*,Auto">
                             <TextBlock Text="Vider le dictionnaire"
-                                       Foreground="#94A3B8"
+                                       Foreground="{DynamicResource Color_TextMuted}"
                                        FontSize="13"
                                        VerticalAlignment="Center"/>
                             <Button Grid.Column="1"

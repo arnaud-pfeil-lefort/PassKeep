@@ -16,6 +16,29 @@ public partial class SettingsView : Window
     public SettingsView()
     {
         InitializeComponent();
+        UpdateThemeUI();
+    }
+
+    private void UpdateThemeUI()
+    {
+        if (ThemeService.CurrentTheme == "Dark")
+        {
+            ThemeToggleButton.Content = "Mode clair";
+            ThemeLabel.Text = "Mode sombre activé";
+        }
+        else
+        {
+            ThemeToggleButton.Content = "Mode sombre";
+            ThemeLabel.Text = "Mode clair activé";
+        }
+    }
+
+    private void OnThemeToggle(object? sender, RoutedEventArgs e)
+    {
+        var newTheme = ThemeService.CurrentTheme == "Dark" ? "Light" : "Dark";
+        ThemeService.SaveTheme(newTheme);
+        ThemeService.ApplyTheme(newTheme);
+        UpdateThemeUI();
     }
 
     private void TitleBar_PointerPressed(object? sender, PointerPressedEventArgs e)
@@ -50,7 +73,7 @@ public partial class SettingsView : Window
             FeedbackText.Text = "Mots importés avec succès.";
             FeedbackText.Foreground = Avalonia.Media.Brushes.LightGreen;
             FeedbackText.IsVisible = true;
-        } else { 
+        } else {
             FeedbackText.Text = "Erreur lors de l'importation du dictionnaire.";
             FeedbackText.Foreground = Avalonia.Media.Brushes.Red;
             FeedbackText.IsVisible = true;

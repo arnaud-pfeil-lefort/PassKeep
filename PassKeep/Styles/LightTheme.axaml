@@ -1,0 +1,45 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Backgrounds -->
+    <SolidColorBrush x:Key="Color_WindowBg"            Color="#F1F5F9"/>
+    <SolidColorBrush x:Key="Color_TitleBarBg"          Color="#E2E8F0"/>
+    <SolidColorBrush x:Key="Color_TitleBarBorder"      Color="#94A3B8"/>
+    <SolidColorBrush x:Key="Color_CardBg"              Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="Color_CardBorder"          Color="#CBD5E1"/>
+    <SolidColorBrush x:Key="Color_Surface"             Color="#FFFFFF"/>
+    <SolidColorBrush x:Key="Color_SurfaceBorder"       Color="#94A3B8"/>
+    <SolidColorBrush x:Key="Color_SurfaceHover"        Color="#F1F5F9"/>
+    <SolidColorBrush x:Key="Color_SurfaceHoverBorder"  Color="#475569"/>
+    <SolidColorBrush x:Key="Color_SurfacePressed"      Color="#E2E8F0"/>
+    <SolidColorBrush x:Key="Color_SurfacePressedBorder" Color="#1E293B"/>
+    <SolidColorBrush x:Key="Color_TypeItemBg"          Color="#F1F5F9"/>
+
+    <!-- Text -->
+    <SolidColorBrush x:Key="Color_TextPrimary"         Color="#0F172A"/>
+    <SolidColorBrush x:Key="Color_TextSecondary"       Color="#334155"/>
+    <SolidColorBrush x:Key="Color_TextMuted"           Color="#475569"/>
+    <SolidColorBrush x:Key="Color_TextSubtle"          Color="#64748B"/>
+    <SolidColorBrush x:Key="Color_TextIcon"            Color="#475569"/>
+    <SolidColorBrush x:Key="Color_TextHover"           Color="#1D4ED8"/>
+    <SolidColorBrush x:Key="Color_Link"                Color="#2563EB"/>
+
+    <!-- Accent / Focus -->
+    <SolidColorBrush x:Key="Color_Accent"              Color="#2563EB"/>
+    <SolidColorBrush x:Key="Color_Focus"               Color="#2563EB"/>
+    <SolidColorBrush x:Key="Color_SurfaceFocus"        Color="#EFF6FF"/>
+
+    <!-- Primary button -->
+    <SolidColorBrush x:Key="Color_PrimaryBtn"          Color="#3B82F6"/>
+    <SolidColorBrush x:Key="Color_PrimaryBtnHover"     Color="#2563EB"/>
+    <SolidColorBrush x:Key="Color_PrimaryBtnPressed"   Color="#1D4ED8"/>
+
+    <!-- Close / danger button (stays red in both themes) -->
+    <SolidColorBrush x:Key="Color_CloseBtn"            Color="#7F1D1D"/>
+    <SolidColorBrush x:Key="Color_CloseBtnBorder"      Color="#991B1B"/>
+    <SolidColorBrush x:Key="Color_CloseBtnHover"       Color="#B91C1C"/>
+    <SolidColorBrush x:Key="Color_CloseBtnHoverBorder" Color="#DC2626"/>
+    <SolidColorBrush x:Key="Color_CloseBtnPressed"     Color="#991B1B"/>
+    <SolidColorBrush x:Key="Color_Danger"              Color="#EF4444"/>
+
+</ResourceDictionary>

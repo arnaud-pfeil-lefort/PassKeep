@@ -1,4 +1,4 @@
-<UserControl 
+<UserControl
     x:Class="PassKeep.Views.ProfilConnexionItem"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -22,7 +22,7 @@
                            Classes="Username"/>
                 <TextBlock Text="{Binding OwnerNom}"
                            IsVisible="{Binding OwnerNom, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                           Foreground="#94A3B8"
+                           Foreground="{DynamicResource Color_TextMuted}"
                            FontSize="10"/>
             </StackPanel>
 

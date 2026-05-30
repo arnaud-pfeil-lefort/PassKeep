@@ -10,6 +10,7 @@ using System.Net;
 using System.Threading.Tasks;
 using PassKeep.Views;
 using System.IO;
+using PassKeep.ClassesGenerales;
 
 
 
@@ -54,6 +55,8 @@ namespace PassKeep
                     Log(ex.StackTrace ?? "");
                 }
             });
+
+            ThemeService.ApplyTheme(ThemeService.LoadTheme());
 
             if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
             {

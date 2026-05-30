@@ -9,7 +9,7 @@
     MinWidth="540"
     MinHeight="500"
     Title="PassKeep"
-    Background="#0B1220"
+    Background="{DynamicResource Color_WindowBg}"
     Topmost="True"
     Icon="/assets/passkeepIcon.png"
     SystemDecorations="None"
@@ -20,15 +20,15 @@
 
         <!-- TITLE BAR -->
         <Border Grid.Row="0"
-                Background="#0F172A"
-                BorderBrush="#1E293B"
+                Background="{DynamicResource Color_TitleBarBg}"
+                BorderBrush="{DynamicResource Color_TitleBarBorder}"
                 BorderThickness="0,0,0,1"
                 PointerPressed="TitleBar_PointerPressed">
             <Grid ColumnDefinitions="*,Auto" Margin="12,0,12,0">
 
                 <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center">
                     <Border Width="26" Height="26"
-                            Background="#2563EB"
+                            Background="{DynamicResource Color_Accent}"
                             CornerRadius="8"
                             VerticalAlignment="Center">
                         <TextBlock Text="P"
@@ -40,7 +40,7 @@
                     <TextBlock Grid.Column="1"
                                Margin="10,0,0,0"
                                Text="PassKeep"
-                               Foreground="#F8FAFC"
+                               Foreground="{DynamicResource Color_TextPrimary}"
                                FontSize="14"
                                FontWeight="SemiBold"
                                VerticalAlignment="Center"/>

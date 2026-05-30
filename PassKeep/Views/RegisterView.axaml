@@ -7,7 +7,7 @@
     MinWidth="380"
     MinHeight="580"
     Title="PassKeep"
-    Background="#0B1220"
+    Background="{DynamicResource Color_WindowBg}"
     Topmost="True"
     Icon="/assets/passkeepIcon.png"
     SystemDecorations="None"
@@ -18,15 +18,15 @@
 
         <!-- TITLE BAR -->
         <Border Grid.Row="0"
-                Background="#0F172A"
-                BorderBrush="#1E293B"
+                Background="{DynamicResource Color_TitleBarBg}"
+                BorderBrush="{DynamicResource Color_TitleBarBorder}"
                 BorderThickness="0,0,0,1"
                 PointerPressed="TitleBar_PointerPressed">
             <Grid ColumnDefinitions="*,Auto" Margin="12,0,12,0">
 
                 <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center">
                     <Border Width="26" Height="26"
-                            Background="#2563EB"
+                            Background="{DynamicResource Color_Accent}"
                             CornerRadius="8"
                             VerticalAlignment="Center">
                         <TextBlock Text="P"
@@ -38,7 +38,7 @@
                     <TextBlock Grid.Column="1"
                                Margin="10,0,0,0"
                                Text="PassKeep"
-                               Foreground="#F8FAFC"
+                               Foreground="{DynamicResource Color_TextPrimary}"
                                FontSize="14"
                                FontWeight="SemiBold"
                                VerticalAlignment="Center"/>
@@ -71,7 +71,7 @@
 
                     <!-- Nom -->
                     <TextBlock Text="Nom complet"
-                               Foreground="#94A3B8"
+                               Foreground="{DynamicResource Color_TextMuted}"
                                FontSize="13"
                                Margin="0,0,0,6"/>
                     <TextBox x:Name="NomTextBox"
@@ -81,7 +81,7 @@
 
                     <!-- Email -->
                     <TextBlock Text="Adresse e-mail"
-                               Foreground="#94A3B8"
+                               Foreground="{DynamicResource Color_TextMuted}"
                                FontSize="13"
                                Margin="0,0,0,6"/>
                     <TextBox x:Name="EmailTextBox"
@@ -91,7 +91,7 @@
 
                     <!-- Mot de passe -->
                     <TextBlock Text="Mot de passe"
-                               Foreground="#94A3B8"
+                               Foreground="{DynamicResource Color_TextMuted}"
                                FontSize="13"
                                Margin="0,0,0,6"/>
                     <TextBox x:Name="PasswordTextBox"
@@ -102,7 +102,7 @@
 
                     <!-- Confirmer mot de passe -->
                     <TextBlock Text="Confirmer le mot de passe"
-                               Foreground="#94A3B8"
+                               Foreground="{DynamicResource Color_TextMuted}"
                                FontSize="13"
                                Margin="0,0,0,6"/>
                     <TextBox Classes="ModernBox"
@@ -112,7 +112,7 @@
 
                     <TextBlock x:Name="ErrorTextBlock"
                                Text="Email ou mot de passe incorrect"
-                               Foreground="#EF4444"
+                               Foreground="{DynamicResource Color_Danger}"
                                FontSize="12"
                                HorizontalAlignment="Center"
                                IsVisible="False"
@@ -131,11 +131,11 @@
                                 HorizontalAlignment="Center"
                                 Spacing="4">
                         <TextBlock Text="Déjà un compte ?"
-                                   Foreground="#94A3B8"
+                                   Foreground="{DynamicResource Color_TextMuted}"
                                    FontSize="13"
                                    VerticalAlignment="Center"/>
                         <TextBlock Text="Se connecter"
-                                   Foreground="#3B82F6"
+                                   Foreground="{DynamicResource Color_Link}"
                                    FontSize="13"
                                    FontWeight="SemiBold"
                                    Cursor="Hand"
