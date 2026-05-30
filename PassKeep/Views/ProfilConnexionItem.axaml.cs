@@ -17,7 +17,11 @@ namespace PassKeep.Views
     public partial class ProfilConnexionItem : UserControl
     {
         private bool _motDePasseVisible = false;
-        private ProfilConnexion profil => DataContext as ProfilConnexion;
+
+        private ProfilConnexion profil
+        {
+            get { return DataContext as ProfilConnexion; }
+        }
 
         public ProfilConnexionItem()
         {
@@ -37,20 +41,29 @@ namespace PassKeep.Views
         private void OnToggleMotDePasse(object? sender, RoutedEventArgs e)
         {
             _motDePasseVisible = !_motDePasseVisible;
+
             if (DataContext is ProfilConnexion profil)
             {
-                PwdBox.Text = _motDePasseVisible ? profil.MotDePasseClair : new string('·', profil.MotDePasseClair.Length);
+                string texteAffiche;
+                if (_motDePasseVisible)
+                    texteAffiche = profil.MotDePasseClair;
+                else
+                    texteAffiche = new string('·', profil.MotDePasseClair.Length);
+
+                PwdBox.Text = texteAffiche;
             }
         }
 
         private void OnModifier(object? sender, RoutedEventArgs e)
         {
-            if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop
-                && desktop.MainWindow is MainWindow mainWindow)
-            {
-                var addProfilView = new AddProfilView(mainWindow.user, profil);
-                addProfilView.ShowDialog(mainWindow);
-            }
+            var lifetime = Application.Current?.ApplicationLifetime as IClassicDesktopStyleApplicationLifetime;
+            if (lifetime == null) return;
+
+            var mainWindow = lifetime.MainWindow as MainWindow;
+            if (mainWindow == null) return;
+
+            var addProfilView = new AddProfilView(mainWindow.user, profil);
+            addProfilView.ShowDialog(mainWindow);
         }
 
         private async void OnCopier(object? sender, RoutedEventArgs e)

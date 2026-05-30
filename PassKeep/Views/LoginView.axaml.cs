@@ -49,9 +49,12 @@ public partial class LoginView : Window
     {
         using DataContext db = new DataContext();
 
+        string email = EmailTextBox.Text ?? string.Empty;
+        string motDePasseSaisi = PasswordTextBox.Text ?? string.Empty;
+        string motDePasseHache = Cryptage.hacherChaine(motDePasseSaisi);
+
         PKUser? user = db.PKUser.FirstOrDefault(
-            u => u.Email == EmailTextBox.Text &&
-            u.Password == Cryptage.hacherChaine(PasswordTextBox.Text ?? string.Empty)
+            u => u.Email == email && u.Password == motDePasseHache
         );
 
         if (user == null)

@@ -29,26 +29,40 @@ namespace PassKeep
 
         private void ChargerTypes()
         {
-            using DataContext db = new DataContext();
-            var types = db.TypeProfilConnexion.ToList();
-            FilterTypeBox.ItemsSource = types;
-            FilterTypeBox.DisplayMemberBinding = new Avalonia.Data.Binding("Nom");
+            try
+            {
+                using DataContext db = new DataContext();
+                var types = db.TypeProfilConnexion.ToList();
+                FilterTypeBox.ItemsSource = types;
+                FilterTypeBox.DisplayMemberBinding = new Avalonia.Data.Binding("Nom");
+            }
+            catch (Exception ex)
+            {
+                ClassFonctionsGenerales.GestionErreur(ex, "Erreur lors du chargement des types de profil");
+            }
         }
 
         public void ChargerProfils()
         {
-            using DataContext db = new DataContext();
+            try
+            {
+                using DataContext db = new DataContext();
 
-            if (user.IsAdmin)
-                _tousLesProfils = db.ProfilConnexion
-                    .Include(p => p.PKUser)
-                    .ToList();
-            else
-                _tousLesProfils = db.ProfilConnexion
-                    .Where(p => p.PKUserId == user.Id)
-                    .ToList();
+                if (user.IsAdmin)
+                    _tousLesProfils = db.ProfilConnexion
+                        .Include(p => p.PKUser)
+                        .ToList();
+                else
+                    _tousLesProfils = db.ProfilConnexion
+                        .Where(p => p.PKUserId == user.Id)
+                        .ToList();
 
-            AppliquerFiltres();
+                AppliquerFiltres();
+            }
+            catch (Exception ex)
+            {
+                ClassFonctionsGenerales.GestionErreur(ex, "Erreur lors du chargement des profils");
+            }
         }
 
         private void AppliquerFiltres()
@@ -104,9 +118,12 @@ namespace PassKeep
             => WindowState = WindowState.Minimized;
 
         private void MaximizeWindow(object? sender, RoutedEventArgs e)
-            => WindowState = WindowState == WindowState.Maximized
-                ? WindowState.Normal
-                : WindowState.Maximized;
+        {
+            if (WindowState == WindowState.Maximized)
+                WindowState = WindowState.Normal;
+            else
+                WindowState = WindowState.Maximized;
+        }
 
         private void CloseWindow(object? sender, RoutedEventArgs e)
             => Close();

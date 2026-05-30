@@ -27,8 +27,16 @@ public partial class TypeProfilView : Window
 
     private void ChargerTypes()
     {
-        using DataContext db = new DataContext();
-        TypesList.ItemsSource = db.TypeProfilConnexion.ToList();
+        try
+        {
+            using DataContext db = new DataContext();
+            TypesList.ItemsSource = db.TypeProfilConnexion.ToList();
+        }
+        catch (Exception ex)
+        {
+            PassKeep.ClassesGenerales.ClassFonctionsGenerales.GestionErreur(ex, "Erreur lors du chargement des types");
+            ShowFeedback("Impossible de charger les types.", isError: true);
+        }
     }
 
     private void OnAjouter(object? sender, RoutedEventArgs e)
@@ -40,39 +48,55 @@ public partial class TypeProfilView : Window
             return;
         }
 
-        using DataContext db = new DataContext();
-
-        if (db.TypeProfilConnexion.Any(t => t.Nom == nom))
+        try
         {
-            ShowFeedback("Ce type existe déjà.", isError: true);
-            return;
+            using DataContext db = new DataContext();
+
+            if (db.TypeProfilConnexion.Any(t => t.Nom == nom))
+            {
+                ShowFeedback("Ce type existe déjà.", isError: true);
+                return;
+            }
+
+            db.TypeProfilConnexion.Add(new TypeProfilConnexion
+            {
+                Id = Guid.NewGuid(),
+                Nom = nom
+            });
+            db.SaveChanges();
+
+            NomTextBox.Text = string.Empty;
+            ShowFeedback("Type ajouté avec succès.", isError: false);
+            ChargerTypes();
         }
-
-        db.TypeProfilConnexion.Add(new TypeProfilConnexion
+        catch (Exception ex)
         {
-            Id = Guid.NewGuid(),
-            Nom = nom
-        });
-        db.SaveChanges();
-
-        NomTextBox.Text = string.Empty;
-        ShowFeedback("Type ajouté avec succès.", isError: false);
-        ChargerTypes();
+            PassKeep.ClassesGenerales.ClassFonctionsGenerales.GestionErreur(ex, "Erreur lors de l'ajout du type");
+            ShowFeedback("Impossible d'ajouter le type. Veuillez réessayer.", isError: true);
+        }
     }
 
     private void OnSupprimer(object? sender, RoutedEventArgs e)
     {
         if (sender is Button btn && btn.Tag is TypeProfilConnexion type)
         {
-            using DataContext db = new DataContext();
-            var entity = db.TypeProfilConnexion.Find(type.Id);
-            if (entity != null)
+            try
             {
-                db.TypeProfilConnexion.Remove(entity);
-                db.SaveChanges();
+                using DataContext db = new DataContext();
+                var entity = db.TypeProfilConnexion.Find(type.Id);
+                if (entity != null)
+                {
+                    db.TypeProfilConnexion.Remove(entity);
+                    db.SaveChanges();
+                }
+                ShowFeedback("Type supprimé.", isError: false);
+                ChargerTypes();
             }
-            ShowFeedback("Type supprimé.", isError: false);
-            ChargerTypes();
+            catch (Exception ex)
+            {
+                PassKeep.ClassesGenerales.ClassFonctionsGenerales.GestionErreur(ex, "Erreur lors de la suppression du type");
+                ShowFeedback("Impossible de supprimer le type. Veuillez réessayer.", isError: true);
+            }
         }
     }
 

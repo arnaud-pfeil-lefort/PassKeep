@@ -47,16 +47,25 @@ public partial class AddProfilView : Window
     {
         if (_profilToUpdate == null) return;
 
-        using DataContext db = new DataContext();
-        var profil = db.ProfilConnexion.Find(_profilToUpdate.Id);
-        if (profil != null)
+        try
         {
-            db.ProfilConnexion.Remove(profil);
-            db.SaveChanges();
-        }
+            using DataContext db = new DataContext();
+            var profil = db.ProfilConnexion.Find(_profilToUpdate.Id);
+            if (profil != null)
+            {
+                db.ProfilConnexion.Remove(profil);
+                db.SaveChanges();
+            }
 
-        UpdateMainWindow();
-        Close();
+            UpdateMainWindow();
+            Close();
+        }
+        catch (Exception ex)
+        {
+            ClassFonctionsGenerales.GestionErreur(ex, "Erreur lors de la suppression du profil");
+            ErrorText.Text = "Impossible de supprimer le profil. Veuillez réessayer.";
+            ErrorText.IsVisible = true;
+        }
     }
 
     private void PopulateForm()
@@ -73,8 +82,11 @@ public partial class AddProfilView : Window
 
         PasswordTextBox.Text = Cryptage.decrypterChaine(_profilToUpdate.ServiceCryptPassword);
 
-        TypeProfilComboBox.SelectedItem = (TypeProfilComboBox.ItemsSource as System.Collections.Generic.List<TypeProfilConnexion>)
-            ?.FirstOrDefault(t => t.Id == _profilToUpdate.TypeProfilConnexionId);
+        var listeTypes = TypeProfilComboBox.ItemsSource as System.Collections.Generic.List<TypeProfilConnexion>;
+        TypeProfilConnexion? typeCorrespondant = listeTypes?.FirstOrDefault(
+            t => t.Id == _profilToUpdate.TypeProfilConnexionId
+        );
+        TypeProfilComboBox.SelectedItem = typeCorrespondant;
     }
 
     private void TitleBar_PointerPressed(object? sender, PointerPressedEventArgs e)
@@ -104,10 +116,19 @@ public partial class AddProfilView : Window
 
     private void LoadTypeProfils()
     {
-        using DataContext db = new DataContext();
-        var types = db.TypeProfilConnexion.ToList();
-        TypeProfilComboBox.ItemsSource = types;
-        TypeProfilComboBox.DisplayMemberBinding = new Avalonia.Data.Binding("Nom");
+        try
+        {
+            using DataContext db = new DataContext();
+            var types = db.TypeProfilConnexion.ToList();
+            TypeProfilComboBox.ItemsSource = types;
+            TypeProfilComboBox.DisplayMemberBinding = new Avalonia.Data.Binding("Nom");
+        }
+        catch (Exception ex)
+        {
+            ClassFonctionsGenerales.GestionErreur(ex, "Erreur lors du chargement des types de profil");
+            ErrorText.Text = "Impossible de charger les types de profil.";
+            ErrorText.IsVisible = true;
+        }
     }
 
     private void OnAddProfil(object? sender, RoutedEventArgs e)
@@ -128,38 +149,45 @@ public partial class AddProfilView : Window
             return;
         }
 
-        using DataContext db = new DataContext();
-
-        if (_profilToUpdate != null)
+        try
         {
-            // Mode UPDATE
-            var profil = db.ProfilConnexion.Find(_profilToUpdate.Id);
-            if (profil == null) { Close(); return; }
+            using DataContext db = new DataContext();
 
-            profil.ServiceName = ServiceTextBox.Text;
-            profil.ServiceUrl = string.IsNullOrWhiteSpace(UrlTextBox.Text) ? "" : UrlTextBox.Text.Trim();
-            profil.ServiceLogin = LoginTextBox.Text;
-            profil.ServiceCryptPassword = Cryptage.encrypterChaine(PasswordTextBox.Text);
-            profil.TypeProfilConnexionId = typeProfil.Id;
-        }
-        else
-        {
-            // Mode CREATE
-            var profil = new ProfilConnexion
+            if (_profilToUpdate != null)
             {
-                ServiceName = ServiceTextBox.Text,
-                ServiceUrl = string.IsNullOrWhiteSpace(UrlTextBox.Text) ? "" : UrlTextBox.Text.Trim(),
-                ServiceLogin = LoginTextBox.Text,
-                ServiceCryptPassword = Cryptage.encrypterChaine(PasswordTextBox.Text),
-                PKUserId = _currentUser.Id,
-                TypeProfilConnexionId = typeProfil.Id
-            };
-            db.ProfilConnexion.Add(profil);
-        }
+                var profil = db.ProfilConnexion.Find(_profilToUpdate.Id);
+                if (profil == null) { Close(); return; }
 
-        db.SaveChanges();
-        UpdateMainWindow();
-        Close();
+                profil.ServiceName = ServiceTextBox.Text;
+                profil.ServiceUrl = string.IsNullOrWhiteSpace(UrlTextBox.Text) ? "" : UrlTextBox.Text.Trim();
+                profil.ServiceLogin = LoginTextBox.Text;
+                profil.ServiceCryptPassword = Cryptage.encrypterChaine(PasswordTextBox.Text);
+                profil.TypeProfilConnexionId = typeProfil.Id;
+            }
+            else
+            {
+                var profil = new ProfilConnexion
+                {
+                    ServiceName = ServiceTextBox.Text,
+                    ServiceUrl = string.IsNullOrWhiteSpace(UrlTextBox.Text) ? "" : UrlTextBox.Text.Trim(),
+                    ServiceLogin = LoginTextBox.Text,
+                    ServiceCryptPassword = Cryptage.encrypterChaine(PasswordTextBox.Text),
+                    PKUserId = _currentUser.Id,
+                    TypeProfilConnexionId = typeProfil.Id
+                };
+                db.ProfilConnexion.Add(profil);
+            }
+
+            db.SaveChanges();
+            UpdateMainWindow();
+            Close();
+        }
+        catch (Exception ex)
+        {
+            ClassFonctionsGenerales.GestionErreur(ex, "Erreur lors de l'enregistrement du profil");
+            ErrorText.Text = "Impossible d'enregistrer le profil. Veuillez réessayer.";
+            ErrorText.IsVisible = true;
+        }
     }
     private void UpdateMainWindow()
     {
@@ -247,8 +275,8 @@ public partial class AddProfilView : Window
 
         var responseJson = await response.Content.ReadAsStringAsync();
 
-        // {} = aucune menace = safe
         using var doc = JsonDocument.Parse(responseJson);
-        return !doc.RootElement.TryGetProperty("matches", out _);
+        bool aucuneCorrespondanceTrouvee = !doc.RootElement.TryGetProperty("matches", out _);
+        return aucuneCorrespondanceTrouvee;
     }
 }

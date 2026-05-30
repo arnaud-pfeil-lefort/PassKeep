@@ -35,9 +35,14 @@ public partial class SettingsView : Window
 
     private void OnThemeToggle(object? sender, RoutedEventArgs e)
     {
-        var newTheme = ThemeService.CurrentTheme == "Dark" ? "Light" : "Dark";
-        ThemeService.SaveTheme(newTheme);
-        ThemeService.ApplyTheme(newTheme);
+        string nouveauTheme;
+        if (ThemeService.CurrentTheme == "Dark")
+            nouveauTheme = "Light";
+        else
+            nouveauTheme = "Dark";
+
+        ThemeService.SaveTheme(nouveauTheme);
+        ThemeService.ApplyTheme(nouveauTheme);
         UpdateThemeUI();
     }
 

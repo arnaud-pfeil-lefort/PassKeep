@@ -49,34 +49,43 @@ public partial class RegisterView : Window
             return;
         }
 
-        using DataContext db = new DataContext();
-
-        bool emailExiste = db.PKUser.Any(u => u.Email == EmailTextBox.Text);
-        if (emailExiste)
+        try
         {
-            ErrorTextBlock.Text = "Cet email est déjà utilisé.";
-            ErrorTextBlock.IsVisible = true;
-            return;
+            using DataContext db = new DataContext();
+
+            bool emailExiste = db.PKUser.Any(u => u.Email == EmailTextBox.Text);
+            if (emailExiste)
+            {
+                ErrorTextBlock.Text = "Cet email est déjà utilisé.";
+                ErrorTextBlock.IsVisible = true;
+                return;
+            }
+
+            var user = new PKUser
+            {
+                Id = Guid.NewGuid(),
+                Nom = NomTextBox.Text,
+                Email = EmailTextBox.Text,
+                Login = EmailTextBox.Text,
+                Password = Cryptage.hacherChaine(PasswordTextBox.Text)
+            };
+
+            db.PKUser.Add(user);
+            db.SaveChanges();
+
+            var app = (IClassicDesktopStyleApplicationLifetime)Application.Current!.ApplicationLifetime!;
+            var mainWindow = new MainWindow(user);
+            app.MainWindow = mainWindow;
+            mainWindow.Show();
+
+            Close();
         }
-
-        var user = new PKUser
+        catch (Exception ex)
         {
-            Id = Guid.NewGuid(),
-            Nom = NomTextBox.Text,
-            Email = EmailTextBox.Text,
-            Login = EmailTextBox.Text,
-            Password = Cryptage.hacherChaine(PasswordTextBox.Text)
-        };
-
-        db.PKUser.Add(user);
-        db.SaveChanges();
-
-        var app = (IClassicDesktopStyleApplicationLifetime)Application.Current!.ApplicationLifetime!;
-        var mainWindow = new MainWindow(user);
-        app.MainWindow = mainWindow;
-        mainWindow.Show();
-
-        Close();
+            ClassFonctionsGenerales.GestionErreur(ex, "Erreur lors de l'inscription");
+            ErrorTextBlock.Text = "Une erreur est survenue. Veuillez réessayer.";
+            ErrorTextBlock.IsVisible = true;
+        }
     }
 
 }

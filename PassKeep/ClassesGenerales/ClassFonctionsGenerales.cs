@@ -107,13 +107,19 @@ namespace PassKeep.ClassesGenerales
         {
             using DataContext db = new DataContext();
 
-            var mots = db.Dictionnaire
+            var random = new Random();
+            int nombreDeMots = random.Next(3, 6);
+
+            var tousLesMots = db.Dictionnaire
                 .Select(d => d.Mot)
-                .ToList()
-                .OrderBy(m => Guid.NewGuid())
-                .Take(new Random().Next(3, 6))
                 .ToList();
-            return mots;
+
+            var motsChoisis = tousLesMots
+                .OrderBy(m => Guid.NewGuid())
+                .Take(nombreDeMots)
+                .ToList();
+
+            return motsChoisis;
         }
 
         private static string SessionFilePath =>
@@ -125,8 +131,14 @@ namespace PassKeep.ClassesGenerales
         public static Guid? ChargerSession()
         {
             if (!File.Exists(SessionFilePath)) return null;
+
             var content = File.ReadAllText(SessionFilePath).Trim();
-            return Guid.TryParse(content, out var id) ? id : null;
+
+            bool estUnGuidValide = Guid.TryParse(content, out Guid id);
+            if (estUnGuidValide)
+                return id;
+
+            return null;
         }
 
         public static void SupprimerSession()
