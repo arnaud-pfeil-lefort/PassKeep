@@ -36,6 +36,12 @@ public partial class LoginView : Window
         catch { /* DB pas encore prête, formulaire affiché normalement */ }
     }
 
+    private void OnHelpClicked(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        var helpView = new HelpView(HelpPage.Login);
+        helpView.ShowDialog(this);
+    }
+
     private void TitleBar_PointerPressed(object? sender, PointerPressedEventArgs e)
         => BeginMoveDrag(e);
 

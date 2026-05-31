@@ -16,6 +16,12 @@ public partial class TypeProfilView : Window
         ChargerTypes();
     }
 
+    private void OnHelpClicked(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        var helpView = new HelpView(HelpPage.TypeProfil);
+        helpView.ShowDialog(this);
+    }
+
     private void TitleBar_PointerPressed(object? sender, PointerPressedEventArgs e)
         => BeginMoveDrag(e);
 

@@ -89,6 +89,12 @@ public partial class AddProfilView : Window
         TypeProfilComboBox.SelectedItem = typeCorrespondant;
     }
 
+    private void OnHelpClicked(object? sender, RoutedEventArgs e)
+    {
+        var helpView = new HelpView(HelpPage.AddProfil);
+        helpView.ShowDialog(this);
+    }
+
     private void TitleBar_PointerPressed(object? sender, PointerPressedEventArgs e)
         => BeginMoveDrag(e);
 

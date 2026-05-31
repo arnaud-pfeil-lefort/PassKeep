@@ -19,6 +19,12 @@ public partial class RegisterView : Window
         InitializeComponent();
     }
 
+    private void OnHelpClicked(object? sender, RoutedEventArgs e)
+    {
+        var helpView = new HelpView(HelpPage.Register);
+        helpView.ShowDialog(this);
+    }
+
     private void TitleBar_PointerPressed(object? sender, PointerPressedEventArgs e)
         => BeginMoveDrag(e);
 

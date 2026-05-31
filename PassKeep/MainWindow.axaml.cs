@@ -8,8 +8,6 @@ using PassKeep.modeles;
 using PassKeep.Views;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
 
 namespace PassKeep
@@ -104,11 +102,8 @@ namespace PassKeep
 
         private void OnHelpClicked(object? sender, RoutedEventArgs e)
         {
-            Process.Start(new ProcessStartInfo
-            {
-                FileName = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..", "..", "..", "AideEnLigne.html"),
-                UseShellExecute = true
-            });
+            var helpView = new Views.HelpView(Views.HelpPage.Main);
+            helpView.ShowDialog(this);
         }
 
         private void TitleBar_PointerPressed(object? sender, PointerPressedEventArgs e)

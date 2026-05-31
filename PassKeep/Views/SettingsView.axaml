@@ -46,6 +46,7 @@
                             Orientation="Horizontal"
                             Spacing="8"
                             VerticalAlignment="Center">
+                    <Button Classes="WindowButton" Content="?" Click="OnHelpClicked" ToolTip.Tip="Aide"/>
                     <Button Classes="WindowButton" Content="─" Click="MinimizeWindow"/>
                     <Button Classes="WindowCloseButton" Content="✕" Click="CloseWindow"/>
                 </StackPanel>

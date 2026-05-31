@@ -46,6 +46,12 @@ public partial class SettingsView : Window
         UpdateThemeUI();
     }
 
+    private void OnHelpClicked(object? sender, RoutedEventArgs e)
+    {
+        var helpView = new HelpView(HelpPage.Settings);
+        helpView.ShowDialog(this);
+    }
+
     private void TitleBar_PointerPressed(object? sender, PointerPressedEventArgs e)
         => BeginMoveDrag(e);
 
