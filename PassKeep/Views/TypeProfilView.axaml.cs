@@ -89,12 +89,18 @@ public partial class TypeProfilView : Window
             try
             {
                 using DataContext db = new DataContext();
+
+                var profilsLies = db.ProfilConnexion
+                    .Where(p => p.TypeProfilConnexionId == type.Id)
+                    .ToList();
+                foreach (var profil in profilsLies)
+                    profil.TypeProfilConnexionId = null;
+
                 var entity = db.TypeProfilConnexion.Find(type.Id);
                 if (entity != null)
-                {
                     db.TypeProfilConnexion.Remove(entity);
-                    db.SaveChanges();
-                }
+
+                db.SaveChanges();
                 ShowFeedback("Type supprimé.", isError: false);
                 ChargerTypes();
             }
