@@ -7,6 +7,7 @@
     MinWidth="380"
     MinHeight="560"
     Title="PassKeep"
+    WindowStartupLocation="CenterOwner"
     Background="{DynamicResource Color_WindowBg}"
     Topmost="True"
     Icon="/assets/passkeepIcon.png"
