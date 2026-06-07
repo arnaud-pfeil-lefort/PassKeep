@@ -35,8 +35,9 @@ public partial class AddProfilView : Window
         _currentUser = user;
         _profilToUpdate = profilToUpdate;
 
-        var envPath = Path.Combine(AppContext.BaseDirectory, "..", "..", "..", ".env");
-        Env.Load(Path.GetFullPath(envPath));
+        var envPath = Path.Combine(AppContext.BaseDirectory, ".env");
+        if (File.Exists(envPath))
+            Env.Load(envPath);
         LoadTypeProfils();
 
         if (_profilToUpdate != null)

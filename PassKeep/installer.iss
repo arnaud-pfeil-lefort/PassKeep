@@ -1,6 +1,6 @@
 #define MyAppName "PassKeep"
 #define MyAppVersion "1.0.0"
-#define MyAppPublisher "Arnaud Pfeil"
+#define MyAppPublisher "Arnaud PFEIL-LEFORT"
 #define MyAppExeName "PassKeep.exe"
 
 [Setup]
@@ -22,7 +22,7 @@ SetupIconFile=assets\passkeepIcon.ico
 Name: "french"; MessagesFile: "compiler:Languages\French.isl"
 
 [Tasks]
-Name: "desktopicon"; Description: "Voulez-vous créer un raccourci sur le Bureau ?"; GroupDescription: "Options supplémentaires:"; Flags: unchecked
+Name: "desktopicon"; Description: "Créer un raccourci sur le Bureau"; GroupDescription: "Options supplémentaires:"; Flags: unchecked
 
 [Files]
 Source: "bin\Release\net10.0\publish\win-x64\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
