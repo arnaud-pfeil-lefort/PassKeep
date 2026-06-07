@@ -72,7 +72,7 @@
 
                     <ComboBox x:Name="FilterTypeBox"
                               Classes="ModernBox"
-                              Width="130"
+                              Width="160"
                               Height="34"
                               PlaceholderText="Tous les types"
                               SelectionChanged="OnFilterChanged"/>

@@ -82,33 +82,44 @@ public partial class TypeProfilView : Window
         }
     }
 
-    private void OnSupprimer(object? sender, RoutedEventArgs e)
+    private async void OnSupprimer(object? sender, RoutedEventArgs e)
     {
-        if (sender is Button btn && btn.Tag is TypeProfilConnexion type)
+        if (sender is not Button btn || btn.Tag is not TypeProfilConnexion type) return;
+
+        int nbProfils;
+        using (DataContext db = new DataContext())
+            nbProfils = db.ProfilConnexion.Count(p => p.TypeProfilConnexionId == type.Id);
+
+        string message = nbProfils > 0
+            ? $"Supprimer le type \"{type.Nom}\" ?\n\n⚠ {nbProfils} profil(s) ont ce type - ils passeront à « Aucun type »."
+            : $"Supprimer le type \"{type.Nom}\" ? Cette action est définitive.";
+
+        var dialog = new ConfirmDialog("Confirmer la suppression", message);
+        bool confirmed = await dialog.ShowDialog<bool>(this);
+        if (!confirmed) return;
+
+        try
         {
-            try
-            {
-                using DataContext db = new DataContext();
+            using DataContext db = new DataContext();
 
-                var profilsLies = db.ProfilConnexion
-                    .Where(p => p.TypeProfilConnexionId == type.Id)
-                    .ToList();
-                foreach (var profil in profilsLies)
-                    profil.TypeProfilConnexionId = null;
+            var profilsLies = db.ProfilConnexion
+                .Where(p => p.TypeProfilConnexionId == type.Id)
+                .ToList();
+            foreach (var profil in profilsLies)
+                profil.TypeProfilConnexionId = null;
 
-                var entity = db.TypeProfilConnexion.Find(type.Id);
-                if (entity != null)
-                    db.TypeProfilConnexion.Remove(entity);
+            var entity = db.TypeProfilConnexion.Find(type.Id);
+            if (entity != null)
+                db.TypeProfilConnexion.Remove(entity);
 
-                db.SaveChanges();
-                ShowFeedback("Type supprimé.", isError: false);
-                ChargerTypes();
-            }
-            catch (Exception ex)
-            {
-                PassKeep.ClassesGenerales.ClassFonctionsGenerales.GestionErreur(ex, "Erreur lors de la suppression du type");
-                ShowFeedback("Impossible de supprimer le type. Veuillez réessayer.", isError: true);
-            }
+            db.SaveChanges();
+            ShowFeedback("Type supprimé.", isError: false);
+            ChargerTypes();
+        }
+        catch (Exception ex)
+        {
+            PassKeep.ClassesGenerales.ClassFonctionsGenerales.GestionErreur(ex, "Erreur lors de la suppression du type");
+            ShowFeedback("Impossible de supprimer le type. Veuillez réessayer.", isError: true);
         }
     }
 

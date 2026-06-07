@@ -120,15 +120,16 @@
                                     VerticalAlignment="Center"
                                     Click="OnImportDictionnaire"/>
                         </Grid>
-                        <Border Height="1" Background="{DynamicResource Color_TitleBarBorder}"/>
                         <Grid ColumnDefinitions="*,Auto">
                             <TextBlock Text="Vider le dictionnaire"
                                        Foreground="{DynamicResource Color_TextMuted}"
                                        FontSize="13"
                                        VerticalAlignment="Center"/>
                             <Button Grid.Column="1"
-                                    Classes="WindowCloseButton"
+                                    Classes="DangerButton"
                                     Content="Supprimer"
+                                    Padding="10,6"
+                                    FontSize="13"
                                     VerticalAlignment="Center"
                                     Click="OnDeleteDictionnaire"/>
                         </Grid>

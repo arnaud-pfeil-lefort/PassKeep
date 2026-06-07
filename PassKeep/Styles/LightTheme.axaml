@@ -41,5 +41,7 @@
     <SolidColorBrush x:Key="Color_CloseBtnHoverBorder" Color="#DC2626"/>
     <SolidColorBrush x:Key="Color_CloseBtnPressed"     Color="#991B1B"/>
     <SolidColorBrush x:Key="Color_Danger"              Color="#EF4444"/>
+    <SolidColorBrush x:Key="Color_DangerHover"         Color="#DC2626"/>
+    <SolidColorBrush x:Key="Color_DangerPressed"       Color="#B91C1C"/>
 
 </ResourceDictionary>

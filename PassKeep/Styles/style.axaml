@@ -259,6 +259,14 @@
         <Setter Property="CornerRadius" Value="8"/>
     </Style>
 
+    <Style Selector="Button.DangerButton:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource Color_DangerHover}"/>
+    </Style>
+
+    <Style Selector="Button.DangerButton:pressed /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource Color_DangerPressed}"/>
+    </Style>
+
 
     <!-- ========================= -->
     <!-- 🔐 ACCOUNT ITEM -->

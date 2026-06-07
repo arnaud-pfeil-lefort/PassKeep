@@ -93,20 +93,13 @@
                              Watermark="••••••••"
                              Margin="0,0,0,8"/>
 
-                    <!-- Mot de passe oublié -->
-                    <TextBlock Text="Mot de passe oublié ?"
-                               Foreground="{DynamicResource Color_Link}"
-                               FontSize="12"
-                               HorizontalAlignment="Right"
-                               Cursor="Hand"
-                               Margin="0,0,0,24"/>
-
                     <!-- Rester connecté -->
                     <CheckBox x:Name="RememberMeCheckBox"
-                              Content="Rester connecté"
-                              Foreground="{DynamicResource Color_TextMuted}"
-                              FontSize="13"
-                              Margin="0,0,0,24"/>
+                              Margin="0,8,0,24">
+                        <TextBlock Text="Rester connecté"
+                                   Foreground="{DynamicResource Color_TextPrimary}"
+                                   FontSize="13"/>
+                    </CheckBox>
 
 
                     <TextBlock x:Name="ErrorTextBlock"

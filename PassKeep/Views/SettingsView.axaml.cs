@@ -6,6 +6,7 @@ using Avalonia.Interactivity;
 using Avalonia.Platform.Storage;
 using System.IO;
 using System.Linq;
+using System.Text;
 using PassKeep.ClassesGenerales;
 using PassKeep.modeles;
 
@@ -77,7 +78,7 @@ public partial class SettingsView : Window
 
         var file = files[0];
         await using var stream = await file.OpenReadAsync();
-        using var reader = new StreamReader(stream);
+        using var reader = new StreamReader(stream, Encoding.GetEncoding(1252), detectEncodingFromByteOrderMarks: true);
         var content = await reader.ReadToEndAsync();
 
         if (ClassFonctionsGenerales.AjouterMots(content)) {

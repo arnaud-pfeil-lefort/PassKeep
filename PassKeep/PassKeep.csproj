@@ -46,6 +46,9 @@
     <Compile Update="Views\ProfilConnexionItem.axaml.cs">
       <DependentUpon>ProfilConnexionItem.axaml</DependentUpon>
     </Compile>
+    <Compile Update="Views\ConfirmDialog.axaml.cs">
+      <DependentUpon>ConfirmDialog.axaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\TypeProfilView.axaml.cs">
       <DependentUpon>TypeProfilView.axaml</DependentUpon>
     </Compile>

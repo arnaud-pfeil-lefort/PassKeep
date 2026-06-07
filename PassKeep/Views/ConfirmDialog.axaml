@@ -1,0 +1,79 @@
+<Window
+    x:Class="PassKeep.Views.ConfirmDialog"
+    xmlns="https://github.com/avaloniaui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Width="380"
+    Height="280"
+    MinWidth="340"
+    MinHeight="260"
+    Title="PassKeep"
+    WindowStartupLocation="CenterOwner"
+    Background="{DynamicResource Color_WindowBg}"
+    Topmost="True"
+    Icon="/assets/passkeepIcon.png"
+    SystemDecorations="None"
+    ExtendClientAreaToDecorationsHint="True"
+    ExtendClientAreaTitleBarHeightHint="40"
+    CanResize="False">
+
+    <Grid RowDefinitions="40,*">
+
+        <!-- TITLE BAR -->
+        <Border Grid.Row="0"
+                Background="{DynamicResource Color_TitleBarBg}"
+                BorderBrush="{DynamicResource Color_TitleBarBorder}"
+                BorderThickness="0,0,0,1"
+                PointerPressed="TitleBar_PointerPressed">
+            <Grid ColumnDefinitions="*,Auto" Margin="12,0,12,0">
+                <Grid ColumnDefinitions="Auto,*" VerticalAlignment="Center">
+                    <Border Width="26" Height="26"
+                            Background="{DynamicResource Color_Accent}"
+                            CornerRadius="8" VerticalAlignment="Center">
+                        <TextBlock Text="P" Foreground="White" FontWeight="Bold"
+                                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <TextBlock Grid.Column="1" Margin="10,0,0,0" Text="PassKeep"
+                               Foreground="{DynamicResource Color_TextPrimary}"
+                               FontSize="14" FontWeight="SemiBold"
+                               VerticalAlignment="Center"/>
+                </Grid>
+                <Button Grid.Column="1" Classes="WindowCloseButton" Content="✕" Click="OnCancel"/>
+            </Grid>
+        </Border>
+
+        <!-- CONTENT -->
+        <Grid Grid.Row="1" Margin="20">
+            <Border Classes="Card" Padding="20">
+                <StackPanel Spacing="16">
+
+                    <StackPanel Spacing="6">
+                        <TextBlock x:Name="TitleText"
+                                   Classes="Title"
+                                   FontSize="15"
+                                   TextWrapping="Wrap"/>
+                        <TextBlock x:Name="MessageText"
+                                   Classes="Subtitle"
+                                   FontSize="13"
+                                   TextWrapping="Wrap"
+                                   LineHeight="20"/>
+                    </StackPanel>
+
+                    <Grid ColumnDefinitions="*,8,*" Margin="0,4,0,0">
+                        <Button Grid.Column="0"
+                                Classes="SecondaryButton"
+                                Content="Annuler"
+                                HorizontalAlignment="Stretch"
+                                Click="OnCancel"/>
+                        <Button Grid.Column="2"
+                                Classes="DangerButton"
+                                Content="Supprimer"
+                                HorizontalAlignment="Stretch"
+                                Click="OnConfirm"/>
+                    </Grid>
+
+                </StackPanel>
+            </Border>
+        </Grid>
+
+    </Grid>
+</Window>

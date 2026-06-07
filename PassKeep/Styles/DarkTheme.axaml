@@ -5,7 +5,7 @@
     <SolidColorBrush x:Key="Color_WindowBg"            Color="#0B1220"/>
     <SolidColorBrush x:Key="Color_TitleBarBg"          Color="#0F172A"/>
     <SolidColorBrush x:Key="Color_TitleBarBorder"      Color="#1E293B"/>
-    <SolidColorBrush x:Key="Color_CardBg"              Color="#111827"/>
+    <SolidColorBrush x:Key="Color_CardBg"              Color="#172033"/>
     <SolidColorBrush x:Key="Color_CardBorder"          Color="#243041"/>
     <SolidColorBrush x:Key="Color_Surface"             Color="#172033"/>
     <SolidColorBrush x:Key="Color_SurfaceBorder"       Color="#2A364B"/>
@@ -41,5 +41,7 @@
     <SolidColorBrush x:Key="Color_CloseBtnHoverBorder" Color="#DC2626"/>
     <SolidColorBrush x:Key="Color_CloseBtnPressed"     Color="#991B1B"/>
     <SolidColorBrush x:Key="Color_Danger"              Color="#EF4444"/>
+    <SolidColorBrush x:Key="Color_DangerHover"         Color="#DC2626"/>
+    <SolidColorBrush x:Key="Color_DangerPressed"       Color="#B91C1C"/>
 
 </ResourceDictionary>
