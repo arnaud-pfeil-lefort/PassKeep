@@ -95,7 +95,7 @@ GOOGLE_SAFE_BROWSING_API_KEY=ta_clé_api
 ## Développement
 
 ```bash
-git clone https://github.com/ton-user/passkeep.git
+git clone https://github.com/arnaud-pfeil-lefort/PassKeep
 cd passkeep
 dotnet restore
 dotnet run --project PassKeep
