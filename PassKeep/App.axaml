@@ -8,7 +8,21 @@
     <Application.DataTemplates>
         <local:ViewLocator/>
     </Application.DataTemplates>
-  
+
+    <Application.Resources>
+        <!-- Aligne l'accent système du thème Fluent (utilisé par RadioButton, CheckBox...)
+             sur la couleur d'accent de l'app (Color_Accent) au lieu du vert par défaut.
+             Les variantes Light/Dark sont utilisées par Fluent pour les états hover/pressed :
+             les fixer sur la même teinte neutralise le changement de couleur au survol. -->
+        <Color x:Key="SystemAccentColor">#2563EB</Color>
+        <Color x:Key="SystemAccentColorLight1">#2563EB</Color>
+        <Color x:Key="SystemAccentColorLight2">#2563EB</Color>
+        <Color x:Key="SystemAccentColorLight3">#2563EB</Color>
+        <Color x:Key="SystemAccentColorDark1">#2563EB</Color>
+        <Color x:Key="SystemAccentColorDark2">#2563EB</Color>
+        <Color x:Key="SystemAccentColorDark3">#2563EB</Color>
+    </Application.Resources>
+
     <Application.Styles>
         <FluentTheme />
         <StyleInclude Source="avares://Passkeep/Styles/style.axaml"/>

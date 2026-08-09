@@ -39,9 +39,34 @@ public partial class AddProfilView : Window
         if (File.Exists(envPath))
             Env.Load(envPath);
         LoadTypeProfils();
+        ConfigurerNiveauVerification();
 
         if (_profilToUpdate != null)
             PopulateForm();
+    }
+
+    private void ConfigurerNiveauVerification()
+    {
+        var niveau = VerificationSecuriteService.LoadNiveau();
+
+        switch (niveau)
+        {
+            case NiveauVerificationUrl.Desactive:
+                CheckUrlButton.IsVisible = false;
+                break;
+
+            case NiveauVerificationUrl.Automatique:
+                UrlTextBox.LostFocus += async (_, _) =>
+                {
+                    if (!string.IsNullOrWhiteSpace(UrlTextBox.Text))
+                        await LancerVerificationUrl();
+                };
+                break;
+
+            case NiveauVerificationUrl.ALaDemande:
+            default:
+                break;
+        }
     }
 
     private void OnDeleteProfil(object? sender, RoutedEventArgs e)
@@ -205,6 +230,9 @@ public partial class AddProfilView : Window
 
 
     private async void OnCheckUrl(object? sender, RoutedEventArgs e)
+        => await LancerVerificationUrl();
+
+    private async Task LancerVerificationUrl()
     {
         var url = UrlTextBox.Text?.Trim();
         Debug.WriteLine("OnCheckUrl appelé");

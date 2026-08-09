@@ -4,6 +4,7 @@ using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Input;
 using Avalonia.Interactivity;
 using Avalonia.Platform.Storage;
+using System;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,30 @@ public partial class SettingsView : Window
     {
         InitializeComponent();
         UpdateThemeUI();
+        InitVerificationSecurite();
+    }
+
+    private void InitVerificationSecurite()
+    {
+        bool cleDisponible = VerificationSecuriteService.CleApiDisponible();
+        NiveauVerificationPanel.IsEnabled = cleDisponible;
+        SafeBrowsingUnavailableText.IsVisible = !cleDisponible;
+
+        var niveauActuel = VerificationSecuriteService.LoadNiveau();
+        foreach (var radio in NiveauVerificationPanel.Children.OfType<RadioButton>())
+        {
+            if (radio.Tag is string tag && Enum.TryParse<NiveauVerificationUrl>(tag, out var valeur))
+                radio.IsChecked = valeur == niveauActuel;
+        }
+    }
+
+    private void OnNiveauVerificationChanged(object? sender, RoutedEventArgs e)
+    {
+        // IsCheckedChanged se déclenche aussi pour le bouton du groupe qui se
+        // décoche : on ne sauvegarde que sur celui qui vient d'être coché.
+        if (sender is RadioButton { IsChecked: true, Tag: string tag } &&
+            Enum.TryParse<NiveauVerificationUrl>(tag, out var niveau))
+            VerificationSecuriteService.SaveNiveau(niveau);
     }
 
     private void UpdateThemeUI()

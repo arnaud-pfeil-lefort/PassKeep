@@ -55,9 +55,10 @@
         </Border>
 
         <!-- CONTENT -->
-        <Grid Grid.Row="1" RowDefinitions="*,Auto" Margin="24,20,24,24">
+        <Grid Grid.Row="1" Margin="24,20,24,24">
 
-            <StackPanel Grid.Row="0" Spacing="20">
+            <ScrollViewer>
+            <StackPanel Spacing="20">
 
                 <!-- Header -->
                 <TextBlock Classes="Title" Text="Paramètres"/>
@@ -80,6 +81,52 @@
                                 VerticalAlignment="Center"
                                 Click="OnThemeToggle"/>
                     </Grid>
+                </Border>
+
+                <!-- Vérification de sécurité des URLs -->
+                <Border Classes="Card">
+                    <StackPanel Spacing="10">
+                        <TextBlock Text="Vérification de sécurité des URLs"
+                                   Foreground="{DynamicResource Color_TextSecondary}"
+                                   FontSize="14"
+                                   FontWeight="SemiBold"/>
+                        <TextBlock Text="Contrôle des URLs via Google Safe Browsing avant l'enregistrement d'un profil. Plus le niveau est élevé, plus l'application sollicite ce service externe."
+                                   Foreground="{DynamicResource Color_TextMuted}"
+                                   FontSize="12"
+                                   TextWrapping="Wrap"/>
+                        <StackPanel x:Name="NiveauVerificationPanel" Spacing="6">
+                            <RadioButton GroupName="NiveauVerification"
+                                         Content="Désactivé : aucune vérification"
+                                         Foreground="{DynamicResource Color_TextPrimary}"
+                                         FontSize="13"
+                                         RenderTransform="scale(0.85)"
+                                         RenderTransformOrigin="0,0.5"
+                                         Tag="Desactive"
+                                         IsCheckedChanged="OnNiveauVerificationChanged"/>
+                            <RadioButton GroupName="NiveauVerification"
+                                         Content="À la demande : clic sur &quot;Vérifier&quot;"
+                                         Foreground="{DynamicResource Color_TextPrimary}"
+                                         FontSize="13"
+                                         RenderTransform="scale(0.85)"
+                                         RenderTransformOrigin="0,0.5"
+                                         Tag="ALaDemande"
+                                         IsCheckedChanged="OnNiveauVerificationChanged"/>
+                            <RadioButton GroupName="NiveauVerification"
+                                         Content="Automatique : à chaque URL saisie"
+                                         Foreground="{DynamicResource Color_TextPrimary}"
+                                         FontSize="13"
+                                         RenderTransform="scale(0.85)"
+                                         RenderTransformOrigin="0,0.5"
+                                         Tag="Automatique"
+                                         IsCheckedChanged="OnNiveauVerificationChanged"/>
+                        </StackPanel>
+                        <TextBlock x:Name="SafeBrowsingUnavailableText"
+                                   Text="⚠ Nécessite une clé API Google Safe Browsing (fichier .env) pour être actif."
+                                   Foreground="{DynamicResource Color_TextSubtle}"
+                                   FontSize="11"
+                                   TextWrapping="Wrap"
+                                   IsVisible="False"/>
+                    </StackPanel>
                 </Border>
 
                 <!-- Types de profil -->
@@ -142,15 +189,15 @@
                            HorizontalAlignment="Center"
                            IsVisible="False"/>
 
-            </StackPanel>
+                <!-- Déconnexion -->
+                <Button Classes="DangerButton"
+                        Content="Se déconnecter"
+                        HorizontalAlignment="Stretch"
+                        HorizontalContentAlignment="Center"
+                        Click="OnLogout"/>
 
-            <!-- Déconnexion -->
-            <Button Grid.Row="1"
-                    Classes="DangerButton"
-                    Content="Se déconnecter"
-                    HorizontalAlignment="Stretch"
-                    HorizontalContentAlignment="Center"
-                    Click="OnLogout"/>
+            </StackPanel>
+            </ScrollViewer>
 
         </Grid>
 

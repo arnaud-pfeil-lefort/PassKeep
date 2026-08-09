@@ -74,7 +74,7 @@
                 <TextBlock Text="URL (facultatif)" Foreground="{DynamicResource Color_TextSubtle}" FontSize="12" Margin="0,0,0,5"/>
                 <Grid ColumnDefinitions="*,8,Auto" Margin="0,0,0,6">
                     <TextBox Classes="ModernBox" x:Name="UrlTextBox" Watermark="https://..."/>
-                    <Button Grid.Column="2" Classes="SecondaryButton" Content="Vérifier" Click="OnCheckUrl"/>
+                    <Button x:Name="CheckUrlButton" Grid.Column="2" Classes="SecondaryButton" Content="Vérifier" Click="OnCheckUrl"/>
                 </Grid>
                 <TextBlock x:Name="UrlSafetyText" FontSize="12" IsVisible="False" Margin="0,0,0,10"/>
 

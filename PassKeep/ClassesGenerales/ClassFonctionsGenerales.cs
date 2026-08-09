@@ -42,9 +42,7 @@ namespace PassKeep.ClassesGenerales
                 CreerFichierJournalErreur("Erreur inconnue.");
                 return;
             }
-
             string fullMessage = string.IsNullOrWhiteSpace(message) ? ex.Message : $"{message} | {ex.Message}";
-
             Console.WriteLine($"Erreur : {fullMessage}");
             CreerFichierJournalErreur(fullMessage);
 
@@ -54,10 +52,7 @@ namespace PassKeep.ClassesGenerales
                 Console.WriteLine(ex.StackTrace);
             }
 
-            if (fermerApplication)
-            {
-                Environment.Exit(1);
-            }
+            if (fermerApplication) { Environment.Exit(1); }
         }
 
 
